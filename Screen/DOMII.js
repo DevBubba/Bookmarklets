@@ -1,0 +1,1 @@
+javascript:var s=document.createElement('script');s.type='text/javascript';s.onerror=function(e){alert('Failed To Load Script! The Site\'s Content Security Policy May Be Blocking It. Feel Free To Try Again Or Try Another Website.');};document.body.appendChild(s);s.src='https://blog.roysolberg.com/js/dom2.min.js';void(0);
