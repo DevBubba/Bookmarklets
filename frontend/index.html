@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevBubba's Bookmarklet Collection - The best collection of bookmarklets for developers, students, and power users">
+  <title>DevBubba's Bookmarklet Collection</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div id="backgroundAnimation" class="backgroundAnimation"></div>
+
+  <!-- Header -->
+  <header class="siteHeader" id="siteHeader">
+    <div class="headerContent">
+      <div class="logoTitleContainer">
+        <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="logoLink">
+          <div class="siteLogo">
+            <img src="./assets/logo/logo.png" alt="" width="48" height="48" style="display: block;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="8" fill="url(#logoGradient)"/>
+              <path d="M20 10L26 18H14L20 10Z" fill="white" stroke="white" stroke-width="0.5"/>
+              <path d="M12 20L20 30L28 20H12Z" fill="white" stroke="white" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </a>
+        <span class="siteTitle">DevBubba's Bookmarklets</span>
+      </div>
+      <nav class="mainNav">
+        <a href="./index.html" class="navLink active">Home</a>
+        <a href="./browse.html" class="navLink">Browse</a>
+        <a href="./about.html" class="navLink">About</a>
+        <a href="./help.html" class="navLink">Help & Support</a>
+        <a href="./request.html" class="navLink">Request</a>
+        <a href="./reportIssue.html" class="navLink">Report Issue</a>
+        <a href="./contact.html" class="navLink">Contact</a>
+      </nav>
+      <div class="headerActions">
+        <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="./signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./login.html" class="authButton">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mainContent">
+    <!-- Hero Section - Full Viewport -->
+    <section id="homeSection" class="homeSection section fullViewportHero">
+      <div class="heroSection">
+          <h1 class="heroTitle animatedHeroTitle">DevBubba's Bookmarklet Collection</h1>
+          <p class="heroDescription animatedDescription">
+            Discover the most powerful and useful bookmarklets for developers, students, and power users. 
+            Our curated collection features over 75 carefully tested bookmarklets organized by category, 
+            each designed to enhance your browsing experience and boost productivity. From developer tools 
+            to screen effects, games, and productivity hacks, find the perfect bookmarklet to transform 
+            how you interact with the web.
+          </p>
+
+          <!-- Stats Container -->
+          <div class="statsContainer">
+            <div class="statCard">
+              <div class="statIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div class="statContent">
+                <span class="statValue" id="totalBookmarklets">0</span>
+                <span class="statLabel">Total Bookmarklets</span>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+              <div class="statContent">
+                <span class="statValue" id="totalViews">0</span>
+                <span class="statLabel">Total Views</span>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="statContent">
+                <span class="statValue" id="totalUsers">0</span>
+                <span class="statLabel">Total Users</span>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </div>
+              <div class="statContent">
+                <span class="statValue" id="totalDownloads">0</span>
+                <span class="statLabel">Total Downloads</span>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M12 11v6"></path>
+                  <path d="M9 14l3-3 3 3"></path>
+                </svg>
+              </div>
+              <div class="statContent">
+                <span class="statValue" id="totalSaved">0</span>
+                <span class="statLabel">Total Saved</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhanced Search Container -->
+          <div class="searchContainerEnhanced">
+            <div class="searchWrapper">
+              <svg class="searchIcon" width="24" height="24" viewBox="0 0 20 20" fill="none">
+                <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <input 
+                type="text" 
+                id="searchInput" 
+                class="searchInputEnhanced" 
+                placeholder="Search bookmarklets by title, tags, or category..."
+                aria-label="Search bookmarklets"
+              >
+              <button class="searchButtonEnhanced" id="homeSearchButton">Search</button>
+            </div>
+          </div>
+
+          <!-- Browse Button -->
+          <div class="browseButtonContainer">
+            <a href="./browse.html" class="browseButton">
+              <span>Browse All Bookmarklets</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 3L13 10L7 17" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+    </section>
+
+    <!-- Quick Action Cards -->
+    <section class="quickActions section">
+      <div class="sectionContent">
+        <h2 class="sectionTitle">Explore by Category</h2>
+        <div class="quickActionsGrid">
+          <a href="./browse.html?category=developer-tools" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Developer Tools</h3>
+            <p>Debugging, inspection, and testing tools for developers</p>
+            <span class="quickActionArrow">Explore Developer Tools →</span>
+          </a>
+          
+          <a href="./browse.html?category=productivity" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3>Productivity</h3>
+            <p>Calculators, timers, notes, and text manipulation tools</p>
+            <span class="quickActionArrow">Explore Productivity →</span>
+          </a>
+          
+          <a href="./browse.html?category=privacy-security" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>Privacy & Security</h3>
+            <p>Data clearing, bypass tools, and privacy helpers</p>
+            <span class="quickActionArrow">Explore Privacy & Security →</span>
+          </a>
+          
+          <a href="./browse.html?category=automation" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </div>
+            <h3>Automation</h3>
+            <p>Auto-clicking, scrolling, and form filling tools</p>
+            <span class="quickActionArrow">Explore Automation →</span>
+          </a>
+          
+          <a href="./browse.html?category=utilities" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h3>Utilities</h3>
+            <p>Miscellaneous helpful tools and utilities</p>
+            <span class="quickActionArrow">Explore Utilities →</span>
+          </a>
+          
+          <a href="./browse.html?category=visual-effects" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3>Visual Effects</h3>
+            <p>Screen effects, animations, and visual modifications</p>
+            <span class="quickActionArrow">Explore Visual Effects →</span>
+          </a>
+          
+          <a href="./browse.html?category=games" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Games</h3>
+            <p>Interactive games and entertainment to play on any website</p>
+            <span class="quickActionArrow">Explore Games →</span>
+          </a>
+          
+          <a href="./browse.html?category=hacks" class="quickActionCard">
+            <div class="quickActionIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Hacks</h3>
+            <p>Educational platform mods and website workarounds</p>
+            <span class="quickActionArrow">Explore Hacks →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home About Summary -->
+    <section class="homeAboutSummary section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">About This Collection</h2>
+        <div class="aboutSummaryContent">
+          <p class="summaryText">
+            DevBubba's Bookmarklet Collection is a comprehensive, carefully curated collection of bookmarklets 
+            designed to enhance your browsing experience and boost productivity. We focus on providing 
+            high-quality, useful tools that have been thoroughly reviewed and tested. All bookmarklets are 
+            organized by category to make discovery easy and intuitive.
+          </p>
+          <p class="summaryText">
+            Whether you're a developer seeking productivity tools, a student looking to enhance your workflow, 
+            or a power user who loves customizing the web, you'll find valuable tools in our collection. 
+            Each bookmarklet comes with detailed descriptions, clear usage instructions, and status indicators 
+            to help you find exactly what you need.
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="./about.html" class="readMoreLink">Read More About Us →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home Help Summary -->
+    <section class="homeHelpSummary section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">Need Help?</h2>
+        <div class="aboutSummaryContent">
+          <p class="summaryText">
+            New to bookmarklets? Not sure how to use them? Our comprehensive help section includes 
+            detailed FAQs, step-by-step installation guides, troubleshooting tips, and answers to 
+            common questions. We're here to help you get the most out of our bookmarklet collection.
+          </p>
+          <p class="summaryText">
+            If you can't find what you're looking for, feel free to report an issue or reach out through 
+            our GitHub repository. Our community is active and always willing to help!
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="./help.html" class="readMoreLink">Visit Help & Support →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="githubSection section">
+      <div class="sectionContainerSubtle">
+        <div class="githubIntro">
+          <h2 class="githubSectionTitle">GitHub Repository</h2>
+          <p class="githubIntroMain">Open Source & Community Driven</p>
+          <p>
+            This project is completely open source and hosted on GitHub. We welcome suggestions 
+            and feedback from the community. Star the repository to show your support and stay 
+            updated with the latest bookmarklets.
+          </p>
+          <p>
+            All bookmarklets are version controlled, regularly updated, and thoroughly documented. 
+            Visit our GitHub repository to see the latest commits and review open issues.
+          </p>
+        </div>
+
+        <div class="githubStatsContainer">
+          <div class="githubStatCard">
+            <svg class="githubIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <div class="githubStatContent">
+              <div class="githubStatValue" id="githubStars">0</div>
+              <div class="githubStatLabel">Stars</div>
+            </div>
+          </div>
+          <div class="githubStatCard">
+            <svg class="githubIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <div class="githubStatContent">
+              <div class="githubStatValue" id="githubViews">0</div>
+              <div class="githubStatLabel">Views</div>
+            </div>
+          </div>
+          <div class="githubStatCard">
+            <svg class="githubIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <div class="githubStatContent">
+              <div class="githubStatValue" id="githubIssues">0</div>
+              <div class="githubStatLabel">Open Issues</div>
+            </div>
+          </div>
+          <div class="githubStatCard">
+            <svg class="githubIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <div class="githubStatContent">
+              <div class="githubStatValue" id="githubClosedIssues">0</div>
+              <div class="githubStatLabel">Closed Issues</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="githubActions">
+          <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubActionButton primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span>Star on GitHub</span>
+          </a>
+          <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="githubActionButton">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>View Issues</span>
+          </a>
+          <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="githubActionButton">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            <span>View Commits</span>
+          </a>
+          <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="githubActionButton" id="latestCommitButton">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>Latest Commit</span>
+          </a>
+        </div>
+
+        <div class="githubInfo">
+          <h3>Get Involved</h3>
+          <p>
+            This project is open source and welcomes community feedback. Share suggestions, report 
+            issues, or request new bookmarklets through our issue reporting system.
+          </p>
+          <p>
+            Visit our <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer">GitHub repository</a> 
+            to see the latest commits and review open issues. We value your feedback and suggestions 
+            to help improve this collection for everyone.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Issue Section -->
+    <section class="reportIssueSection section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">Report an Issue</h2>
+        <div class="aboutSummaryContent">
+          <p class="summaryText">
+            Found a bug or have a suggestion for improvement? We value your feedback and want to make 
+            this collection as useful as possible. Use our issue reporting system to let us know about 
+            any problems you encounter or ideas you have for new features.
+          </p>
+          <p class="summaryText">
+            When reporting an issue, please include as much detail as possible, such as the bookmarklet 
+            name, what you expected to happen, what actually happened, and steps to reproduce the issue. 
+            This helps us quickly identify and fix problems.
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="./reportIssue.html" class="readMoreLink">Report an Issue →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contactSection section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">Get in Touch</h2>
+        <div class="aboutSummaryContent">
+          <p class="summaryText">
+            Have a question, suggestion, or just want to say hello? We'd love to hear from you. 
+            Whether you need help with a specific bookmarklet, want to discuss a potential collaboration, 
+            or have general feedback about the collection, feel free to reach out.
+          </p>
+          <p class="summaryText">
+            We're committed to providing excellent support and maintaining an active community. 
+            Your input helps us improve and grow this collection for everyone's benefit.
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="./contact.html" class="readMoreLink">Contact Us →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="footerContent">
+      <div class="footerMain">
+        <div class="footerSection">
+          <h4>Legal</h4>
+          <div class="footerLinks">
+            <a href="./license.html" class="footerLink">License</a>
+            <a href="#privacy" class="footerLink">Privacy Policy</a>
+            <a href="#terms" class="footerLink">Terms of Service</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Resources</h4>
+          <div class="footerLinks">
+            <a href="./about.html" class="footerLink">About</a>
+            <a href="./browse.html" class="footerLink">Browse</a>
+            <a href="./help.html" class="footerLink">Help & Support</a>
+            <a href="./request.html" class="footerLink">Request</a>
+            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./contact.html" class="footerLink">Contact</a>
+            <a href="./changelog.html" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>GitHub</h4>
+          <div class="footerLinks">
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="footerLink">Repository</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="footerLink">Issues</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink">Commits</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink" id="lastCommitLink">Latest Commit</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="footerLink">Discussions</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Info</h4>
+          <div class="footerInfo">
+            <p>Made with ❤️💻 by <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="footerLink">DevBubba</a></p>
+            <p class="footerMeta">Version: 1.0.0</p>
+            <p class="footerMeta">Latest Commit: <span id="lastCommit">Loading...</span></p>
+            <p class="footerMeta">License: CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>&copy; 2024 DevBubba's Bookmarklet Collection. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

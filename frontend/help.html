@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Help & Support - DevBubba's Bookmarklet Collection">
+  <title>Help & Support - DevBubba's Bookmarklet Collection</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div id="backgroundAnimation" class="backgroundAnimation"></div>
+
+  <!-- Header -->
+  <header class="siteHeader" id="siteHeader">
+    <div class="headerContent">
+      <div class="logoTitleContainer">
+        <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="logoLink">
+          <div class="siteLogo">
+            <img src="./assets/logo/logo.png" alt="" width="48" height="48" style="display: block;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="8" fill="url(#logoGradient)"/>
+              <path d="M20 10L26 18H14L20 10Z" fill="white" stroke="white" stroke-width="0.5"/>
+              <path d="M12 20L20 30L28 20H12Z" fill="white" stroke="white" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </a>
+        <span class="siteTitle">DevBubba's Bookmarklets</span>
+      </div>
+      <nav class="mainNav">
+        <a href="./index.html" class="navLink">Home</a>
+        <a href="./browse.html" class="navLink">Browse</a>
+        <a href="./about.html" class="navLink">About</a>
+        <a href="./help.html" class="navLink active">Help & Support</a>
+        <a href="./request.html" class="navLink">Request</a>
+        <a href="./reportIssue.html" class="navLink">Report Issue</a>
+        <a href="./contact.html" class="navLink">Contact</a>
+      </nav>
+      <div class="headerActions">
+        <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="./signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./login.html" class="authButton">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mainContent">
+    <!-- Help Hero Section -->
+    <section class="aboutHero section">
+      <div class="sectionContent">
+        <h1 class="aboutHeroTitle">Help & Support</h1>
+        <p class="aboutHeroSubtitle">Everything you need to know about using bookmarklets</p>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="aboutTOC section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Table of Contents</h2>
+          <nav class="tocNav">
+            <a href="#getting-started" class="tocLink">Getting Started</a>
+            <a href="#what-are-bookmarklets" class="tocLink">What Are Bookmarklets?</a>
+            <a href="#installation" class="tocLink">Installation Guide</a>
+            <a href="#using-bookmarklets" class="tocLink">Using Bookmarklets</a>
+            <a href="#troubleshooting" class="tocLink">Troubleshooting</a>
+            <a href="#faq" class="tocLink">Frequently Asked Questions</a>
+            <a href="#advanced-topics" class="tocLink">Advanced Topics</a>
+            <a href="#support-resources" class="tocLink">Support Resources</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Getting Started</h2>
+          <p class="aboutText">
+            Ready to enhance your browsing experience? Here's a quick 3-step process to get started with bookmarklets:
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">1</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Browse Our Collection</h4>
+                <p>Visit our <a href="./browse.html" style="color: var(--accentColor);">Browse page</a> to explore available bookmarklets. Each bookmarklet has a description, status label, and category to help you find what you need.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">2</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Install Your First Bookmarklet</h4>
+                <p>Follow our <a href="#installation" style="color: var(--accentColor);">Installation Guide</a> to add bookmarklets to your browser. It takes just seconds - simply drag and drop the bookmarklet link to your bookmarks bar.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">3</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Start Using It</h4>
+                <p>Navigate to any webpage and click your bookmarklet. That's it! No installation, no permissions, no hassle. Check out our <a href="#using-bookmarklets" style="color: var(--accentColor);">Using Bookmarklets</a> section for tips and best practices.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: var(--cardBackground); border-left: 4px solid var(--accentColor); border-radius: 8px;">
+            <p class="aboutText" style="margin: 0;"><strong>Pro Tip:</strong> Start with bookmarklets marked as "Stable" for the most reliable experience. Once you're comfortable, explore Beta and Experimental bookmarklets for cutting-edge features.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Are Bookmarklets -->
+    <section id="what-are-bookmarklets" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What Are Bookmarklets?</h2>
+          <p class="aboutText">
+            A bookmarklet is a small JavaScript program stored as a bookmark in your browser. When clicked, it performs a specific function on the current webpage. Unlike browser extensions, bookmarklets don't require installation, don't need permissions, and work across different browsers.
+          </p>
+          
+          <div class="aboutFeaturesGrid">
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <h3>No Installation Required</h3>
+              <p>Bookmarklets are stored as bookmarks in your browser. Just drag and drop to add them, no installation process needed.</p>
+            </div>
+            
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3>Privacy Friendly</h3>
+              <p>Bookmarklets run only when you click them. They don't run in the background or collect data without your knowledge.</p>
+            </div>
+            
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Cross-Browser Compatible</h3>
+              <p>Most bookmarklets work across Chrome, Firefox, Safari, Edge, and other modern browsers without modification.</p>
+            </div>
+            
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h3>Lightweight</h3>
+              <p>Bookmarklets are small JavaScript snippets that don't slow down your browser or consume system resources.</p>
+            </div>
+            
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3>Open Source</h3>
+              <p>All bookmarklets in our collection are open source. You can view and understand exactly what they do.</p>
+            </div>
+            
+            <div class="aboutFeatureCard">
+              <div class="aboutFeatureIcon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Portable</h3>
+              <p>Bookmarklets can be easily shared, exported, and imported between browsers and devices.</p>
+            </div>
+          </div>
+
+          <div class="featuresList" style="margin-top: 3rem;">
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>How Bookmarklets Differ from Extensions</h4>
+                <p>Bookmarklets don't require installation through browser stores, don't need special permissions, run only when clicked, and work across different browsers. Extensions are installed, can run automatically, and are usually browser-specific.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>When to Use Bookmarklets</h4>
+                <p>Bookmarklets are perfect for quick tasks, one-time actions, tools you use occasionally, situations where you can't install extensions, and when you want to avoid browser bloat.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 2rem;">
+            <a href="./about.html" class="readMoreLink">Learn More About Us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section id="installation" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Installation Guide</h2>
+          <p class="aboutText">
+            Installing bookmarklets is simple and takes just a few seconds. Follow the steps below to get started.
+          </p>
+          
+          <div class="featuresList">
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Step 1: Show Your Bookmarks Bar</h4>
+                <p>First, make sure your bookmarks bar is visible. Press <strong>Ctrl+Shift+B</strong> (Windows/Linux) or <strong>Cmd+Shift+B</strong> (Mac) to toggle the bookmarks bar. You should see a bar below your address bar.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Step 2: Find the Bookmarklet</h4>
+                <p>Navigate to our <a href="./browse.html" style="color: var(--accentColor);">Browse page</a> and find the bookmarklet you want to install. Each bookmarklet has a link or button you can use.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Step 3: Install the Bookmarklet</h4>
+                <p><strong>Method 1 (Easiest):</strong> Simply drag the bookmarklet link from the page to your bookmarks bar. <strong>Method 2:</strong> Right-click on the bookmarklet link and select "Bookmark this link" or "Add to bookmarks".</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Step 4: Verify Installation</h4>
+                <p>You should see the bookmarklet appear in your bookmarks bar. To test it, navigate to any webpage and click the bookmarklet. Make sure you're on a webpage first, as bookmarklets need a page to run on.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--textPrimary);">Browser-Specific Instructions</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <h3>Google Chrome</h3>
+              <p>Enable the bookmarks bar with <strong>Ctrl+Shift+B</strong> (Windows/Linux) or <strong>Cmd+Shift+B</strong> (Mac). Drag the bookmarklet link to the bar, or right-click and select "Bookmark".</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12c0 1.66-1 3-2 3s-2-1.34-2-3 1-3 2-3 2 1.34 2 3z"></path>
+                  <path d="M7 12c0 1.66-1 3-2 3s-2-1.34-2-3 1-3 2-3 2 1.34 2 3z"></path>
+                  <path d="M12 2v20"></path>
+                  <path d="M3.5 6.5h17"></path>
+                  <path d="M3.5 17.5h17"></path>
+                </svg>
+              </div>
+              <h3>Mozilla Firefox</h3>
+              <p>Right-click the bookmarklet link and select "Bookmark This Link", then choose where to save it. You can also drag it to the bookmarks toolbar. Enable the toolbar via View → Toolbars → Bookmarks Toolbar.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3>Safari</h3>
+              <p>Enable the bookmarks bar via <strong>View → Show Bookmarks Bar</strong> or <strong>Cmd+Shift+B</strong>. Drag the bookmarklet link to the bar, or right-click and select "Add Bookmark".</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3>Microsoft Edge</h3>
+              <p>Similar to Chrome. Enable the bookmarks bar with <strong>Ctrl+Shift+B</strong> and drag the link, or right-click and select "Add to favorites". The bookmarks bar will appear below the address bar.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3>Opera</h3>
+              <p>Enable the bookmarks bar with <strong>Ctrl+Shift+B</strong> (Windows/Linux) or <strong>Cmd+Shift+B</strong> (Mac). Drag the bookmarklet link to the bar, or right-click and select "Bookmark page". Opera's bookmark system works similarly to Chrome.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3>Brave Browser</h3>
+              <p>Brave is Chromium-based, so it works like Chrome. Enable the bookmarks bar with <strong>Ctrl+Shift+B</strong> (Windows/Linux) or <strong>Cmd+Shift+B</strong> (Mac). Drag the bookmarklet link to the bar, or right-click and select "Bookmark".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Using Bookmarklets -->
+    <section id="using-bookmarklets" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Using Bookmarklets</h2>
+          <p class="aboutText">
+            Master the art of using bookmarklets with these practical tips and techniques for maximum effectiveness.
+          </p>
+          
+          <div class="safetyGrid" style="margin-top: 2rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Timing Matters</h3>
+              <p>Some bookmarklets work best when run at specific times. For dynamic websites, wait for the page to fully load. For Single Page Applications (SPAs), you may need to run bookmarklets after navigation completes.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3>Workflow Integration</h3>
+              <p>Integrate bookmarklets into your daily workflow. Create keyboard shortcuts for frequently used bookmarklets using browser extensions, or organize them in folders by task type (editing, viewing, testing).</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Combining Bookmarklets</h3>
+              <p>Some bookmarklets work great in sequence. For example, run a "remove styles" bookmarklet before a "readability" one. Experiment with combinations, but test on non-critical pages first.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3>Site-Specific Usage</h3>
+              <p>Some bookmarklets are designed for specific sites or site types. Check the bookmarklet description for compatibility notes. Social media bookmarklets may only work on certain platforms.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Undo and Recovery</h3>
+              <p>Most bookmarklets that modify page content can be undone by refreshing the page. For bookmarklets that make permanent changes, check if they provide an undo function or save a backup first.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+              <h3>Customization Tips</h3>
+              <p>You can view the source code of any bookmarklet to understand how it works. See our <a href="#advanced-topics" style="color: var(--accentColor);">Advanced Topics</a> for more information on how bookmarklets work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Troubleshooting</h2>
+          <p class="aboutText">
+            If you're experiencing issues with a bookmarklet, try these troubleshooting steps before reporting a problem.
+          </p>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3>Bookmarklet Not Working</h3>
+              <p>Make sure you're on a webpage (bookmarklets need a page to run on). Check if the bookmarklet is compatible with the website. Try refreshing the page and running the bookmarklet again.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Check Browser Console</h3>
+              <p>Open your browser's developer tools (F12) and check the console for error messages. This can help identify what's going wrong. Look for JavaScript errors or warnings related to the bookmarklet.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <h3>JavaScript Enabled</h3>
+              <p>Ensure JavaScript is enabled in your browser settings. Bookmarklets require JavaScript to function. Check your browser's security settings to make sure JavaScript isn't blocked.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3>Security Restrictions</h3>
+              <p>Some websites have security restrictions that prevent bookmarklets from running. This is common on banking sites, government sites, and other sensitive pages. The bookmarklet may not work on these sites for security reasons.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <h3>Reinstall Bookmarklet</h3>
+              <p>If a bookmarklet stops working, try removing it and reinstalling it. Sometimes bookmarklets can become corrupted or outdated. Get the latest version from our Browse page.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Browser Compatibility</h3>
+              <p>Check if the bookmarklet is compatible with your browser version. Some bookmarklets may have browser-specific behavior. We recommend using the latest version of your browser for the best experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Frequently Asked Questions</h2>
+          <p class="aboutText">
+            Find answers to common questions about bookmarklets, troubleshooting, reporting issues, and more.
+          </p>
+          
+          <!-- FAQ Table of Contents -->
+          <div class="sectionContainerSubtle" style="margin-top: 2rem; margin-bottom: 3rem; background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 12px; padding: 2rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--textPrimary); font-weight: 600;">FAQ Topics</h3>
+            <nav class="tocNav" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+              <a href="#faq-basics" class="tocLink">Basics & Getting Started</a>
+              <a href="#faq-installation" class="tocLink">Installation & Setup</a>
+              <a href="#faq-usage" class="tocLink">Usage & Features</a>
+              <a href="#faq-troubleshooting" class="tocLink">Troubleshooting</a>
+              <a href="#faq-safety" class="tocLink">Safety & Security</a>
+              <a href="#faq-reporting" class="tocLink">Reporting Issues</a>
+              <a href="#faq-suggestions" class="tocLink">Suggestions & Feedback</a>
+              <a href="#faq-technical" class="tocLink">Technical Questions</a>
+            </nav>
+          </div>
+          
+          <div class="helpContent">
+            <div class="helpMain">
+            
+            <!-- Basics & Getting Started -->
+            <div id="faq-basics" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Basics & Getting Started</h3>
+              
+              <div class="faqItem">
+                <h4>What is a bookmarklet?</h4>
+                <p>A bookmarklet is a small JavaScript program stored as a bookmark in your browser. When clicked, it performs a specific function on the current webpage. Unlike browser extensions, bookmarklets don't require installation, don't need special permissions, and work across different browsers.</p>
+                <p>For more detailed information about what bookmarklets are and how they work, see our <a href="#what-are-bookmarklets" style="color: var(--accentColor);">What Are Bookmarklets?</a> section.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>How are bookmarklets different from browser extensions?</h4>
+                <p>Bookmarklets and browser extensions serve similar purposes but have key differences:</p>
+                <ul>
+                  <li><strong>Installation:</strong> Bookmarklets don't require installation through browser stores - just add them to your bookmarks. Extensions need to be installed through the browser's extension store and may require approval.</li>
+                  <li><strong>Permissions:</strong> Bookmarklets run with the permissions of the current page only. Extensions can request broader permissions that persist across all websites.</li>
+                  <li><strong>Persistence:</strong> Bookmarklets run only when you explicitly click them. Extensions can run automatically, in the background, or on page load.</li>
+                  <li><strong>Cross-browser:</strong> Bookmarklets work across different browsers with minimal or no modification. Extensions are usually browser-specific and need separate versions for each browser.</li>
+                  <li><strong>Updates:</strong> Bookmarklets need to be manually updated by replacing the bookmark. Extensions can auto-update through the browser's extension system.</li>
+                  <li><strong>Privacy:</strong> Bookmarklets don't have access to your browsing history or data unless you're on a page. Extensions can request access to browsing data, history, and more.</li>
+                </ul>
+                <p>Bookmarklets are ideal for quick, on-demand tasks, while extensions are better for persistent functionality that needs to run automatically.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>What browsers are supported?</h4>
+                <p>Bookmarklets work in most modern browsers including:</p>
+                <ul>
+                  <li><strong>Google Chrome:</strong> Full support, recommended version 90+</li>
+                  <li><strong>Mozilla Firefox:</strong> Full support, recommended version 88+</li>
+                  <li><strong>Safari:</strong> Full support, recommended version 14+</li>
+                  <li><strong>Microsoft Edge:</strong> Full support, recommended version 90+</li>
+                  <li><strong>Opera:</strong> Full support, recommended version 76+</li>
+                  <li><strong>Brave:</strong> Full support (Chromium-based)</li>
+                  <li><strong>Vivaldi:</strong> Full support (Chromium-based)</li>
+                </ul>
+                <p>Some bookmarklets may have browser-specific behavior, which is usually noted in the bookmarklet description. We recommend using the latest version of your browser for the best experience. Older browsers may have limited JavaScript support that could affect bookmarklet functionality.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Do bookmarklets work on mobile?</h4>
+                <p>Most bookmarklets are designed for desktop browsers. Mobile browser support varies significantly:</p>
+                <ul>
+                  <li><strong>iOS Safari:</strong> Limited support. You can add bookmarklets, but accessing them requires multiple steps through the share menu.</li>
+                  <li><strong>Android Chrome:</strong> Better support than iOS, but still limited. Bookmarklets can be added and accessed through the bookmarks menu.</li>
+                  <li><strong>Mobile Firefox:</strong> Similar to Android Chrome, with better bookmarklet support than iOS.</li>
+                </ul>
+                <p>The experience is optimized for desktop use. Mobile browsers often have security restrictions and UI limitations that make bookmarklets less convenient. Some bookmarklets may not work at all on mobile due to touch interface differences or mobile browser limitations.</p>
+              </div>
+            </div>
+            
+            <!-- Installation & Setup -->
+            <div id="faq-installation" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Installation & Setup</h3>
+              
+              <div class="faqItem">
+                <h4>How do I install a bookmarklet?</h4>
+                <p>Installing bookmarklets is simple. For detailed step-by-step instructions with browser-specific guidance, see our <a href="#installation" style="color: var(--accentColor);">Installation Guide</a> section.</p>
+                <p><strong>Quick steps:</strong></p>
+                <ol>
+                  <li>Show your bookmarks bar (Ctrl+Shift+B or Cmd+Shift+B)</li>
+                  <li>Find the bookmarklet on our <a href="./browse.html" style="color: var(--accentColor);">Browse page</a></li>
+                  <li>Drag the bookmarklet link to your bookmarks bar, or right-click and select "Bookmark this link"</li>
+                  <li>Test it by clicking the bookmarklet on any webpage</li>
+                </ol>
+              </div>
+              
+              <div class="faqItem">
+                <h4>How do I update a bookmarklet?</h4>
+                <p>If a bookmarklet has been updated, you'll need to manually replace the old version:</p>
+                <ol>
+                  <li>Remove the old bookmarklet from your bookmarks bar (right-click and delete)</li>
+                  <li>Navigate to our <a href="./browse.html" style="color: var(--accentColor);">Browse page</a> and find the updated bookmarklet</li>
+                  <li>Install the new version using the same method you used originally</li>
+                  <li>Test the updated bookmarklet to ensure it works correctly</li>
+                </ol>
+                <p>We recommend checking for updates periodically, especially for bookmarklets you use frequently. Updated versions may include bug fixes, new features, or compatibility improvements.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>How do I organize my bookmarklets?</h4>
+                <p>Organizing bookmarklets helps you find and use them more efficiently:</p>
+                <ul>
+                  <li><strong>Create folders:</strong> Most browsers allow you to create bookmark folders. Group related bookmarklets together (e.g., "Productivity", "Design", "Development")</li>
+                  <li><strong>Use descriptive names:</strong> When saving bookmarklets, give them clear, descriptive names so you can identify them quickly</li>
+                  <li><strong>Prioritize frequently used:</strong> Keep your most-used bookmarklets at the top of your bookmarks bar or in easily accessible folders</li>
+                  <li><strong>Separate by category:</strong> Organize by function (editing, viewing, testing) or by website type (social media, development, design)</li>
+                  <li><strong>Use browser extensions:</strong> Some browser extensions can help manage and organize bookmarks more effectively</li>
+                </ul>
+                <p>Good organization becomes especially important as you install more bookmarklets. A well-organized bookmarklet collection can significantly improve your workflow.</p>
+              </div>
+            </div>
+            
+            <!-- Usage & Features -->
+            <div id="faq-usage" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Usage & Features</h3>
+              
+              <div class="faqItem">
+                <h4>How do I use a bookmarklet?</h4>
+                <p>For comprehensive usage instructions, see our <a href="#using-bookmarklets" style="color: var(--accentColor);">Using Bookmarklets</a> section.</p>
+                <p><strong>Basic usage:</strong></p>
+                <ol>
+                  <li>Navigate to any webpage where you want to use the bookmarklet</li>
+                  <li>Click the bookmarklet in your bookmarks bar</li>
+                  <li>The bookmarklet will execute its function on the current page</li>
+                  <li>Some bookmarklets show results immediately, while others may require additional interaction</li>
+                </ol>
+                <p>Remember: bookmarklets need to run on a webpage. They won't work on blank tabs or browser settings pages.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>What do the status labels mean?</h4>
+                <p>Each bookmarklet has a status label that indicates its reliability and testing level:</p>
+                <ul>
+                  <li><strong>Stable:</strong> Fully tested and reliable. Safe to use on any website. These bookmarklets have been thoroughly tested and are unlikely to cause issues.</li>
+                  <li><strong>Beta:</strong> Mostly stable but may have minor issues. Generally safe but may have edge cases or minor bugs. Good for most use cases but test on non-critical pages first.</li>
+                  <li><strong>Experimental:</strong> New or untested features. May have unexpected behavior or bugs. Use with caution and test thoroughly before relying on it.</li>
+                  <li><strong>Risky:</strong> May break websites or cause unexpected behavior. These bookmarklets perform operations that could potentially interfere with website functionality. Always review the code and test on non-critical pages first.</li>
+                </ul>
+                <p>Always check the status before using a bookmarklet, especially on important websites. The status helps you make informed decisions about which bookmarklets to use and when.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Can I run multiple bookmarklets on the same page?</h4>
+                <p>Yes, you can run multiple bookmarklets on the same page, but there are important considerations:</p>
+                <ul>
+                  <li><strong>Interactions:</strong> Bookmarklets may interact with each other in unexpected ways. Some are designed to work together, while others might conflict.</li>
+                  <li><strong>Order matters:</strong> The order in which you run bookmarklets can affect the results. Try different orders if you experience issues.</li>
+                  <li><strong>Testing:</strong> Test combinations on non-critical pages first to understand how they interact</li>
+                  <li><strong>Conflicts:</strong> If bookmarklets modify the same elements or use conflicting methods, you may experience issues</li>
+                </ul>
+                <p>For more information on advanced usage, see our <a href="#advanced-topics" style="color: var(--accentColor);">Advanced Topics</a> section.</p>
+              </div>
+            </div>
+            
+            <!-- Troubleshooting -->
+            <div id="faq-troubleshooting" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Troubleshooting</h3>
+              
+              <div class="faqItem">
+                <h4>Why isn't a bookmarklet working?</h4>
+                <p>For comprehensive troubleshooting steps, see our <a href="#troubleshooting" style="color: var(--accentColor);">Troubleshooting</a> section.</p>
+                <p><strong>Common issues and solutions:</strong></p>
+                <ul>
+                  <li><strong>Not on a webpage:</strong> Bookmarklets need a page to run on. Make sure you're on an actual webpage, not a blank tab or browser settings page.</li>
+                  <li><strong>Website compatibility:</strong> Some bookmarklets may not work on certain websites due to how the site is structured or security restrictions.</li>
+                  <li><strong>JavaScript disabled:</strong> Ensure JavaScript is enabled in your browser settings. Bookmarklets require JavaScript to function.</li>
+                  <li><strong>Browser console errors:</strong> Open your browser's developer tools (F12) and check the console for error messages that might indicate what's wrong.</li>
+                  <li><strong>Outdated bookmarklet:</strong> The bookmarklet may have been updated. Try reinstalling the latest version from our Browse page.</li>
+                  <li><strong>Browser compatibility:</strong> Some bookmarklets may have browser-specific behavior. Check if the bookmarklet description mentions browser requirements.</li>
+                </ul>
+                <p>If the problem persists after trying these steps, check the bookmarklet's status and consider reporting the issue.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>How do I check for errors in the browser console?</h4>
+                <p>The browser console is a powerful tool for debugging bookmarklet issues:</p>
+                <ol>
+                  <li>Open developer tools by pressing <strong>F12</strong> (Windows/Linux) or <strong>Cmd+Option+I</strong> (Mac)</li>
+                  <li>Click on the "Console" tab</li>
+                  <li>Run your bookmarklet</li>
+                  <li>Look for any red error messages or warnings</li>
+                  <li>Take a screenshot or copy the error message if you need to report the issue</li>
+                </ol>
+                <p>Error messages in the console can provide valuable information about what went wrong, such as missing elements, JavaScript errors, or security restrictions.</p>
+              </div>
+            </div>
+            
+            <!-- Safety & Security -->
+            <div id="faq-safety" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Safety & Security</h3>
+              
+              <div class="faqItem">
+                <h4>Are bookmarklets safe?</h4>
+                <p>All bookmarklets in this collection are reviewed for safety, but you should always exercise caution:</p>
+                <ul>
+                  <li><strong>Review the code:</strong> Especially for bookmarklets marked as "Risky", review the source code to understand what it does before using it</li>
+                  <li><strong>Trusted sources:</strong> Only use bookmarklets from trusted sources. Our collection is curated and reviewed, but always verify if you're unsure</li>
+                  <li><strong>Understand functionality:</strong> Read the description and understand what a bookmarklet does before installing it</li>
+                  <li><strong>Test first:</strong> Test bookmarklets on non-critical pages before using them on important websites</li>
+                  <li><strong>Check status:</strong> Pay attention to status labels (Stable, Beta, Experimental, Risky) to understand the risk level</li>
+                </ul>
+                <p>Bookmarklets run JavaScript code on the current page, so they have access to the page's content and can modify it. Always review code from untrusted sources, and never use bookmarklets on sensitive sites unless you fully understand what they do.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Are bookmarklets safe for sensitive websites?</h4>
+                <p>While we review all bookmarklets for safety, we strongly recommend being cautious when using bookmarklets on sensitive websites:</p>
+                <ul>
+                  <li><strong>Banking sites:</strong> Avoid using bookmarklets on banking or financial websites. These sites have strict security measures that bookmarklets might trigger.</li>
+                  <li><strong>Healthcare sites:</strong> Be very cautious on healthcare or medical websites due to privacy regulations and security requirements.</li>
+                  <li><strong>Government sites:</strong> Government websites often have strict security policies that may conflict with bookmarklet functionality.</li>
+                  <li><strong>E-commerce:</strong> Be careful on shopping sites, especially during checkout processes. Bookmarklets might interfere with payment processing.</li>
+                </ul>
+                <p>Some bookmarklets may interact with page content in ways that could trigger security warnings or interfere with site functionality. Always review the bookmarklet code if you're concerned about security, and never use bookmarklets from untrusted sources on sensitive sites.</p>
+                <p><strong>Best practice:</strong> If you're unsure whether a bookmarklet is safe for a particular site, don't use it. It's better to be cautious than to risk security issues.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Can bookmarklets access my personal data?</h4>
+                <p>Bookmarklets can only access data on the current webpage where they're running. They cannot:</p>
+                <ul>
+                  <li>Access your browsing history</li>
+                  <li>Access data from other tabs or websites</li>
+                  <li>Access files on your computer (unless you explicitly upload them)</li>
+                  <li>Access your passwords or saved login information</li>
+                  <li>Run in the background or when you're not using them</li>
+                </ul>
+                <p>However, bookmarklets <strong>can</strong> access and modify the content of the current page, including any data visible on that page. This is why it's important to only use bookmarklets from trusted sources and to review the code if you're concerned about privacy.</p>
+              </div>
+            </div>
+            
+            <!-- Reporting Issues -->
+            <div id="faq-reporting" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Reporting Issues</h3>
+              
+              <div class="faqItem">
+                <h4>How do I report a bug or issue?</h4>
+                <p>You can report issues through multiple channels. We accept submissions both on our website and on GitHub:</p>
+                
+                <p><strong>For website issues (site bugs, UI problems, broken links, etc.):</strong></p>
+                <ul>
+                  <li><strong>Website submission:</strong> Use our <a href="./reportIssue.html" style="color: var(--accentColor);">Report Issue</a> page on the website to submit website-related problems directly.</li>
+                  <li><strong>GitHub issues:</strong> You can also report website issues on our <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">GitHub repository</a> if you prefer using GitHub's issue tracker.</li>
+                </ul>
+                
+                <p><strong>For bookmarklet issues (bookmarklet not working, bugs in specific bookmarklets, etc.):</strong></p>
+                <ul>
+                  <li><strong>Website submission:</strong> Use our <a href="./reportIssue.html" style="color: var(--accentColor);">Report Issue</a> page on the website to submit bookmarklet problems.</li>
+                  <li><strong>GitHub issues:</strong> You can also report bookmarklet issues on our <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">GitHub repository</a> for technical discussions.</li>
+                </ul>
+                
+                <p><strong>What to include in your report:</strong></p>
+                <ul>
+                  <li>What bookmarklet or website feature is affected</li>
+                  <li>What happened (detailed description of the issue)</li>
+                  <li>What you expected to happen</li>
+                  <li>Your browser and version (e.g., Chrome 120, Firefox 121)</li>
+                  <li>Your operating system (e.g., Windows 11, macOS 14, Linux)</li>
+                  <li>Steps to reproduce the issue (if applicable)</li>
+                  <li>Screenshots or error messages (if available)</li>
+                </ul>
+                <p>Your detailed bug reports help us improve the collection for everyone!</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>What should I do if I find a security vulnerability?</h4>
+                <p>If you discover a security vulnerability, please report it responsibly:</p>
+                <ol>
+                  <li><strong>Do not</strong> publicly disclose the vulnerability</li>
+                  <li>Report it privately through our <a href="./reportIssue.html" style="color: var(--accentColor);">Report Issue</a> page, marking it as a security issue</li>
+                  <li>Or report it directly on GitHub by creating a private security advisory</li>
+                  <li>Include detailed information about the vulnerability and steps to reproduce it</li>
+                  <li>Allow us time to fix the issue before making it public</li>
+                </ol>
+                <p>We take security seriously and will work to address any vulnerabilities promptly.</p>
+              </div>
+            </div>
+            
+            <!-- Suggestions & Feedback -->
+            <div id="faq-suggestions" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Suggestions & Feedback</h3>
+              
+              <div class="faqItem">
+                <h4>Can I suggest a new bookmarklet?</h4>
+                <p>Absolutely! We welcome suggestions for new bookmarklets. You can submit them through:</p>
+                <ul>
+                  <li><strong>Website submission:</strong> Submit bookmarklet suggestions directly on our website through the <a href="./request.html" style="color: var(--accentColor);">Request</a> page</li>
+                  <li><strong>GitHub Issues:</strong> Open an issue on our <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">GitHub repository</a> with your suggestion</li>
+                </ul>
+                <p><strong>When suggesting a bookmarklet, please include:</strong></p>
+                <ul>
+                  <li>A clear description of what the bookmarklet should do</li>
+                  <li>Use cases and scenarios where it would be helpful</li>
+                  <li>Any technical requirements or considerations</li>
+                  <li>Examples of similar tools or functionality (if applicable)</li>
+                </ul>
+                <p>We review all suggestions and prioritize based on usefulness, feasibility, and community interest.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Can I modify bookmarklets?</h4>
+                <p>Yes! All bookmarklets are open source and available on our GitHub repository. You can:</p>
+                <ul>
+                  <li><strong>View the source code:</strong> All bookmarklet code is publicly available and can be viewed on GitHub or in your browser's developer tools</li>
+                  <li><strong>Learn from examples:</strong> Use the code as learning material to understand how bookmarklets work and create your own original bookmarklets</li>
+                </ul>
+                <p><strong>License information:</strong></p>
+                <ul>
+                  <li>This project is licensed under CC BY-NC-ND 4.0 (Attribution-NonCommercial-NoDerivatives 4.0 International)</li>
+                  <li>You may view and learn from the code, but you may not create derivative works based on these bookmarklets</li>
+                  <li>You can use the bookmarklets as-is for non-commercial purposes with proper attribution</li>
+                  <li>If you create your own original bookmarklets inspired by these, they should be your own original work</li>
+                </ul>
+                <p>For more information on creating bookmarklets, see our <a href="#advanced-topics" style="color: var(--accentColor);">Advanced Topics</a> section.</p>
+              </div>
+            </div>
+            
+            <!-- Technical Questions -->
+            <div id="faq-technical" class="faqSection">
+              <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Technical Questions</h3>
+              
+              <div class="faqItem">
+                <h4>How do bookmarklets work technically?</h4>
+                <p>Bookmarklets work by storing JavaScript code as a bookmark URL. When you click the bookmark:</p>
+                <ol>
+                  <li>The browser executes the JavaScript code stored in the bookmark URL</li>
+                  <li>The code runs in the context of the current webpage</li>
+                  <li>The code can access and modify the page's DOM (Document Object Model)</li>
+                  <li>The code can interact with the page's JavaScript, CSS, and content</li>
+                  <li>The code runs with the same permissions as the current page</li>
+                </ol>
+                <p>Bookmarklets are essentially JavaScript code prefixed with <code>javascript:</code> instead of <code>http://</code> or <code>https://</code>. This tells the browser to execute the code rather than navigate to a URL.</p>
+                <p>For more technical details on creating bookmarklets, see our <a href="#advanced-topics" style="color: var(--accentColor);">Advanced Topics</a> section.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Why do some bookmarklets not work on certain websites?</h4>
+                <p>Several factors can prevent bookmarklets from working on specific websites:</p>
+                <ul>
+                  <li><strong>Content Security Policy (CSP):</strong> Some websites use strict CSP headers that prevent inline JavaScript execution, which can block bookmarklets</li>
+                  <li><strong>Frame restrictions:</strong> Websites in iframes or with frame restrictions may prevent bookmarklet execution</li>
+                  <li><strong>HTTPS/HTTP mixed content:</strong> Security restrictions may prevent bookmarklets from working on certain page types</li>
+                  <li><strong>Dynamic content:</strong> Websites that heavily modify their DOM after page load may interfere with bookmarklet functionality</li>
+                  <li><strong>Single Page Applications (SPAs):</strong> Modern web apps that use client-side routing may require bookmarklets to be run at specific times</li>
+                  <li><strong>Browser extensions:</strong> Some browser extensions can interfere with bookmarklet execution</li>
+                </ul>
+                <p>If a bookmarklet doesn't work on a specific site, it's often due to security restrictions or the site's architecture. Try refreshing the page or running the bookmarklet at a different point in the page load process.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>Can bookmarklets access external resources or APIs?</h4>
+                <p>Bookmarklets can make requests to external resources, but they're subject to the same restrictions as the current webpage:</p>
+                <ul>
+                  <li><strong>CORS (Cross-Origin Resource Sharing):</strong> Bookmarklets are subject to CORS policies. They can only make requests to APIs that allow cross-origin requests from the current domain</li>
+                  <li><strong>Same-origin policy:</strong> Bookmarklets run with the permissions of the current page, so they're limited by the same security policies</li>
+                  <li><strong>API keys:</strong> If an API requires authentication or API keys, the bookmarklet would need to include them (which has security implications)</li>
+                  <li><strong>HTTPS requirements:</strong> Modern browsers require HTTPS for many API requests, which can limit what bookmarklets can access</li>
+                </ul>
+                <p>Most bookmarklets work with the current page's content rather than making external API calls, as this is more reliable and doesn't require API keys or authentication.</p>
+              </div>
+              
+              <div class="faqItem">
+                <h4>How are bookmarklets different from userscripts?</h4>
+                <p>Bookmarklets and userscripts (like those used with Tampermonkey or Greasemonkey) are similar but have key differences:</p>
+                <ul>
+                  <li><strong>Installation:</strong> Bookmarklets are stored as bookmarks and run on-demand. Userscripts are installed through browser extensions and can run automatically</li>
+                  <li><strong>Persistence:</strong> Bookmarklets run only when clicked. Userscripts can run automatically on page load or at specific times</li>
+                  <li><strong>Scope:</strong> Bookmarklets work on any page where you click them. Userscripts can be configured to run on specific domains or URL patterns</li>
+                  <li><strong>Storage:</strong> Userscripts can use browser storage APIs to save data between sessions. Bookmarklets typically don't have persistent storage</li>
+                  <li><strong>Complexity:</strong> Userscripts can be more complex and include libraries, while bookmarklets are typically simpler and self-contained</li>
+                </ul>
+                <p>Bookmarklets are better for quick, on-demand tasks, while userscripts are better for persistent functionality that needs to run automatically.</p>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Topics -->
+    <section id="advanced-topics" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Advanced Topics</h2>
+          <p class="aboutText">
+            Ready to take your bookmarklet usage to the next level? Learn about advanced techniques, creating your own bookmarklets, debugging, optimization, and best practices.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Creating Custom Bookmarklets</h3>
+          
+          <div class="featuresList">
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Basic Structure</h4>
+                <p>All bookmarklets start with javascript: followed by your code. The code must be URL-encoded and typically wrapped in an IIFE (Immediately Invoked Function Expression) to avoid variable conflicts.</p>
+                <div style="margin-top: 0.75rem;">
+                  <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>javascript:(function(){
+  /* your code */
+})();</code></pre>
+                  <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                    <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Variable Isolation</h4>
+                <p>Always wrap your code in an IIFE to prevent variable name collisions with the page's JavaScript. This creates a new scope and prevents your variables from interfering with the page.</p>
+                <div style="margin-top: 0.75rem;">
+                  <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>(function() {
+  var myVar = 'value';
+  /* code */
+})();</code></pre>
+                  <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                    <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>DOM Manipulation</h4>
+                <p>Bookmarklets can access and modify the page's DOM using standard JavaScript methods like document.querySelector(), document.createElement(), and element.style. Always check if elements exist before manipulating them to avoid errors.</p>
+                <div style="margin-top: 0.75rem;">
+                  <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>var el = document.querySelector('#id');
+if (el) {
+  el.style.color = 'red';
+}</code></pre>
+                  <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                    <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Error Handling</h4>
+                <p>Always include error handling in your bookmarklets. Use try-catch blocks to handle unexpected errors gracefully. This prevents the bookmarklet from breaking and provides user feedback.</p>
+                <div style="margin-top: 0.75rem;">
+                  <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>try {
+  /* code */
+} catch(e) {
+  alert('Error: ' + e.message);
+}</code></pre>
+                  <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                    <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>URL Encoding</h4>
+                <p>When creating bookmarklets, you need to URL-encode special characters. Spaces become %20, quotes become %22, etc. Use online tools or JavaScript's encodeURIComponent() function. However, most browsers handle basic encoding automatically when you create bookmarks.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Code Size Limitations</h4>
+                <p>Bookmarklets have practical size limits (typically 2KB-8KB depending on browser). Keep your code concise. For complex functionality, consider loading external scripts dynamically or breaking functionality into multiple bookmarklets that work together.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Advanced Techniques</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Loading External Scripts</h3>
+              <p>You can dynamically load external JavaScript libraries. Create a script element, set its source, and append it to the document head. This allows you to use jQuery, lodash, or other libraries in your bookmarklets.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>var s = document.createElement('script');
+s.src = 'https://example.com/lib.js';
+document.head.appendChild(s);</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>User Input & Prompts</h3>
+              <p>Use prompt() for user input and confirm() for yes/no questions. For better UX, create custom modal dialogs using DOM manipulation instead of browser prompts.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>var input = prompt('Enter value:', 'default');
+var confirmed = confirm('Continue?');</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3>LocalStorage & SessionStorage</h3>
+              <p>Bookmarklets can use browser storage to remember settings or state between page loads. Be mindful of storage limits and privacy.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>localStorage.setItem('key', 'value');
+var value = localStorage.getItem('key');</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <line x1="9" y1="10" x2="15" y2="10"></line>
+                </svg>
+              </div>
+              <h3>AJAX & Fetch Requests</h3>
+              <p>Bookmarklets can make HTTP requests using fetch() or XMLHttpRequest. However, they're subject to CORS policies. You can only make requests to APIs that allow cross-origin requests from the current domain.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Event Listeners</h3>
+              <p>You can add event listeners to page elements. This is useful for creating interactive bookmarklets that respond to user actions on the page.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: hidden; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>element.addEventListener('click', function(e) {
+  // handler code
+});</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Timing & Delays</h3>
+              <p>Use setTimeout() and setInterval() for delayed execution. Useful for waiting for dynamic content to load or creating animations.</p>
+              <div style="margin-top: 0.75rem;">
+                <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>setTimeout(function() {
+  // code to execute
+}, 1000);</code></pre>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Debugging & Testing</h3>
+          
+          <div class="featuresList">
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Console Logging</h4>
+                <p>Use <code>console.log()</code>, <code>console.error()</code>, and <code>console.warn()</code> for debugging. Open browser developer tools (F12) to see output. Remove or comment out console statements in production bookmarklets to reduce size.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Testing Strategy</h4>
+                <p>Test bookmarklets on multiple browsers (Chrome, Firefox, Safari, Edge). Test on different website types (static pages, SPAs, dynamic content). Test edge cases: empty pages, pages with errors, pages with conflicting JavaScript. Always test on non-critical pages first.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Error Detection</h4>
+                <p>Check for element existence before manipulation. Validate user input. Check for required APIs or features before using them. Use feature detection rather than browser detection.</p>
+                <div style="margin-top: 0.75rem; position: relative;">
+                  <button class="copy-code-btn" onclick="copyCode(this)" style="position: absolute; top: 0; right: 0; background: var(--cardBackground); border: 1px solid var(--borderColor); border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; color: var(--textSecondary); transition: all 0.2s; z-index: 1;" title="Copy code" onmouseover="this.style.background='var(--accentColor)'; this.style.color='white'; this.style.borderColor='var(--accentColor)'" onmouseout="if(this.querySelector('.copy-text').textContent==='Copy'){this.style.background='var(--cardBackground)'; this.style.color='var(--textSecondary)'; this.style.borderColor='var(--borderColor)'}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                  <pre style="margin: 0; font-size: 0.875rem; color: var(--textPrimary); font-family: 'Consolas', 'Monaco', 'Courier New', monospace; padding: 0.75rem; line-height: 1.6; white-space: pre; overflow-x: auto; overflow-wrap: normal; word-break: keep-all; background: transparent; width: 100%; box-sizing: border-box;"><code>if (document.querySelector('#element')) {
+  // safe to use
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Best Practices & Optimization</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+              <h3>Code Minification</h3>
+              <p>Minify your code to reduce size: remove whitespace, shorten variable names, use single-character variable names where appropriate. Tools like UglifyJS can help, but be careful not to break functionality.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Documentation</h3>
+              <p>Document your bookmarklet clearly: what it does, what it requires, known limitations, browser compatibility. Include comments in your code explaining complex logic. Write a clear description for users.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Security Considerations</h3>
+              <p>Never include API keys or sensitive data in bookmarklets. Be cautious with user data. Don't collect or transmit personal information without user consent. Review code for potential security vulnerabilities before sharing.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <h3>Performance</h3>
+              <p>Keep bookmarklets fast and lightweight. Avoid blocking operations. Use efficient DOM queries (cache selectors when possible). Minimize DOM manipulations. Consider using requestAnimationFrame for animations.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Code Reusability</h3>
+              <p>Create reusable functions and modules. Break complex bookmarklets into smaller, testable functions. This makes code easier to maintain, debug, and share with others.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11l3 3L22 4"></path>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+              </div>
+              <h3>Version Control</h3>
+              <p>Keep track of bookmarklet versions. Document changes, improvements, and bug fixes. Use semantic versioning if possible. This helps users know when to update and what has changed.</p>
+            </div>
+          </div>
+          
+          <div style="margin-top: 3rem; padding: 1.5rem; background: var(--cardBackground); border-left: 4px solid var(--accentColor); border-radius: 8px;">
+            <p class="aboutText" style="margin: 0;"><strong>Have a bookmarklet idea?</strong> If you have an idea for a new bookmarklet, consider submitting it through our <a href="./request.html" style="color: var(--accentColor);">Request</a> page. We welcome suggestions and feedback!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Resources -->
+    <section id="support-resources" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Support Resources</h2>
+          <p class="aboutText">
+            Connect with the community and get help through these resources.
+          </p>
+          
+          <div class="supportResources" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <a href="https://discord.gg/6qAvAephsW" target="_blank" rel="noopener noreferrer" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+              </div>
+              <h3>Discord Community</h3>
+              <p>Join our Discord server to chat with other users, get real-time help, share bookmarklets, and stay updated on new releases.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Join Discord →</p>
+            </a>
+            
+            <a href="./reportIssue.html" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <line x1="9" y1="10" x2="15" y2="10"></line>
+                  <line x1="12" y1="7" x2="12" y2="13"></line>
+                </svg>
+              </div>
+              <h3>Report an Issue</h3>
+              <p>Found a bug or have a problem? Use our Report Issue page to submit website bugs, bookmarklet issues, or feature requests.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Report Issue →</p>
+            </a>
+            
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </div>
+              <h3>GitHub Repository</h3>
+              <p>View source code, request bookmarklets, or open issues. All code is open source and available on GitHub.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">View on GitHub →</p>
+            </a>
+            
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>GitHub Discussions</h3>
+              <p>Join discussions about bookmarklets, ask questions, share ideas, and connect with the community on GitHub Discussions.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Join Discussion →</p>
+            </a>
+            
+            <a href="./browse.html" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <h3>Browse Bookmarklets</h3>
+              <p>Explore our collection of bookmarklets organized by category. Find productivity tools, fun utilities, development helpers, and more.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Browse Collection →</p>
+            </a>
+            
+            <a href="./about.html" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <h3>About the Project</h3>
+              <p>Learn about DevBubba's Bookmarklet Collection, its mission, features, and the community behind it. Discover what makes this project unique.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Learn More →</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="footerContent">
+      <div class="footerMain">
+        <div class="footerSection">
+          <h4>Legal</h4>
+          <div class="footerLinks">
+            <a href="./license.html" class="footerLink">License</a>
+            <a href="#privacy" class="footerLink">Privacy Policy</a>
+            <a href="#terms" class="footerLink">Terms of Service</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Resources</h4>
+          <div class="footerLinks">
+            <a href="./about.html" class="footerLink">About</a>
+            <a href="./browse.html" class="footerLink">Browse</a>
+            <a href="./help.html" class="footerLink">Help & Support</a>
+            <a href="./request.html" class="footerLink">Request</a>
+            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./contact.html" class="footerLink">Contact</a>
+            <a href="./changelog.html" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>GitHub</h4>
+          <div class="footerLinks">
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="footerLink">Repository</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="footerLink">Issues</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink">Commits</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink" id="lastCommitLink">Latest Commit</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="footerLink">Discussions</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Info</h4>
+          <div class="footerInfo">
+            <p>Made with ❤️💻 by <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="footerLink">DevBubba</a></p>
+            <p class="footerMeta">Version: 1.0.0</p>
+            <p class="footerMeta">Latest Commit: <span id="lastCommit">Loading...</span></p>
+            <p class="footerMeta">License: CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>&copy; 2024 DevBubba's Bookmarklet Collection. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    function copyCode(button) {
+      const codeBlock = button.parentElement.querySelector('code');
+      const codeText = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(codeText).then(() => {
+        const copyText = button.querySelector('.copy-text');
+        const originalText = copyText.textContent;
+        copyText.textContent = 'Copied!';
+        button.style.background = '#22c55e';
+        button.style.color = 'white';
+        button.style.borderColor = '#22c55e';
+        
+        setTimeout(() => {
+          copyText.textContent = originalText;
+          button.style.background = 'rgba(255,255,255,0.1)';
+          button.style.color = '#ccc';
+          button.style.borderColor = 'rgba(255,255,255,0.2)';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy code. Please select and copy manually.');
+      });
+    }
+    
+    // Add hover effect to copy buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyButtons = document.querySelectorAll('.copy-code-btn');
+      copyButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          if (btn.style.background !== 'var(--accentColor)') {
+            btn.style.background = 'var(--cardBackground)';
+            btn.style.borderColor = 'var(--accentColor)';
+          }
+        });
+        btn.addEventListener('mouseleave', () => {
+          if (btn.style.background !== 'var(--accentColor)') {
+            btn.style.borderColor = 'var(--borderColor)';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

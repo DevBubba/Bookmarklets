@@ -1,3 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="License - DevBubba's Bookmarklet Collection - CC BY-NC-ND 4.0 License Information">
+  <title>License - DevBubba's Bookmarklet Collection</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+    /* Responsive grid for license cards - 3 columns on large screens */
+    .licenseGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    @media (max-width: 1024px) {
+      .licenseGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .licenseGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div id="backgroundAnimation" class="backgroundAnimation"></div>
+
+  <!-- Header -->
+  <header class="siteHeader" id="siteHeader">
+    <div class="headerContent">
+      <div class="logoTitleContainer">
+        <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="logoLink">
+          <div class="siteLogo">
+            <img src="./assets/logo/logo.png" alt="" width="48" height="48" style="display: block;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="8" fill="url(#logoGradient)"/>
+              <path d="M20 10L26 18H14L20 10Z" fill="white" stroke="white" stroke-width="0.5"/>
+              <path d="M12 20L20 30L28 20H12Z" fill="white" stroke="white" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </a>
+        <span class="siteTitle">DevBubba's Bookmarklets</span>
+      </div>
+      <nav class="mainNav">
+        <a href="./index.html" class="navLink">Home</a>
+        <a href="./browse.html" class="navLink">Browse</a>
+        <a href="./about.html" class="navLink">About</a>
+        <a href="./help.html" class="navLink">Help & Support</a>
+        <a href="./request.html" class="navLink">Request</a>
+        <a href="./reportIssue.html" class="navLink">Report Issue</a>
+        <a href="./contact.html" class="navLink">Contact</a>
+      </nav>
+      <div class="headerActions">
+        <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="./signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./login.html" class="authButton">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mainContent">
+    <!-- License Hero Section -->
+    <section class="aboutHero section">
+      <div class="sectionContent">
+        <h1 class="aboutHeroTitle">License</h1>
+        <p class="aboutHeroSubtitle">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</p>
+      </div>
+    </section>
+
+    <!-- License Overview & Full License Text Section -->
+    <section class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">License Overview</h2>
+          <p class="aboutText">
+            This work, <strong>DevBubba's Bookmarklet Collection</strong>, is licensed under the 
+            <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</strong> (CC BY-NC-ND 4.0).
+          </p>
+          
+          <p class="aboutText">
+            This license allows you to share and use the work for non-commercial purposes, as long as you give appropriate credit, 
+            provide a link to the license, and indicate if changes were made. You may not use the material for commercial purposes 
+            and if you remix, transform, or build upon the material, you may not distribute the modified material.
+          </p>
+
+          <div style="margin: 2rem 0; padding: 2rem; background: rgba(30, 41, 59, 0.3); border-radius: 1rem; border-left: 4px solid var(--accentColor);">
+            <h3 style="font-size: 1.5rem; color: var(--accentColor); margin-bottom: 1rem; font-weight: 600;">Official License Resources</h3>
+            <p class="aboutText" style="margin-bottom: 1rem;">
+              For more details, visit the official Creative Commons pages for this license:
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.875rem 1.5rem; background: var(--accentColor); color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='var(--accentColorLight)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accentColor)'; this.style.transform='translateY(0)'">
+                View License Details →
+              </a>
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.875rem 1.5rem; background: rgba(30, 41, 59, 0.4); color: var(--textPrimary); text-decoration: none; border-radius: 0.5rem; font-weight: 600; border: 1px solid var(--borderColor); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(30, 41, 59, 0.6)'; this.style.borderColor='var(--accentColor)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(30, 41, 59, 0.4)'; this.style.borderColor='var(--borderColor)'; this.style.transform='translateY(0)'">
+                View Legal Code →
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(71, 85, 105, 0.3);">
+            <h3 style="font-size: 1.75rem; color: var(--textPrimary); margin-bottom: 1.5rem; font-weight: 600;">Full License Text</h3>
+            <p class="aboutText" style="margin-bottom: 2rem;">
+              The complete text of the Attribution-NonCommercial-NoDerivatives 4.0 International license is provided below.
+            </p>
+            
+            <div style="margin-top: 2rem; padding: 2.5rem; background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 1rem; border: 1px solid rgba(71, 85, 105, 0.3);">
+              <div style="font-family: 'Courier New', monospace; font-size: 0.95rem; line-height: 1.9; color: var(--textPrimary); white-space: pre-wrap; text-align: left;">
 Copyright (c) 2025 DevBubba
 
 Attribution-NonCommercial-NoDerivatives 4.0 International
@@ -387,7 +513,7 @@ Section 8 -- Interpretation.
 Creative Commons is not a party to its public
 licenses. Notwithstanding, Creative Commons may elect to apply one of
 its public licenses to material it publishes and in those instances
-will be considered the “Licensor.” The text of the Creative Commons
+will be considered the "Licensor." The text of the Creative Commons
 public licenses is dedicated to the public domain under the CC0 Public
 Domain Dedication. Except for the limited purpose of indicating that
 material is shared under a Creative Commons public license or as
@@ -402,3 +528,205 @@ the avoidance of doubt, this paragraph does not form part of the
 public licenses.
 
 Creative Commons may be contacted at creativecommons.org.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Can Do Section -->
+    <section class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What You Can Do</h2>
+          <div class="safetyGrid licenseGrid" style="margin-top: 2rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <h3>Share</h3>
+              <p>You may copy and redistribute the material in any medium or format for non-commercial purposes only.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+              <h3>View & Learn</h3>
+              <p>You are free to view, study, and learn from the code and content. This includes using it for educational purposes.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <h3>Attribution</h3>
+              <p>You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Cannot Do Section -->
+    <section class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What You Cannot Do</h2>
+          <div class="safetyGrid licenseGrid" style="margin-top: 2rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3>No Commercial Use</h3>
+              <p>You may not use the material for commercial purposes. This includes selling, licensing, or using it in any commercial product or service.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <h3>No Derivatives</h3>
+              <p>If you remix, transform, or build upon the material, you may not distribute the modified material. You must use the work as-is.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6L6 18"></path>
+                  <path d="M6 6l12 12"></path>
+                </svg>
+              </div>
+              <h3>No Additional Restrictions</h3>
+              <p>You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Additional Information</h2>
+          
+          <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.25rem; color: var(--textPrimary); margin-bottom: 1rem; font-weight: 600;">Copyright Notice</h3>
+            <p class="aboutText">
+              Copyright (c) 2025 DevBubba. All rights reserved under the CC BY-NC-ND 4.0 license.
+            </p>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.25rem; color: var(--textPrimary); margin-bottom: 1rem; font-weight: 600;">License Resources</h3>
+            <p class="aboutText">
+              For additional information about this license:
+            </p>
+            <ul style="margin-left: 2rem; color: var(--textSecondary); line-height: 1.9;">
+              <li style="margin-bottom: 0.5rem;">
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">License Details & Summary (Creative Commons)</a>
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">Full Legal Code (Creative Commons)</a>
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <a href="https://github.com/DevBubba/Bookmarklets/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">License Text on GitHub</a>
+              </li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.25rem; color: var(--textPrimary); margin-bottom: 1rem; font-weight: 600;">Questions?</h3>
+            <p class="aboutText">
+              If you have questions about the license or how you can use this work, please 
+              <a href="./contact.html" style="color: var(--accentColor); text-decoration: none;">contact us</a> or visit the 
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">Creative Commons website</a> for more information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="footerContent">
+      <div class="footerMain">
+        <div class="footerSection">
+          <h4>Legal</h4>
+          <div class="footerLinks">
+            <a href="./license.html" class="footerLink">License</a>
+            <a href="#privacy" class="footerLink">Privacy Policy</a>
+            <a href="#terms" class="footerLink">Terms of Service</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Resources</h4>
+          <div class="footerLinks">
+            <a href="./about.html" class="footerLink">About</a>
+            <a href="./browse.html" class="footerLink">Browse</a>
+            <a href="./help.html" class="footerLink">Help & Support</a>
+            <a href="./request.html" class="footerLink">Request</a>
+            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./contact.html" class="footerLink">Contact</a>
+            <a href="./changelog.html" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>GitHub</h4>
+          <div class="footerLinks">
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="footerLink">Repository</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="footerLink">Issues</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink">Commits</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink" id="lastCommitLink">Latest Commit</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="footerLink">Discussions</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Info</h4>
+          <div class="footerInfo">
+            <p>Made with ❤️💻 by <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="footerLink">DevBubba</a></p>
+            <p class="footerMeta">Version: 1.0.0</p>
+            <p class="footerMeta">Latest Commit: <span id="lastCommit">Loading...</span></p>
+            <p class="footerMeta">License: CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>&copy; 2024 DevBubba's Bookmarklet Collection. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
+

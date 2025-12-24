@@ -1,0 +1,134 @@
+/* Help Page Styles */
+.helpSection {
+  margin-top: 4rem;
+}
+
+.helpContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.helpMain h3 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accentColor);
+}
+
+.helpMain h3:first-child {
+  margin-top: 0;
+}
+
+.faqItem {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqItem h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--textPrimary);
+}
+
+.faqItem p,
+.faqItem ul,
+.faqItem ol {
+  color: var(--textSecondary);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.faqItem li {
+  margin-bottom: 0.5rem;
+}
+
+.faqItem a {
+  color: var(--accentColor);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.faqItem a:hover {
+  color: var(--accentColorLight);
+  text-decoration: underline;
+}
+
+.supportResources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contributingSection {
+  margin-top: 4rem;
+}
+
+.contributingContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contributingMain h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--accentColor);
+}
+
+.contributingMain h4 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--textPrimary);
+}
+
+.contributingMain p {
+  font-size: 1.125rem;
+  color: var(--textSecondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.contributeList {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.contributeList li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  color: var(--textSecondary);
+  line-height: 1.8;
+}
+
+.contributeList li:last-child {
+  border-bottom: none;
+}
+
+.contributingMain ol,
+.contributingMain ul {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--textSecondary);
+  line-height: 1.8;
+}
+
+.contributingMain li {
+  margin-bottom: 0.75rem;
+}
+
+.contributingMain code {
+  background-color: rgba(30, 41, 59, 0.6);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  color: var(--accentColor);
+  font-size: 0.9em;
+}
+

@@ -1,0 +1,345 @@
+/* Section Components */
+.section {
+  margin-bottom: 6rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  scroll-margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionContainerSubtle {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(71, 85, 105, 0.2);
+}
+
+.sectionContainerSubtle:hover {
+  background-color: rgba(30, 41, 59, 0.4);
+  box-shadow: var(--shadowHover);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(4) { animation-delay: 0.4s; }
+.section:nth-child(5) { animation-delay: 0.5s; }
+.section:nth-child(6) { animation-delay: 0.6s; }
+.section:nth-child(7) { animation-delay: 0.7s; }
+.section:nth-child(8) { animation-delay: 0.8s; }
+
+.sectionContent {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--textPrimary);
+  padding: 0 2rem;
+}
+
+.featuredCategories {
+  margin-top: 4rem;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.quickActions {
+  margin-top: 4rem;
+}
+
+.quickActionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Staggered animation for quick action cards */
+.quickActionCard:nth-child(1) { animation-delay: 0.1s; }
+.quickActionCard:nth-child(2) { animation-delay: 0.2s; }
+.quickActionCard:nth-child(3) { animation-delay: 0.3s; }
+.quickActionCard:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hero Section - Full Viewport */
+.fullViewportHero {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 0;
+}
+
+.heroSection {
+  text-align: center;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--accentColor);
+  line-height: 1.2;
+}
+
+.animatedHeroTitle {
+  animation: heroTitleFadeIn 1s ease-out, heroTitleGlow 3s ease-in-out infinite 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.heroDescription {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--textSecondary);
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.animatedDescription {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Home About & Help Summaries */
+.homeAboutSummary,
+.homeHelpSummary {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.homeAboutSummary .sectionContent,
+.homeHelpSummary .sectionContent {
+  text-align: center;
+}
+
+.aboutSummaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+
+.summaryText {
+  font-size: 1.125rem;
+  color: var(--textSecondary);
+  line-height: 1.8;
+}
+
+.readMoreLink {
+  display: inline-block;
+  color: var(--accentColor);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+}
+
+.readMoreLink:hover {
+  color: var(--accentColorLight);
+  transform: translateX(5px);
+}
+
+/* GitHub Section */
+.githubSection {
+  margin-top: 4rem;
+}
+
+.githubIntro {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--textSecondary);
+  font-size: 1.125rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.githubSectionTitle {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--textPrimary);
+  text-align: center;
+}
+
+.githubIntroMain {
+  font-size: 1.25rem;
+  color: var(--accentColor);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.githubIntro p {
+  margin-bottom: 1rem;
+}
+
+.githubStatsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Random Bookmarklet Spotlight */
+.randomSpotlight {
+  margin-top: 4rem;
+}
+
+.spotlightContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.spotlightHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.spotlightIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%);
+  border-radius: 1.25rem;
+  color: var(--accentColor);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  flex-shrink: 0;
+}
+
+.spotlightIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.spotlightTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--textPrimary);
+  margin: 0 0 0.5rem 0;
+}
+
+.spotlightSubtitle {
+  font-size: 1rem;
+  color: var(--textSecondary);
+  margin: 0;
+}
+
+/* Footer - Fixed spacing */
+.siteFooter {
+  margin-top: 0;
+  padding: 4rem 2rem 2rem;
+  background-color: transparent;
+  color: var(--textSecondary);
+  position: relative;
+  width: 100%;
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.footerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footerMain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footerSection h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accentColor);
+  margin-bottom: 1rem;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLink {
+  color: var(--textSecondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.footerLink:hover {
+  color: var(--accentColor);
+}
+
+.footerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerInfo p {
+  color: var(--textSecondary);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footerMeta {
+  font-size: 1rem;
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+  color: var(--textSecondary);
+}
+
+.footerBottom p {
+  margin: 0;
+}
+
+/* Bookmarklet Grid */
+.bookmarkletGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
