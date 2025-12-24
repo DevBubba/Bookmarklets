@@ -1,0 +1,255 @@
+/* About Page Styles */
+.aboutHero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  margin-top: 2rem;
+}
+
+.aboutHeroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--textPrimary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accentColor), var(--accentColorLight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.aboutHeroSubtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: var(--textSecondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.aboutTOC {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tocNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tocLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.875rem 1rem;
+  background-color: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 0.5rem;
+  color: var(--textPrimary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 3rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tocLink:hover {
+  background-color: rgba(34, 197, 94, 0.15);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.tocLink:active {
+  transform: translateY(0);
+}
+
+.aboutSection {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 100px;
+}
+
+.aboutContent {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.aboutSectionTitle {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--textPrimary);
+  margin-bottom: 2rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.aboutText {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--textSecondary);
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.01em;
+}
+
+.aboutText:last-child {
+  margin-bottom: 0;
+}
+
+.aboutText strong {
+  color: var(--accentColor);
+  font-weight: 600;
+}
+
+.aboutFeaturesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.audienceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin: 3rem 0;
+}
+
+.featureItem {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+
+.featureCheck {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  background-color: var(--accentColor);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.125rem;
+}
+
+.featureCheck svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  stroke-width: 3;
+}
+
+.featureContent {
+  flex: 1;
+}
+
+.featureContent h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--textPrimary);
+  margin-bottom: 0.625rem;
+  margin-top: 0;
+}
+
+.featureContent p {
+  color: var(--textSecondary);
+  line-height: 1.75;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.safetyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.creatorSection {
+  margin-top: 2rem;
+}
+
+.creatorIntro {
+  margin-bottom: 2rem;
+}
+
+.creatorStory,
+.creatorPassions,
+.creatorInterests,
+.creatorMilestone {
+  margin-bottom: 2.5rem;
+}
+
+.creatorSection h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accentColor);
+  margin-bottom: 1rem;
+}
+
+.creatorLinks {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.aboutMain h3 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accentColor);
+}
+
+.aboutMain h3:first-child {
+  margin-top: 0;
+}
+
+.aboutMain p {
+  font-size: 1.125rem;
+  color: var(--textSecondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.aboutMain ul,
+.aboutMain ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--textSecondary);
+  line-height: 1.8;
+}
+
+.aboutMain li {
+  margin-bottom: 0.75rem;
+}
+
+.featureList {
+  list-style: none;
+  margin-left: 0;
+}
+
+.featureList li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.featureList li:last-child {
+  border-bottom: none;
+}
+
+.featureList strong {
+  color: var(--textPrimary);
+}
+

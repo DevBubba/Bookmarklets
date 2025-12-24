@@ -1,0 +1,53 @@
+/* Report Issue Page Styles */
+.reportIssueSection {
+  margin-top: 4rem;
+}
+
+.reportIssueContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reportIssueMain h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--accentColor);
+}
+
+.reportIssueMain h4 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--textPrimary);
+}
+
+.reportIssueMain p {
+  font-size: 1.125rem;
+  color: var(--textSecondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.reportIssueMain ol,
+.reportIssueMain ul {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--textSecondary);
+  line-height: 1.8;
+}
+
+.reportIssueMain li {
+  margin-bottom: 0.75rem;
+}
+
+.reportIssueMain strong {
+  color: var(--textPrimary);
+}
+
+.issueCategories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+

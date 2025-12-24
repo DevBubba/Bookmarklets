@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Report an Issue - DevBubba's Bookmarklet Collection">
+  <title>Report an Issue - DevBubba's Bookmarklet Collection</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div id="backgroundAnimation" class="backgroundAnimation"></div>
+
+  <!-- Header -->
+  <header class="siteHeader" id="siteHeader">
+    <div class="headerContent">
+      <div class="logoTitleContainer">
+        <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="logoLink">
+          <div class="siteLogo">
+            <img src="./assets/logo/logo.png" alt="" width="48" height="48" style="display: block;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="8" fill="url(#logoGradient)"/>
+              <path d="M20 10L26 18H14L20 10Z" fill="white" stroke="white" stroke-width="0.5"/>
+              <path d="M12 20L20 30L28 20H12Z" fill="white" stroke="white" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </a>
+        <span class="siteTitle">DevBubba's Bookmarklets</span>
+      </div>
+      <nav class="mainNav">
+        <a href="./index.html" class="navLink">Home</a>
+        <a href="./browse.html" class="navLink">Browse</a>
+        <a href="./about.html" class="navLink">About</a>
+        <a href="./help.html" class="navLink">Help & Support</a>
+        <a href="./request.html" class="navLink">Request</a>
+        <a href="./reportIssue.html" class="navLink active">Report Issue</a>
+        <a href="./contact.html" class="navLink">Contact</a>
+      </nav>
+      <div class="headerActions">
+        <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="./signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./login.html" class="authButton">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mainContent">
+    <!-- Report Issue Hero Section -->
+    <section class="aboutHero section">
+      <div class="sectionContent">
+        <h1 class="aboutHeroTitle">Report an Issue</h1>
+        <p class="aboutHeroSubtitle">Help us improve by reporting bugs, issues, or suggesting new features</p>
+      </div>
+    </section>
+
+    <!-- Report Issue Type Selection -->
+    <section class="aboutSection section" id="report-issue-form">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Report an Issue</h2>
+          <p class="aboutText">
+            Choose the type of issue you're reporting below and fill out the form to submit your report.
+          </p>
+          
+          <div class="safetyGrid" style="margin-top: 2rem;">
+            <a href="#report-site" class="safetyCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="showReportForm('site'); return false;">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3>Website Problem</h3>
+              <p>Report issues with the website itself, such as broken links, display problems, navigation issues, or functionality problems.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Report Website Issue →</p>
+            </a>
+            
+            <a href="#report-bookmarklet" class="safetyCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="showReportForm('bookmarklet'); return false;">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Bookmarklet Issue</h3>
+              <p>Report problems with a specific bookmarklet, such as it not working, producing errors, or unexpected behavior.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Report Bookmarklet Issue →</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Issue Form Section (Hidden by default) -->
+    <section id="report-issue-form-section" class="aboutSection section" style="display: none;">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle" id="reportFormTitle">Submit Your Issue Report</h2>
+          <p class="aboutText" id="reportFormDescription">
+            Fill out the form below to report your issue.
+          </p>
+          
+          <form id="reportIssueForm" style="margin: 2rem auto 0; max-width: 700px;">
+            <input type="hidden" id="issueType" name="issueType" value="">
+            
+            <div id="bookmarkletSelectField" style="margin-bottom: 1.5rem; display: none;">
+              <label for="bookmarkletSelect" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Bookmarklet <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="bookmarkletSelect" name="bookmarklet" placeholder="Enter bookmarklet name..." style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-size: 0.875rem;">Which bookmarklet is having the issue?</p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="reportEmail" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Email Address <span style="color: var(--accentColor);">*</span></label>
+              <input type="email" id="reportEmail" name="email" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="your.email@example.com" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="reportUsername" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Username <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="reportUsername" name="username" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Your GitHub username or preferred handle" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="issueTitle" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Issue Title <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="issueTitle" name="title" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Brief description of the issue" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="issueDescription" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Issue Description <span style="color: var(--accentColor);">*</span></label>
+              <textarea id="issueDescription" name="description" required rows="6" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Describe the issue in detail. What happened? What did you expect to happen?" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'"></textarea>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="stepsToReproduce" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Steps to Reproduce (Optional)</label>
+              <textarea id="stepsToReproduce" name="stepsToReproduce" rows="4" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; box-sizing: border-box;" placeholder="1. Go to...&#10;2. Click...&#10;3. Observe..." onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'"></textarea>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="browserInfo" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Browser & System Information (Optional)</label>
+              <input type="text" id="browserInfo" name="browserInfo" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="e.g., Chrome 120.0.6099.129 on Windows 11" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button type="submit" style="flex: 1; min-width: 200px; padding: 1rem 2rem; background: var(--accentColor); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onmouseover="this.style.background='var(--accentColorLight)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accentColor)'; this.style.transform='translateY(0)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <line x1="9" y1="10" x2="15" y2="10"></line>
+                  <line x1="12" y1="7" x2="12" y2="13"></line>
+                </svg>
+                Submit Report
+              </button>
+              <button type="button" onclick="showReportForm('')" style="padding: 1rem 2rem; background: rgba(30, 41, 59, 0.5); color: var(--textPrimary); border: 1px solid var(--borderColor); border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(30, 41, 59, 0.7)'; this.style.borderColor='var(--accentColor)'" onmouseout="this.style.background='rgba(30, 41, 59, 0.5)'; this.style.borderColor='var(--borderColor)'">
+                Back
+              </button>
+            </div>
+            
+            <div id="reportIssueFormMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 0.5rem; display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="aboutTOC section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Table of Contents</h2>
+          <nav class="tocNav">
+            <a href="#report-issue-form" class="tocLink" style="color: var(--accentColor); font-weight: 600;">Report an Issue (Form)</a>
+            <a href="#before-reporting" class="tocLink">Before Reporting</a>
+            <a href="#bookmarklet-issues" class="tocLink">Bookmarklet Issues</a>
+            <a href="#website-issues" class="tocLink">Website Issues</a>
+            <a href="#what-to-include" class="tocLink">What to Include</a>
+            <a href="#issue-categories" class="tocLink">Issue Categories</a>
+            <a href="#how-to-report" class="tocLink">How to Report</a>
+            <a href="#need-help" class="tocLink">Need Help?</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before Reporting -->
+    <section id="before-reporting" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Before Reporting</h2>
+          <p class="aboutText">
+            Before submitting a new issue, please take a moment to check if your problem has already been reported or if there's a solution available. 
+            When you're ready, <a href="#report-issue-form" style="color: var(--accentColor); font-weight: 600;">use the report form at the top of this page</a> to submit your issue.
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Check Existing Issues</h4>
+                <p>Before reporting, check if someone has already reported a similar problem. You can view existing reports to see if your issue matches any that are already being tracked.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Check Help & Support</h4>
+                <p>Many common issues and questions are answered in our <a href="./help.html" style="color: var(--accentColor);">Help & Support</a> page. Check the FAQ section and troubleshooting guide before reporting.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Verify the Issue</h4>
+                <p>Make sure you can reproduce the issue consistently. Try refreshing the page, clearing your cache, or testing in a different browser to rule out temporary problems.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Gather Information</h4>
+                <p>Collect relevant details about your issue: browser version, operating system, steps to reproduce, error messages, and screenshots. This helps us fix issues faster.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bookmarklet Issues -->
+    <section id="bookmarklet-issues" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Reporting Bookmarklet Issues</h2>
+          <p class="aboutText">
+            If you encounter problems with a specific bookmarklet, follow these steps to report the issue effectively. 
+            You can also <a href="#report-issue-form" style="color: var(--accentColor); font-weight: 600;">report a bookmarklet issue using the form at the top of this page</a>.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Where to Report</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>On the Website</h3>
+              <p>If the bookmarklet has a detail page, use the "Report Bug" button on that page. This automatically includes the bookmarklet name in your report.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </div>
+              <h3>GitHub Issues</h3>
+              <p>You can view and track existing issues on our <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">GitHub Issues</a> page to see what's already been reported.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <line x1="9" y1="10" x2="15" y2="10"></line>
+                </svg>
+              </div>
+              <h3>Discord Community</h3>
+              <p>For quick questions or to discuss issues with other users, visit our <a href="https://discord.gg/6qAvAephsW" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">Discord server</a>.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h3>Email Support</h3>
+              <p>For sensitive issues or if you prefer email, use our <a href="./contact.html" style="color: var(--accentColor);">Contact page</a> to send us a message directly. Fill out the form and we'll get back to you.</p>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">What to Report</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Bookmarklet Not Working</h4>
+                <p>If a bookmarklet doesn't execute, produces errors, or fails to perform its intended function. Include the bookmarklet name, what you expected it to do, and what actually happened.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Browser Compatibility Issues</h4>
+                <p>If a bookmarklet works in some browsers but not others, or behaves differently across browsers. Specify which browsers work and which don't.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Website-Specific Problems</h4>
+                <p>If a bookmarklet works on some websites but not others. Include the URL of the problematic website and any error messages from the browser console.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Performance Issues</h4>
+                <p>If a bookmarklet is slow, causes the page to freeze, or uses excessive resources. Describe the performance problem and when it occurs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Website Issues -->
+    <section id="website-issues" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Reporting Website Issues</h2>
+          <p class="aboutText">
+            Issues with the website itself (navigation, display, functionality, broken links, etc.) should be reported separately from bookmarklet issues. 
+            You can <a href="#report-issue-form" style="color: var(--accentColor); font-weight: 600;">report a website issue using the form at the top of this page</a>.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Common Website Issues</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <h3>Broken Links</h3>
+              <p>Links that don't work, redirect incorrectly, or lead to 404 pages. Include the page where you found the link and where it should go.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3>Display Problems</h3>
+              <p>Layout issues, text overflow, misaligned elements, or responsive design problems. Specify your screen size and browser.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h3>Functionality Issues</h3>
+              <p>Buttons that don't work, forms that don't submit, search that doesn't function, or features that are broken. Describe what should happen vs. what actually happens.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Security Concerns</h3>
+              <p>Security vulnerabilities, privacy issues, or suspicious behavior. Please report these responsibly and avoid publicly disclosing security issues.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3>Performance Problems</h3>
+              <p>Slow page loads, unresponsive pages, or excessive resource usage. Include information about your connection speed and device.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Content Errors</h3>
+              <p>Typos, incorrect information, outdated content, or missing documentation. Specify the page and section where the error appears.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to Include -->
+    <section id="what-to-include" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What Information to Include</h2>
+          <p class="aboutText">
+            Providing complete and accurate information helps us understand and fix issues faster. Here's what to include in your report.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Essential Information</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">1</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Clear Description</h4>
+                <p><strong>What happened?</strong> Describe the issue in detail. What did you expect to happen? What actually happened? Be specific and include any error messages you saw.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">2</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Steps to Reproduce</h4>
+                <p><strong>How can we recreate it?</strong> Provide step-by-step instructions to reproduce the issue. Number each step clearly. If the issue is intermittent, note that and describe when it occurs.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">3</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Browser & System Info</h4>
+                <p><strong>Environment details:</strong> Include your browser name and version (e.g., Chrome 120.0.6099.129), operating system (e.g., Windows 11, macOS 14.2, Ubuntu 22.04), and device type (desktop, mobile, tablet).</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">4</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Screenshots or Screen Recordings</h4>
+                <p><strong>Visual evidence:</strong> Screenshots help us understand the issue quickly. Include screenshots of error messages, broken layouts, or unexpected behavior. For complex interactions, a short screen recording can be invaluable.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">5</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Console Errors</h4>
+                <p><strong>Error messages:</strong> Open your browser's developer console (F12) and check for any error messages. Copy and paste relevant errors, warnings, or stack traces. This is especially important for JavaScript-related issues.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">6</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Additional Context</h4>
+                <p><strong>Extra information:</strong> Include any other relevant details: URLs where the issue occurs, whether it happens consistently or intermittently, what you were trying to accomplish, and any workarounds you've found.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">For Bookmarklet Issues Specifically</h3>
+          
+          <div class="safetyGrid" style="margin-top: 1.5rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Bookmarklet Name</h3>
+              <p>Clearly state which bookmarklet is having the issue. Include the exact name as it appears on the website.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+              </div>
+              <h3>Website URL</h3>
+              <p>Include the URL of the website where you're using the bookmarklet. Some bookmarklets are designed for specific sites.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+              <h3>Expected vs. Actual</h3>
+              <p>Describe what the bookmarklet should do and what it actually does. Include any error messages or unexpected behavior.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Timing & Frequency</h3>
+              <p>Note when the issue occurs (immediately, after delay, randomly) and how often (always, sometimes, rarely). This helps identify patterns and root causes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Issue Categories -->
+    <section id="issue-categories" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Issue Categories</h2>
+          <p class="aboutText">
+            Understanding different types of issues helps us prioritize and route them to the right team members. Choose the appropriate category when reporting.
+          </p>
+          
+          <div class="safetyGrid" style="margin-top: 2rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3>Bug Report</h3>
+              <p><strong>Something isn't working as expected.</strong> Use this for broken functionality, errors, crashes, or behavior that doesn't match the description. Include steps to reproduce and expected vs. actual results.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Feature Request</h3>
+              <p><strong>Suggest a new feature or improvement.</strong> Use this to propose new bookmarklets, website features, or enhancements to existing functionality. Explain the use case and benefits.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Documentation</h3>
+              <p><strong>Report documentation errors or improvements.</strong> Use this for typos, unclear instructions, missing information, or suggestions to improve our documentation and help pages.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Security</h3>
+              <p><strong>Report security vulnerabilities responsibly.</strong> Use this for security issues, privacy concerns, or vulnerabilities. Please report these privately and avoid public disclosure until they're fixed.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <h3>Performance</h3>
+              <p><strong>Report performance issues.</strong> Use this for slow loading, high resource usage, or optimization opportunities. Include performance metrics if available.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3>UI/UX</h3>
+              <p><strong>Report design or usability issues.</strong> Use this for layout problems, accessibility issues, confusing interfaces, or design improvements. Include screenshots showing the problem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Report -->
+    <section id="how-to-report" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">How to Report</h2>
+          <p class="aboutText">
+            Follow these steps to submit your issue report effectively. The more information you provide, the faster we can address it.
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">1</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Choose Your Reporting Method</h4>
+                <p><strong>Website:</strong> Use the "Report Bug" button on bookmarklet detail pages for bookmarklet-specific issues, or <a href="#report-issue-form" style="color: var(--accentColor); font-weight: 600;">use the report form at the top of this page</a>. <strong>Discord:</strong> For quick questions or community discussion, visit our <a href="https://discord.gg/6qAvAephsW" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">Discord server</a>.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">2</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Select the Appropriate Issue Type</h4>
+                <p>When using the report form, choose whether you're reporting a website problem or a bookmarklet issue. This helps us route your report to the right team.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">3</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Write a Clear Title</h4>
+                <p>Use a descriptive title that summarizes the issue. For bookmarklet issues, include the bookmarklet name. Examples: "Dark Mode Toggle not working on GitHub" or "Broken link on Browse page - Category filter".</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">4</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Fill Out All Required Information</h4>
+                <p>Provide a detailed description, steps to reproduce, expected vs. actual behavior, browser and OS information, screenshots, and any error messages. The more complete your report, the faster we can fix it.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">5</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Provide Complete Information</h4>
+                <p>Make sure to fill out all required fields in the form, including the issue type, description, and any steps to reproduce. This helps us categorize and prioritize issues.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <strong style="font-size: 1.25rem;">6</strong>
+              </span>
+              <div class="featureContent">
+                <h4>Submit and Follow Up</h4>
+                <p>Submit your issue through the form and be patient. We review all reports, but it may take time depending on the complexity. We'll get back to you via email if we need additional information.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 3rem; padding: 2rem; background: rgba(30, 41, 59, 0.3); border-radius: 1rem; border: 1px solid var(--borderColor);">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary);">Ready to Report?</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--textSecondary);">
+              <a href="#report-issue-form" style="color: var(--accentColor); font-weight: 600; font-size: 1.1rem;">Use the report form at the top of this page</a> to submit your issue. Make sure you've gathered all the necessary information first.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need Help? -->
+    <section id="need-help" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Need Help Before Reporting?</h2>
+          <p class="aboutText">
+            Not sure if you've found a bug, or need help with something else? Check out these resources first.
+          </p>
+          
+          <div class="supportResources" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <a href="./help.html" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Help & Support</h3>
+              <p>Visit our comprehensive Help & Support page for FAQs, troubleshooting guides, installation instructions, and detailed documentation.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Get Help →</p>
+            </a>
+            
+            <a href="https://discord.gg/6qAvAephsW" target="_blank" rel="noopener noreferrer" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418z"/>
+                </svg>
+              </div>
+              <h3>Discord Community</h3>
+              <p>Join our Discord server to ask questions, get real-time help, discuss issues with other users, and connect with the community.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Join Discord →</p>
+            </a>
+            
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>GitHub Discussions</h3>
+              <p>Participate in GitHub Discussions to ask questions, share ideas, get help from the community, and see what others are working on.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Join Discussion →</p>
+            </a>
+            
+            <a href="./contact.html" class="supportCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+              <div class="safetyIcon" style="margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h3>Contact Us</h3>
+              <p>Send us a direct message through our Contact page. Perfect for general inquiries, questions, or if you prefer email communication.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Contact Us →</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="footerContent">
+      <div class="footerMain">
+        <div class="footerSection">
+          <h4>Legal</h4>
+          <div class="footerLinks">
+            <a href="./license.html" class="footerLink">License</a>
+            <a href="#privacy" class="footerLink">Privacy Policy</a>
+            <a href="#terms" class="footerLink">Terms of Service</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Resources</h4>
+          <div class="footerLinks">
+            <a href="./about.html" class="footerLink">About</a>
+            <a href="./browse.html" class="footerLink">Browse</a>
+            <a href="./help.html" class="footerLink">Help & Support</a>
+            <a href="./request.html" class="footerLink">Request</a>
+            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./contact.html" class="footerLink">Contact</a>
+            <a href="./changelog.html" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>GitHub</h4>
+          <div class="footerLinks">
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="footerLink">Repository</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="footerLink">Issues</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink">Commits</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink" id="lastCommitLink">Latest Commit</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="footerLink">Discussions</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Info</h4>
+          <div class="footerInfo">
+            <p>Made with ❤️💻 by <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="footerLink">DevBubba</a></p>
+            <p class="footerMeta">Version: 1.0.0</p>
+            <p class="footerMeta">Latest Commit: <span id="lastCommit">Loading...</span></p>
+            <p class="footerMeta">License: CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>&copy; 2024 DevBubba's Bookmarklet Collection. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    // Make function available immediately
+    window.showReportForm = function(type) {
+      const selectionSection = document.getElementById('report-issue-form');
+      const formSection = document.getElementById('report-issue-form-section');
+      
+      if (!selectionSection || !formSection) {
+        console.error('Report form sections not found');
+        return;
+      }
+      
+      const bookmarkletField = document.getElementById('bookmarkletSelectField');
+      const bookmarkletInput = document.getElementById('bookmarkletSelect');
+      const issueTypeInput = document.getElementById('issueType');
+      const formTitle = document.getElementById('reportFormTitle');
+      const formDescription = document.getElementById('reportFormDescription');
+      
+      if (!type) {
+        // Show selection, hide form
+        selectionSection.style.display = 'block';
+        formSection.style.display = 'none';
+        if (document.getElementById('reportIssueForm')) {
+          document.getElementById('reportIssueForm').reset();
+        }
+        if (bookmarkletField) bookmarkletField.style.display = 'none';
+        if (bookmarkletInput) bookmarkletInput.required = false;
+        return;
+      }
+      
+      // Hide selection, show form
+      selectionSection.style.display = 'none';
+      formSection.style.display = 'block';
+      if (issueTypeInput) issueTypeInput.value = type;
+      
+      if (type === 'bookmarklet') {
+        if (bookmarkletField) bookmarkletField.style.display = 'block';
+        if (bookmarkletInput) bookmarkletInput.required = true;
+        if (formTitle) formTitle.textContent = 'Report a Bookmarklet Issue';
+        if (formDescription) formDescription.textContent = 'Fill out the form below to report an issue with a bookmarklet.';
+      } else {
+        if (bookmarkletField) bookmarkletField.style.display = 'none';
+        if (bookmarkletInput) {
+          bookmarkletInput.required = false;
+          bookmarkletInput.value = '';
+        }
+        if (formTitle) formTitle.textContent = 'Report a Website Issue';
+        if (formDescription) formDescription.textContent = 'Fill out the form below to report an issue with the website.';
+      }
+      
+      // Scroll to form with fast smooth scroll
+      requestAnimationFrame(() => {
+        const targetY = formSection.offsetTop - 100;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      });
+    }
+    
+    document.getElementById('reportIssueForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const messageDiv = document.getElementById('reportIssueFormMessage');
+      const issueType = document.getElementById('issueType').value;
+      
+      // Validate bookmarklet selection if bookmarklet issue
+      if (issueType === 'bookmarklet' && !document.getElementById('bookmarkletSelect').value.trim()) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+        messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+        messageDiv.style.color = '#ef4444';
+        messageDiv.innerHTML = '<strong>✗</strong> Please enter the bookmarklet name.';
+        return;
+      }
+      
+      messageDiv.style.display = 'block';
+      messageDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+      messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+      messageDiv.style.color = '#ef4444';
+      messageDiv.innerHTML = '<strong>✗</strong> Backend not yet implemented. Your report has been saved locally. We will process it once the backend is ready.';
+    });
+  </script>
+</body>
+</html>
+

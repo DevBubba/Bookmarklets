@@ -1,0 +1,418 @@
+/* Button Components */
+.authButton {
+  padding: 0.625rem 1.25rem;
+  border: 1.5px solid var(--borderColor);
+  background-color: var(--cardBg);
+  color: var(--textPrimary);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none !important;
+  box-sizing: border-box;
+  white-space: nowrap;
+  line-height: 1.2;
+  vertical-align: middle;
+  position: relative;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.authButton::after,
+.authButton::before {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.authButton:link,
+.authButton:visited,
+.authButton:active,
+.authButton:focus {
+  text-decoration: none !important;
+  color: var(--textPrimary);
+  outline: none;
+}
+
+.authButton.secondary {
+  background-color: transparent;
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.authButton.secondary:link,
+.authButton.secondary:visited,
+.authButton.secondary:active,
+.authButton.secondary:focus {
+  color: var(--accentColor);
+  text-decoration: none !important;
+}
+
+.authButton:hover {
+  background-color: var(--accentColor);
+  color: white !important;
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+  box-shadow: var(--shadowHover);
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.authButton.secondary:hover {
+  background-color: var(--accentColor);
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.browseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--accentColor);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
+
+.browseButton span {
+  display: inline-block;
+  line-height: 1;
+}
+
+.browseButton:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadowHover);
+}
+
+.browseButton svg {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.browseButton:hover svg {
+  transform: translateX(4px);
+}
+
+.browseButtonContainer {
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.searchButtonEnhanced {
+  padding: 0.75rem 1.75rem;
+  background-color: var(--accentColor);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.searchButtonEnhanced:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.3);
+}
+
+.browseSearchButton {
+  padding: 0.75rem 1.75rem;
+  background-color: var(--accentColor);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.browseSearchButton:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.3);
+}
+
+.spotlightButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--accentColor);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.spotlightButton:hover {
+  background: var(--accentColorLight);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+.spotlightButton:active {
+  transform: translateY(0);
+}
+
+.spotlightButton svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.spotlightButton:hover svg {
+  transform: rotate(180deg);
+}
+
+.ctaButton {
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.ctaButton.primary {
+  background-color: var(--accentColor);
+  color: white;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.ctaButton.primary:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.4);
+}
+
+.ctaButton.secondary {
+  background-color: transparent;
+  color: var(--accentColor);
+  border: 2px solid var(--accentColor);
+}
+
+.ctaButton.secondary:hover {
+  background-color: var(--accentColor);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.creatorLink {
+  display: inline-block;
+  margin: 0 1rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--accentColor);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.creatorLink:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.githubActionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background-color: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--textPrimary);
+  border: 2px solid rgba(71, 85, 105, 0.3);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
+
+.githubActionButton.primary {
+  background-color: var(--accentColor);
+  color: white;
+  border-color: var(--accentColor);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.githubActionButton:hover {
+  background-color: var(--accentColor);
+  color: white;
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+  box-shadow: var(--shadowHover);
+}
+
+.githubActionButton.primary:hover {
+  background-color: var(--accentColorDark);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+  transform: translateY(-3px);
+}
+
+.githubActionButton svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.githubActionButton svg[fill="currentColor"] {
+  fill: currentColor;
+  stroke: none;
+}
+
+.githubActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.contributeButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background-color: var(--accentColor);
+  color: white;
+  border: 2px solid var(--accentColor);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
+
+.contributeButton:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadowHover);
+}
+
+.contributeButton.secondary {
+  background-color: transparent;
+  color: var(--accentColor);
+}
+
+.contributeButton.secondary:hover {
+  background-color: var(--accentColor);
+  color: white;
+}
+
+.contributeButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contributeActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.reportButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background-color: var(--accentColor);
+  color: white;
+  border: 2px solid var(--accentColor);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
+
+.reportButton:hover {
+  background-color: var(--accentColorDark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadowHover);
+}
+
+.reportButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.reportActions {
+  margin-top: 2rem;
+}
+
+.sortDirectionButton {
+  padding: 0.75rem;
+  border: 1.5px solid rgba(71, 85, 105, 0.3);
+  background-color: rgba(30, 41, 59, 0.6);
+  color: var(--textPrimary);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.sortDirectionButton:hover {
+  background-color: var(--accentColor);
+  color: white;
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+.sortDirectionButton svg {
+  transition: transform 0.3s ease;
+}
+
+.sortDirectionButton.desc svg {
+  transform: rotate(180deg);
+}
+

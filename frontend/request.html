@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Make a Request - DevBubba's Bookmarklet Collection">
+  <title>Make a Request - DevBubba's Bookmarklet Collection</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div id="backgroundAnimation" class="backgroundAnimation"></div>
+
+  <!-- Header -->
+  <header class="siteHeader" id="siteHeader">
+    <div class="headerContent">
+      <div class="logoTitleContainer">
+        <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="logoLink">
+          <div class="siteLogo">
+            <img src="./assets/logo/logo.png" alt="" width="48" height="48" style="display: block;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="8" fill="url(#logoGradient)"/>
+              <path d="M20 10L26 18H14L20 10Z" fill="white" stroke="white" stroke-width="0.5"/>
+              <path d="M12 20L20 30L28 20H12Z" fill="white" stroke="white" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </a>
+        <span class="siteTitle">DevBubba's Bookmarklets</span>
+      </div>
+      <nav class="mainNav">
+        <a href="./index.html" class="navLink">Home</a>
+        <a href="./browse.html" class="navLink">Browse</a>
+        <a href="./about.html" class="navLink">About</a>
+        <a href="./help.html" class="navLink">Help & Support</a>
+        <a href="./request.html" class="navLink active">Request</a>
+        <a href="./reportIssue.html" class="navLink">Report Issue</a>
+        <a href="./contact.html" class="navLink">Contact</a>
+      </nav>
+      <div class="headerActions">
+        <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="./signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./login.html" class="authButton">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mainContent">
+    <!-- Request Hero Section -->
+    <section class="aboutHero section">
+      <div class="sectionContent">
+        <h1 class="aboutHeroTitle">Make a Request</h1>
+        <p class="aboutHeroSubtitle">Request a new site feature or bookmarklet</p>
+      </div>
+    </section>
+
+    <!-- Request Type Selection -->
+    <section id="request-form" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What would you like to request?</h2>
+          <p class="aboutText">
+            Choose the type of request you'd like to make. You can request a new site feature to improve the website, 
+            or request a new bookmarklet to be added to our collection.
+          </p>
+          
+          <div class="safetyGrid" style="margin-top: 2rem;">
+            <a href="#request-feature" class="safetyCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="showRequestForm('feature'); return false;">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Request a Site Feature</h3>
+              <p>Suggest a new feature to improve the website, such as better search, navigation improvements, or new functionality.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Request Feature →</p>
+            </a>
+            
+            <a href="#request-bookmarklet" class="safetyCard" style="text-decoration: none; display: block; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="showRequestForm('bookmarklet'); return false;">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Request a Bookmarklet</h3>
+              <p>Suggest a new bookmarklet idea for our collection. Describe what it should do and how it would be useful.</p>
+              <p style="margin-top: 0.5rem; color: var(--textSecondary); font-weight: 500;">Request Bookmarklet →</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Feature Form -->
+    <section id="request-feature-form" class="aboutSection section" style="display: none;">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Request a Site Feature</h2>
+          <p class="aboutText">
+            Fill out the form below to request a new site feature. The more details you provide, the better we can understand your needs.
+          </p>
+          
+          <form id="requestFeatureForm" style="margin: 2rem auto 0; max-width: 700px;">
+            <div style="margin-bottom: 1.5rem;">
+              <label for="featureEmail" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Email Address <span style="color: var(--accentColor);">*</span></label>
+              <input type="email" id="featureEmail" name="email" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="your.email@example.com" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="featureUsername" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Username <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="featureUsername" name="username" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Your GitHub username or preferred handle" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="featureTitle" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Feature Title <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="featureTitle" name="title" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="e.g., Add dark mode toggle" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="featureCategory" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Feature Category <span style="color: var(--accentColor);">*</span></label>
+              <select id="featureCategory" name="category" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box; cursor: pointer;" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+                <option value="">Select a category...</option>
+                <option value="navigation">Navigation & UI</option>
+                <option value="search">Search & Filtering</option>
+                <option value="user-account">User Accounts & Profiles</option>
+                <option value="bookmarklet-management">Bookmarklet Management</option>
+                <option value="performance">Performance & Optimization</option>
+                <option value="accessibility">Accessibility</option>
+                <option value="mobile">Mobile Experience</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="featureDescription" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Feature Description <span style="color: var(--accentColor);">*</span></label>
+              <textarea id="featureDescription" name="description" required rows="6" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Describe the feature you'd like to see. What problem does it solve? How would it work?" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'"></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button type="submit" style="flex: 1; min-width: 200px; padding: 1rem 2rem; background: var(--accentColor); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onmouseover="this.style.background='var(--accentColorLight)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accentColor)'; this.style.transform='translateY(0)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                Submit Feature Request
+              </button>
+              <button type="button" onclick="showRequestForm('')" style="padding: 1rem 2rem; background: rgba(30, 41, 59, 0.5); color: var(--textPrimary); border: 1px solid var(--borderColor); border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(30, 41, 59, 0.7)'; this.style.borderColor='var(--accentColor)'" onmouseout="this.style.background='rgba(30, 41, 59, 0.5)'; this.style.borderColor='var(--borderColor)'">
+                Back
+              </button>
+            </div>
+            
+            <div id="requestFeatureFormMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 0.5rem; display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Bookmarklet Form -->
+    <section id="request-bookmarklet-form" class="aboutSection section" style="display: none;">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Request a Bookmarklet</h2>
+          <p class="aboutText">
+            Fill out the form below to request a new bookmarklet. Describe what it should do and how it would be useful.
+          </p>
+          
+          <form id="requestBookmarkletForm" style="margin: 2rem auto 0; max-width: 700px;">
+            <div style="margin-bottom: 1.5rem;">
+              <label for="bookmarkletEmail" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Email Address <span style="color: var(--accentColor);">*</span></label>
+              <input type="email" id="bookmarkletEmail" name="email" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="your.email@example.com" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="bookmarkletUsername" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Username <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="bookmarkletUsername" name="username" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Your GitHub username or preferred handle" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="bookmarkletName" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Bookmarklet Name <span style="color: var(--accentColor);">*</span></label>
+              <input type="text" id="bookmarkletName" name="name" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box;" placeholder="e.g., Dark Mode Toggle" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="bookmarkletCategory" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Category <span style="color: var(--accentColor);">*</span></label>
+              <select id="bookmarkletCategory" name="category" required style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box; cursor: pointer;" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'">
+                <option value="">Select a category...</option>
+                <option value="developer-tools">Developer Tools</option>
+                <option value="productivity">Productivity</option>
+                <option value="privacy-security">Privacy & Security</option>
+                <option value="automation">Automation</option>
+                <option value="utilities">Utilities</option>
+                <option value="visual-effects">Visual Effects</option>
+                <option value="games">Games</option>
+                <option value="hacks">Hacks</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="bookmarkletDescription" style="display: block; margin-bottom: 0.5rem; color: var(--textPrimary); font-weight: 600; font-size: 1rem;">Description <span style="color: var(--accentColor);">*</span></label>
+              <textarea id="bookmarkletDescription" name="description" required rows="6" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 41, 59, 0.3); border: 1px solid var(--borderColor); border-radius: 0.5rem; color: var(--textPrimary); font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; box-sizing: border-box;" placeholder="Describe what the bookmarklet should do. What problem does it solve? How would users interact with it?" onfocus="this.style.borderColor='var(--accentColor)'; this.style.background='rgba(30, 41, 59, 0.5)'" onblur="this.style.borderColor='var(--borderColor)'; this.style.background='rgba(30, 41, 59, 0.3)'"></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button type="submit" style="flex: 1; min-width: 200px; padding: 1rem 2rem; background: var(--accentColor); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onmouseover="this.style.background='var(--accentColorLight)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accentColor)'; this.style.transform='translateY(0)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                Submit Bookmarklet Request
+              </button>
+              <button type="button" onclick="showRequestForm('')" style="padding: 1rem 2rem; background: rgba(30, 41, 59, 0.5); color: var(--textPrimary); border: 1px solid var(--borderColor); border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(30, 41, 59, 0.7)'; this.style.borderColor='var(--accentColor)'" onmouseout="this.style.background='rgba(30, 41, 59, 0.5)'; this.style.borderColor='var(--borderColor)'">
+                Back
+              </button>
+            </div>
+            
+            <div id="requestBookmarkletFormMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 0.5rem; display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="aboutTOC section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Table of Contents</h2>
+          <nav class="tocNav">
+            <a href="#request-form" class="tocLink" style="color: var(--accentColor); font-weight: 600;">Make a Request (Form)</a>
+            <a href="#before-requesting" class="tocLink">Before Requesting</a>
+            <a href="#requesting-features" class="tocLink">Requesting Site Features</a>
+            <a href="#requesting-bookmarklets" class="tocLink">Requesting Bookmarklets</a>
+            <a href="#what-to-include" class="tocLink">What to Include</a>
+            <a href="#request-guidelines" class="tocLink">Request Guidelines</a>
+            <a href="#request-process" class="tocLink">Request Process</a>
+            <a href="#need-help" class="tocLink">Need Help?</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before Requesting -->
+    <section id="before-requesting" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Before Requesting</h2>
+          <p class="aboutText">
+            Before submitting a new request, please take a moment to check if your idea has already been suggested or if there's a similar feature or bookmarklet available. 
+            When you're ready, <a href="#request-form" style="color: var(--accentColor); font-weight: 600;">use the request form at the top of this page</a> to submit your request.
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Check Existing Requests</h4>
+                <p>Before requesting, check if someone has already suggested a similar feature or bookmarklet. You can view existing requests to see if your idea matches any that are already being considered.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Browse Existing Features</h4>
+                <p>Explore the website and browse our <a href="./browse.html" style="color: var(--accentColor);">bookmarklet collection</a> to see what's already available. Your idea might already exist in a different form.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Think About Use Cases</h4>
+                <p>Consider who would benefit from your request and how it would be used. The more clearly you can explain the use case, the better we can evaluate and implement your request.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Check Feasibility</h4>
+                <p>While we welcome all ideas, some requests may be more feasible than others. Consider technical constraints, browser limitations, and the scope of the request when formulating your idea.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requesting Site Features -->
+    <section id="requesting-features" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Requesting Site Features</h2>
+          <p class="aboutText">
+            Site features improve the website's functionality, user experience, and overall usability. 
+            You can also <a href="#request-form" style="color: var(--accentColor); font-weight: 600;">request a site feature using the form at the top of this page</a>.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Types of Site Features</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+              <h3>Navigation & UI</h3>
+              <p>Improvements to site navigation, layout, menus, search functionality, or overall user interface design.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3>User Accounts</h3>
+              <p>Features related to user accounts, profiles, authentication, preferences, or personalization options.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Bookmarklet Management</h3>
+              <p>Features for organizing, categorizing, filtering, or managing bookmarklets on the site.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+                </svg>
+              </div>
+              <h3>Performance</h3>
+              <p>Improvements to site speed, loading times, optimization, or resource usage.</p>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">What Makes a Good Feature Request</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Clear Problem Statement</h4>
+                <p>Explain what problem the feature would solve or what need it would address. Be specific about the current limitations or pain points.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Detailed Description</h4>
+                <p>Provide a clear, detailed description of how the feature would work, where it would appear, and how users would interact with it.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Use Cases</h4>
+                <p>Describe specific scenarios where the feature would be useful. Include examples of how different users might benefit from it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requesting Bookmarklets -->
+    <section id="requesting-bookmarklets" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Requesting Bookmarklets</h2>
+          <p class="aboutText">
+            Bookmarklets are small JavaScript programs that run in your browser to add functionality or modify web pages. 
+            You can also <a href="#request-form" style="color: var(--accentColor); font-weight: 600;">request a bookmarklet using the form at the top of this page</a>.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Types of Bookmarklets</h3>
+          
+          <div class="safetyGrid">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3>Developer Tools</h3>
+              <p>Debugging, inspection, and testing tools for developers.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <h3>Productivity</h3>
+              <p>Calculators, timers, notes, and text manipulation tools.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3>Privacy & Security</h3>
+              <p>Data clearing, bypass tools, and privacy helpers.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              </div>
+              <h3>Automation</h3>
+              <p>Auto-clicking, scrolling, and form filling tools.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3>Utilities</h3>
+              <p>Miscellaneous helpful tools and utilities.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3>Visual Effects</h3>
+              <p>Screen effects, animations, and visual modifications.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h3>Games</h3>
+              <p>Interactive games and entertainment to play on any website.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Hacks</h3>
+              <p>Educational platform mods and website workarounds.</p>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">What Makes a Good Bookmarklet Request</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Clear Purpose</h4>
+                <p>Explain what the bookmarklet should do and what problem it solves. Be specific about the functionality you want.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Use Cases</h4>
+                <p>Describe specific scenarios where the bookmarklet would be useful. Include examples of websites or situations where it would help.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Technical Considerations</h4>
+                <p>If you have technical knowledge, mention any browser compatibility requirements, security considerations, or implementation details.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to Include -->
+    <section id="what-to-include" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">What to Include in Your Request</h2>
+          <p class="aboutText">
+            Providing complete and detailed information helps us understand your request better and increases the chances of it being implemented. 
+            Make sure to include the following information when submitting your request.
+          </p>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Required Information</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Clear Title</h4>
+                <p>A concise, descriptive title that summarizes your request. For features, describe what you want. For bookmarklets, describe what it should do.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Detailed Description</h4>
+                <p>Explain your request in detail. What should it do? How should it work? What problem does it solve? The more detail, the better.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Use Cases</h4>
+                <p>Describe specific scenarios where your request would be useful. Who would use it? When would they use it? What benefit would it provide?</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Category</h4>
+                <p>Select the appropriate category for your request. This helps us organize and prioritize requests more effectively.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem; color: var(--textPrimary); border-bottom: 2px solid var(--borderColor); padding-bottom: 0.5rem;">Optional but Helpful</h3>
+          
+          <div class="featuresList" style="margin-top: 1.5rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: rgba(34, 197, 94, 0.2); color: var(--accentColor);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Visual Mockups</h4>
+                <p>If requesting a UI feature, sketches or mockups can help illustrate your vision. These don't need to be professional—simple drawings work too.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: rgba(34, 197, 94, 0.2); color: var(--accentColor);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Examples</h4>
+                <p>Links to similar features or bookmarklets on other websites can help us understand what you're looking for.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: rgba(34, 197, 94, 0.2); color: var(--accentColor);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Priority</h4>
+                <p>If your request addresses a critical need or would benefit many users, mention this in your description.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Guidelines -->
+    <section id="request-guidelines" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Request Guidelines</h2>
+          <p class="aboutText">
+            Following these guidelines helps ensure your request is clear, actionable, and has the best chance of being implemented.
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Be Specific</h4>
+                <p>Avoid vague requests like "make it better" or "add more features." Instead, describe exactly what you want and how it should work.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Focus on Functionality</h4>
+                <p>Explain what the request should do, not just what it should look like. Functionality is more important than aesthetics.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Consider Browser Compatibility</h4>
+                <p>If requesting a bookmarklet, consider that it should work across different browsers. Mention any specific browser requirements if necessary.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>Be Respectful</h4>
+                <p>Remember that implementing requests takes time and effort. Be patient and respectful in your communication. All requests are considered, but not all can be implemented immediately.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <div class="featureContent">
+                <h4>One Request Per Submission</h4>
+                <p>Submit one request at a time. If you have multiple ideas, create separate requests for each. This makes it easier to track, discuss, and implement individual requests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Process -->
+    <section id="request-process" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Request Process</h2>
+          <p class="aboutText">
+            Understanding how requests are processed helps set expectations and ensures you know what to expect after submitting your request.
+          </p>
+          
+          <div class="featuresList" style="margin-top: 2rem;">
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white; font-size: 1.2rem; font-weight: bold;">1</span>
+              <div class="featureContent">
+                <h4>Submission</h4>
+                <p>After you submit your request through the form, you'll receive a confirmation. Your request is then added to our queue for review.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white; font-size: 1.2rem; font-weight: bold;">2</span>
+              <div class="featureContent">
+                <h4>Review</h4>
+                <p>We review each request to assess its feasibility, alignment with our goals, and potential impact. This may take some time depending on the volume of requests.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white; font-size: 1.2rem; font-weight: bold;">3</span>
+              <div class="featureContent">
+                <h4>Discussion</h4>
+                <p>If we need clarification or have questions about your request, we may reach out via email. We may also discuss the request with the community to gather feedback.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white; font-size: 1.2rem; font-weight: bold;">4</span>
+              <div class="featureContent">
+                <h4>Implementation</h4>
+                <p>If approved, your request will be added to our development queue. Implementation time varies based on complexity, priority, and current workload.</p>
+              </div>
+            </div>
+            
+            <div class="featureItem">
+              <span class="featureCheck" style="background: var(--accentColor); color: white; font-size: 1.2rem; font-weight: bold;">5</span>
+              <div class="featureContent">
+                <h4>Notification</h4>
+                <p>Once implemented, you'll be notified via email (if provided) and the feature or bookmarklet will be available on the site.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 0.5rem;">
+            <p style="margin: 0; color: var(--textPrimary);">
+              <strong style="color: var(--accentColor);">Note:</strong> Not all requests can be implemented. Some may be declined due to technical limitations, scope, or alignment with project goals. However, all requests are carefully considered, and we appreciate every suggestion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need Help? -->
+    <section id="need-help" class="aboutSection section">
+      <div class="sectionContainerSubtle">
+        <div class="aboutContent">
+          <h2 class="aboutSectionTitle">Need Help?</h2>
+          <p class="aboutText">
+            If you have questions about making a request or need assistance with the request process, we're here to help.
+          </p>
+          
+          <div class="safetyGrid" style="margin-top: 2rem;">
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Check Help & Support</h3>
+              <p>Visit our <a href="./help.html" style="color: var(--accentColor);">Help & Support</a> page for answers to common questions and troubleshooting guides.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h3>Contact Us</h3>
+              <p>Use our <a href="./contact.html" style="color: var(--accentColor);">Contact page</a> to send us a message directly. We'll get back to you as soon as possible.</p>
+            </div>
+            
+            <div class="safetyCard">
+              <div class="safetyIcon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Discord Community</h3>
+              <p>Join our <a href="https://discord.gg/6qAvAephsW" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor);">Discord server</a> to discuss requests with other users and get community feedback.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="footerContent">
+      <div class="footerMain">
+        <div class="footerSection">
+          <h4>Legal</h4>
+          <div class="footerLinks">
+            <a href="./license.html" class="footerLink">License</a>
+            <a href="#privacy" class="footerLink">Privacy Policy</a>
+            <a href="#terms" class="footerLink">Terms of Service</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Resources</h4>
+          <div class="footerLinks">
+            <a href="./about.html" class="footerLink">About</a>
+            <a href="./browse.html" class="footerLink">Browse</a>
+            <a href="./help.html" class="footerLink">Help & Support</a>
+            <a href="./request.html" class="footerLink">Request</a>
+            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./contact.html" class="footerLink">Contact</a>
+            <a href="./changelog.html" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>GitHub</h4>
+          <div class="footerLinks">
+            <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="footerLink">Repository</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="footerLink">Issues</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink">Commits</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/commits/main" target="_blank" rel="noopener noreferrer" class="footerLink" id="lastCommitLink">Latest Commit</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/discussions" target="_blank" rel="noopener noreferrer" class="footerLink">Discussions</a>
+            <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footerLink">Changelog</a>
+          </div>
+        </div>
+        <div class="footerSection">
+          <h4>Info</h4>
+          <div class="footerInfo">
+            <p>Made with ❤️💻 by <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="footerLink">DevBubba</a></p>
+            <p class="footerMeta">Version: 1.0.0</p>
+            <p class="footerMeta">Latest Commit: <span id="lastCommit">Loading...</span></p>
+            <p class="footerMeta">License: CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>&copy; 2024 DevBubba's Bookmarklet Collection. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    function showRequestForm(type) {
+      // Hide selection cards
+      document.querySelector('.safetyGrid').parentElement.parentElement.style.display = type ? 'none' : 'block';
+      
+      // Hide both forms
+      document.getElementById('request-feature-form').style.display = 'none';
+      document.getElementById('request-bookmarklet-form').style.display = 'none';
+      
+      // Show selected form or selection
+      if (type === 'feature') {
+        document.getElementById('request-feature-form').style.display = 'block';
+        window.scrollTo({ top: document.getElementById('request-feature-form').offsetTop - 100, behavior: 'smooth' });
+      } else if (type === 'bookmarklet') {
+        document.getElementById('request-bookmarklet-form').style.display = 'block';
+        window.scrollTo({ top: document.getElementById('request-bookmarklet-form').offsetTop - 100, behavior: 'smooth' });
+      }
+    }
+    
+    // Form submission handlers
+    document.getElementById('requestFeatureForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const messageDiv = document.getElementById('requestFeatureFormMessage');
+      messageDiv.style.display = 'block';
+      messageDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+      messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+      messageDiv.style.color = '#ef4444';
+      messageDiv.innerHTML = '<strong>✗</strong> Backend not yet implemented. Please use GitHub Issues.';
+    });
+    
+    document.getElementById('requestBookmarkletForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const messageDiv = document.getElementById('requestBookmarkletFormMessage');
+      messageDiv.style.display = 'block';
+      messageDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+      messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+      messageDiv.style.color = '#ef4444';
+      messageDiv.innerHTML = '<strong>✗</strong> Backend not yet implemented. Please use GitHub Issues.';
+    });
+  </script>
+</body>
+</html>
+

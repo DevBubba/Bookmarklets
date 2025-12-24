@@ -1,0 +1,285 @@
+/* Header - Fixed positioning */
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(10, 15, 26, 0.65);
+  border-bottom: 1px solid var(--borderColor);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.siteHeader.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  background-color: rgba(10, 15, 26, 0.75);
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  min-height: 4rem;
+}
+
+.logoTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.siteLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(34, 197, 94, 0.3));
+}
+
+.siteLogo:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 4px 8px rgba(34, 197, 94, 0.5));
+}
+
+.siteLogo svg,
+.siteLogo img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.siteTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accentColor);
+  text-decoration: none;
+  margin: 0;
+  white-space: nowrap;
+  cursor: default;
+  pointer-events: none;
+}
+
+.mainNav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  color: var(--textPrimary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accentColor);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+}
+
+.navLink:hover {
+  color: var(--accentColor);
+}
+
+/* Dropdown Menu Styles */
+.navDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navDropdownButton {
+  color: var(--textPrimary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.navDropdownButton::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accentColor);
+  transition: width 0.3s ease;
+}
+
+.navDropdownButton:hover::after,
+.navDropdown.active .navDropdownButton::after {
+  width: 100%;
+}
+
+.navDropdownButton:hover,
+.navDropdown.active .navDropdownButton {
+  color: var(--accentColor);
+}
+
+.navDropdownButton svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.navDropdown.active .navDropdownButton svg {
+  transform: rotate(180deg);
+}
+
+.navDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--borderColor);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  padding: 0.5rem;
+}
+
+.navDropdown.active .navDropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navDropdownItem {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--textPrimary);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.navDropdownItem:hover {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--accentColor);
+  transform: translateX(4px);
+}
+
+.navDropdownItem:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 2.5rem;
+  height: auto;
+}
+
+.headerActions a {
+  text-decoration: none !important;
+}
+
+.headerActions .authButton,
+.headerActions .authButton:link,
+.headerActions .authButton:visited,
+.headerActions .authButton:hover,
+.headerActions .authButton:active,
+.headerActions .authButton:focus {
+  text-decoration: none !important;
+  text-underline-offset: 0 !important;
+  text-decoration-line: none !important;
+  text-decoration-style: none !important;
+  text-decoration-color: transparent !important;
+  text-underline-position: from-font !important;
+  -webkit-text-decoration: none !important;
+  -moz-text-decoration: none !important;
+  border-bottom: 1.5px solid var(--borderColor) !important;
+}
+
+.headerActions .authButton.secondary,
+.headerActions .authButton.secondary:link,
+.headerActions .authButton.secondary:visited,
+.headerActions .authButton.secondary:hover,
+.headerActions .authButton.secondary:active,
+.headerActions .authButton.secondary:focus {
+  border-bottom: 1.5px solid var(--accentColor) !important;
+}
+
+.githubHeaderLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+  color: var(--textPrimary);
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.githubHeaderLink:hover {
+  color: var(--accentColor);
+  background-color: rgba(34, 197, 94, 0.1);
+  transform: scale(1.1);
+}
+
+.githubHeaderLink svg {
+  width: 24px;
+  height: 24px;
+}
+
