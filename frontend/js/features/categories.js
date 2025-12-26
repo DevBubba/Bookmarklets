@@ -30,7 +30,7 @@ export function initializeCategories() {
     `;
     categoryCard.addEventListener('click', () => {
       // Navigate to browse page with category filter
-      const url = new URL('./browse.html', window.location.href);
+      const url = new URL('./pages/browse.html', window.location.href);
       url.searchParams.set('category', category.slug);
       window.location.href = url.toString();
     });

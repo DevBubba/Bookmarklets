@@ -20,6 +20,10 @@ export function initializeSecretAnimation() {
   logoLink.addEventListener('click', (e) => {
     const now = Date.now();
     
+    // Always prevent default to control navigation timing
+    e.preventDefault();
+    e.stopPropagation();
+    
     // Add current click time
     clickTimes.push(now);
     
@@ -34,43 +38,34 @@ export function initializeSecretAnimation() {
       // Verify all 3 clicks happened within the window
       const timeSpan = clickTimes[2] - clickTimes[0];
       if (timeSpan < TRIPLE_CLICK_WINDOW) {
-        e.preventDefault();
-        e.stopPropagation();
         clickTimes = [];
         triggerRickRoll();
         return false;
       }
     }
     
-    // If link opens in new tab, don't prevent default - let browser handle it normally
-    if (opensInNewTab) {
-      // For new tab links, only track clicks for triple-click detection
-      // Don't interfere with browser's default behavior at all
-      // Clear click tracking after a delay
-      navigationTimeout = setTimeout(() => {
-        clickTimes = [];
-      }, NAVIGATION_DELAY);
-      // Don't call preventDefault() - let the browser handle opening in new tab
-      // Just return without doing anything else
-      return; // Allow default behavior to proceed normally
-    }
-    
-    // For single/double clicks on same-tab links, navigate after a delay
+    // For single/double clicks, navigate after a delay
     // This allows us to detect if more clicks are coming
     const currentClickCount = clickTimes.length;
     navigationTimeout = setTimeout(() => {
       // Only navigate if no new clicks were added (not a triple click)
       if (clickTimes.length === currentClickCount && currentClickCount < 3) {
-        // Check if we're already on the target page
-        const currentPath = window.location.pathname;
-        const targetPath = new URL(href, window.location.href).pathname;
-        
-        if (currentPath === targetPath || currentPath.endsWith(targetPath)) {
-          // Already on home page - scroll to top
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Handle navigation based on whether it opens in new tab or not
+        if (opensInNewTab) {
+          // Open in new tab
+          window.open(href, '_blank', 'noopener,noreferrer');
         } else {
-          // Navigate to home page
-          window.location.href = href;
+          // Check if we're already on the target page
+          const currentPath = window.location.pathname;
+          const targetPath = new URL(href, window.location.href).pathname;
+          
+          if (currentPath === targetPath || currentPath.endsWith(targetPath)) {
+            // Already on home page - scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            // Navigate to target page
+            window.location.href = href;
+          }
         }
         clickTimes = [];
       } else if (clickTimes.length >= 3) {
@@ -79,8 +74,7 @@ export function initializeSecretAnimation() {
       }
     }, NAVIGATION_DELAY);
     
-    // Prevent default to control navigation timing (only for same-tab links)
-    e.preventDefault();
+    return false;
   });
 }
 

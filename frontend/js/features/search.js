@@ -17,12 +17,12 @@ export function initializeSearch() {
     const query = searchInput.value.trim().toLowerCase();
     if (query) {
       // Navigate to browse page with search query
-      const url = new URL('./browse.html', window.location.href);
+      const url = new URL('./pages/browse.html', window.location.href);
       url.searchParams.set('search', query);
       window.location.href = url.toString();
     } else {
       // Just navigate to browse page
-      window.location.href = './browse.html';
+      window.location.href = './pages/browse.html';
     }
   }
   

@@ -16,6 +16,7 @@
 @import url('./components/cards.css');
 @import url('./components/forms.css');
 @import url('./components/sections.css');
+@import url('./components/scrollArrow.css');
 
 /* Pages */
 @import url('./pages/home.css');

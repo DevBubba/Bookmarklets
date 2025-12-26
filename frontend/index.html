@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DevBubba's Bookmarklet Collection - The best collection of bookmarklets for developers, students, and power users">
   <title>DevBubba's Bookmarklet Collection</title>
+  <link rel="icon" type="image/png" href="./assets/logo/logo.png">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -34,13 +35,13 @@
         <span class="siteTitle">DevBubba's Bookmarklets</span>
       </div>
       <nav class="mainNav">
-        <a href="./index.html" class="navLink active">Home</a>
-        <a href="./browse.html" class="navLink">Browse</a>
-        <a href="./about.html" class="navLink">About</a>
-        <a href="./help.html" class="navLink">Help & Support</a>
-        <a href="./request.html" class="navLink">Request</a>
-        <a href="./reportIssue.html" class="navLink">Report Issue</a>
-        <a href="./contact.html" class="navLink">Contact</a>
+        <a href="../index.html" class="navLink active">Home</a>
+        <a href="./pages/browse.html" class="navLink">Browse</a>
+        <a href="./pages/about.html" class="navLink">About</a>
+        <a href="./pages/help.html" class="navLink">Help & Support</a>
+        <a href="./forms/request.html" class="navLink">Request</a>
+        <a href="./forms/reportIssue.html" class="navLink">Report Issue</a>
+        <a href="./pages/contact.html" class="navLink">Contact</a>
       </nav>
       <div class="headerActions">
         <a href="https://github.com/DevBubba/Bookmarklets" target="_blank" rel="noopener noreferrer" class="githubHeaderLink" aria-label="GitHub Repository">
@@ -48,11 +49,61 @@
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
         </a>
-        <a href="./signup.html" class="authButton secondary">Sign Up</a>
-        <a href="./login.html" class="authButton">Sign In</a>
+        <a href="./auth/signup.html" class="authButton secondary">Sign Up</a>
+        <a href="./auth/login.html" class="authButton">Sign In</a>
       </div>
     </div>
   </header>
+
+  <!-- Initialize header scroll immediately for better performance -->
+  <script>
+    (function() {
+      const siteHeader = document.getElementById('siteHeader');
+      if (!siteHeader) return;
+      
+      function updateHeaderState() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (scrollTop > 50) {
+          if (!siteHeader.classList.contains('scrolled')) {
+            siteHeader.classList.add('scrolled');
+          }
+        } else {
+          if (siteHeader.classList.contains('scrolled')) {
+            siteHeader.classList.remove('scrolled');
+          }
+        }
+      }
+      
+      // Check initial state immediately
+      updateHeaderState();
+      
+      // Use immediate synchronous updates for first few scrolls, then optimize
+      let scrollCount = 0;
+      let rafId = null;
+      
+      function handleScroll() {
+        scrollCount++;
+        
+        // For first 3 scrolls, update immediately (no RAF delay)
+        if (scrollCount <= 3) {
+          updateHeaderState();
+          return;
+        }
+        
+        // After initial scrolls, use RAF for performance
+        if (rafId === null) {
+          rafId = window.requestAnimationFrame(function() {
+            updateHeaderState();
+            rafId = null;
+          });
+        }
+      }
+      
+      // Add scroll listener with capture phase for earliest possible execution
+      window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
+      window.addEventListener('resize', updateHeaderState, { passive: true });
+    })();
+  </script>
 
   <!-- Main Content -->
   <main class="mainContent">
@@ -60,6 +111,9 @@
     <section id="homeSection" class="homeSection section fullViewportHero">
       <div class="heroSection">
           <h1 class="heroTitle animatedHeroTitle">DevBubba's Bookmarklet Collection</h1>
+          <p class="heroTagline animatedDescription" style="font-size: clamp(1.125rem, 2.5vw, 1.5rem); color: var(--accentColor); font-weight: 600; margin-bottom: 0.5rem;">
+            <span class="typewriterText"></span><span class="typewriterCursor">|</span>
+          </p>
           <p class="heroDescription animatedDescription">
             Discover the most powerful and useful bookmarklets for developers, students, and power users. 
             Our curated collection features over 75 carefully tested bookmarklets organized by category, 
@@ -155,14 +209,103 @@
 
           <!-- Browse Button -->
           <div class="browseButtonContainer">
-            <a href="./browse.html" class="browseButton">
+            <a href="./pages/browse.html" class="browseButton">
               <span>Browse All Bookmarklets</span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 3L13 10L7 17" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
             </a>
           </div>
         </div>
+        
+        <!-- Scroll Down Arrow -->
+        <div class="scrollDownArrow" id="scrollDownArrow" aria-label="Scroll down">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+    </section>
+
+    <!-- Featured Bookmarklets Section -->
+    <section class="featuredBookmarklets section">
+      <div class="sectionContent">
+        <div class="sectionHeader">
+          <h2 class="sectionTitle">Featured Bookmarklets</h2>
+        </div>
+        <div class="featuredCarouselWrapper">
+          <button class="carouselButton carouselButtonPrev" aria-label="Previous featured bookmarklet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="featuredCarousel">
+            <div class="featuredCarouselTrack" id="featuredCarouselTrack">
+              <div class="featuredCard">
+                <div class="featuredIcon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h3>Page Editor</h3>
+                <p>Edit any webpage in real-time. Perfect for testing designs, debugging layouts, or making quick changes.</p>
+                <div class="featuredBadge">Most Popular</div>
+              </div>
+              <div class="featuredCard">
+                <div class="featuredIcon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </div>
+                <h3>Simple Dark Mode</h3>
+                <p>Instantly apply dark mode to any website. Easy on the eyes and perfect for late-night browsing.</p>
+                <div class="featuredBadge">Developer Favorite</div>
+              </div>
+              <div class="featuredCard">
+                <div class="featuredIcon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <h3>Auto Clicker</h3>
+                <p>Automate repetitive clicking tasks. Save time on repetitive actions across any website.</p>
+                <div class="featuredBadge">Time Saver</div>
+              </div>
+              <div class="featuredCard">
+                <div class="featuredIcon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h3>Privacy Cleaner</h3>
+                <p>Clear cookies, localStorage, and sessionStorage with a single click. Keep your browsing private.</p>
+                <div class="featuredBadge">Privacy Tool</div>
+              </div>
+              <div class="featuredCard">
+                <div class="featuredIcon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                  </svg>
+                </div>
+                <h3>Text Tools</h3>
+                <p>Powerful text manipulation tools including case conversion, encoding, and formatting utilities.</p>
+                <div class="featuredBadge">Utility</div>
+              </div>
+            </div>
+          </div>
+          <button class="carouselButton carouselButtonNext" aria-label="Next featured bookmarklet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="carouselIndicators" id="featuredCarouselIndicators">
+          <button class="carouselIndicator active" aria-label="Go to slide 1"></button>
+          <button class="carouselIndicator" aria-label="Go to slide 2"></button>
+          <button class="carouselIndicator" aria-label="Go to slide 3"></button>
+          <button class="carouselIndicator" aria-label="Go to slide 4"></button>
+          <button class="carouselIndicator" aria-label="Go to slide 5"></button>
+        </div>
+      </div>
     </section>
 
     <!-- Quick Action Cards -->
@@ -170,7 +313,7 @@
       <div class="sectionContent">
         <h2 class="sectionTitle">Explore by Category</h2>
         <div class="quickActionsGrid">
-          <a href="./browse.html?category=developer-tools" class="quickActionCard">
+          <a href="./pages/browse.html?category=developer-tools" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -183,7 +326,7 @@
             <span class="quickActionArrow">Explore Developer Tools →</span>
           </a>
           
-          <a href="./browse.html?category=productivity" class="quickActionCard">
+          <a href="./pages/browse.html?category=productivity" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -194,7 +337,7 @@
             <span class="quickActionArrow">Explore Productivity →</span>
           </a>
           
-          <a href="./browse.html?category=privacy-security" class="quickActionCard">
+          <a href="./pages/browse.html?category=privacy-security" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -206,7 +349,7 @@
             <span class="quickActionArrow">Explore Privacy & Security →</span>
           </a>
           
-          <a href="./browse.html?category=automation" class="quickActionCard">
+          <a href="./pages/browse.html?category=automation" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="23 4 23 10 17 10"></polyline>
@@ -219,7 +362,7 @@
             <span class="quickActionArrow">Explore Automation →</span>
           </a>
           
-          <a href="./browse.html?category=utilities" class="quickActionCard">
+          <a href="./pages/browse.html?category=utilities" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
@@ -230,7 +373,7 @@
             <span class="quickActionArrow">Explore Utilities →</span>
           </a>
           
-          <a href="./browse.html?category=visual-effects" class="quickActionCard">
+          <a href="./pages/browse.html?category=visual-effects" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
@@ -241,7 +384,7 @@
             <span class="quickActionArrow">Explore Visual Effects →</span>
           </a>
           
-          <a href="./browse.html?category=games" class="quickActionCard">
+          <a href="./pages/browse.html?category=games" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -252,7 +395,7 @@
             <span class="quickActionArrow">Explore Games →</span>
           </a>
           
-          <a href="./browse.html?category=hacks" class="quickActionCard">
+          <a href="./pages/browse.html?category=hacks" class="quickActionCard">
             <div class="quickActionIcon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -266,26 +409,162 @@
       </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section class="howItWorks section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">How It Works</h2>
+        <p class="sectionSubtitle" style="text-align: center; color: var(--textSecondary); margin-bottom: 3rem; font-size: 1.125rem;">
+          Get started in minutes. No installation, no downloads, just drag and drop.
+        </p>
+        <div class="stepsGrid">
+          <div class="stepCard">
+            <div class="stepNumber">1</div>
+            <div class="stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3>Browse & Choose</h3>
+            <p>Explore our collection of 75+ bookmarklets organized by category. Find the perfect tool for your needs.</p>
+          </div>
+          <div class="stepCard">
+            <div class="stepNumber">2</div>
+            <div class="stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3>Drag to Bookmark Bar</h3>
+            <p>Simply drag the bookmarklet link to your browser's bookmark bar. Works in all modern browsers.</p>
+          </div>
+          <div class="stepCard">
+            <div class="stepNumber">3</div>
+            <div class="stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3>Click & Use</h3>
+            <p>Visit any website and click your bookmarklet. The tool activates instantly - no page reload required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Indicators Section -->
+    <section class="trustIndicators section">
+      <div class="sectionContainerSubtle">
+        <h2 class="sectionTitle">Trusted by Developers Worldwide</h2>
+        <div class="trustGrid">
+          <div class="trustBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <div class="trustContent">
+              <h3>Open Source</h3>
+              <p>100% transparent code on GitHub</p>
+            </div>
+          </div>
+          <div class="trustBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div class="trustContent">
+              <h3>Verified & Safe</h3>
+              <p>All tools tested and verified</p>
+            </div>
+          </div>
+          <div class="trustBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <div class="trustContent">
+              <h3>No Tracking</h3>
+              <p>Zero data collection or analytics</p>
+            </div>
+          </div>
+          <div class="trustBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <div class="trustContent">
+              <h3>Cross-Browser</h3>
+              <p>Works on Chrome, Firefox, Safari, Edge</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Home About Summary -->
     <section class="homeAboutSummary section">
       <div class="sectionContainerSubtle">
-        <h2 class="sectionTitle">About This Collection</h2>
-        <div class="aboutSummaryContent">
-          <p class="summaryText">
-            DevBubba's Bookmarklet Collection is a comprehensive, carefully curated collection of bookmarklets 
-            designed to enhance your browsing experience and boost productivity. We focus on providing 
-            high-quality, useful tools that have been thoroughly reviewed and tested. All bookmarklets are 
-            organized by category to make discovery easy and intuitive.
-          </p>
-          <p class="summaryText">
-            Whether you're a developer seeking productivity tools, a student looking to enhance your workflow, 
-            or a power user who loves customizing the web, you'll find valuable tools in our collection. 
-            Each bookmarklet comes with detailed descriptions, clear usage instructions, and status indicators 
-            to help you find exactly what you need.
-          </p>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="./about.html" class="readMoreLink">Read More About Us →</a>
+        <div class="aboutSplit">
+          <div class="aboutSplitContent">
+            <div class="aboutHeader">
+              <div class="aboutHeaderIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h2 class="sectionTitle" style="text-align: left; margin-bottom: 1.5rem; margin-top: 0;">About This Collection</h2>
+            </div>
+            <p class="summaryText" style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              DevBubba's Bookmarklet Collection is a comprehensive, carefully curated collection of bookmarklets 
+              designed to enhance your browsing experience and boost productivity. We focus on providing 
+              high-quality, useful tools that have been thoroughly reviewed and tested.
+            </p>
+            <p class="summaryText" style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+              Whether you're a developer seeking productivity tools, a student looking to enhance your workflow, 
+              or a power user who loves customizing the web, you'll find valuable tools in our collection.
+            </p>
+            <a href="./pages/about.html" class="browseButton" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <span>Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 3L13 10L7 17" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="aboutSplitStats">
+            <div class="aboutStat">
+              <div class="aboutStatIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="aboutStatNumber">Growing</div>
+              <div class="aboutStatLabel">Community</div>
+            </div>
+            <div class="aboutStat">
+              <div class="aboutStatIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <div class="aboutStatNumber">Zero</div>
+              <div class="aboutStatLabel">Setup Required</div>
+            </div>
+            <div class="aboutStat">
+              <div class="aboutStatIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="aboutStatNumber">100%</div>
+              <div class="aboutStatLabel">Private & Secure</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -293,20 +572,55 @@
     <!-- Home Help Summary -->
     <section class="homeHelpSummary section">
       <div class="sectionContainerSubtle">
-        <h2 class="sectionTitle">Need Help?</h2>
-        <div class="aboutSummaryContent">
-          <p class="summaryText">
-            New to bookmarklets? Not sure how to use them? Our comprehensive help section includes 
-            detailed FAQs, step-by-step installation guides, troubleshooting tips, and answers to 
-            common questions. We're here to help you get the most out of our bookmarklet collection.
+        <div class="helpContent">
+          <div class="helpIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <h2 class="sectionTitle" style="margin-top: 1.5rem;">Need Help?</h2>
+          <p class="summaryText" style="text-align: center; max-width: 700px; margin: 1rem auto 2rem;">
+            New to bookmarklets? Our comprehensive help section includes detailed FAQs, step-by-step installation guides, 
+            troubleshooting tips, and answers to common questions. We're here to help you get the most out of our collection.
           </p>
-          <p class="summaryText">
-            If you can't find what you're looking for, feel free to report an issue or reach out through 
-            our GitHub repository. Our community is active and always willing to help!
-          </p>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="./help.html" class="readMoreLink">Visit Help & Support →</a>
+          <div class="helpQuickLinks">
+            <a href="./pages/help.html#installation" class="helpQuickLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>Installation Guide</span>
+            </a>
+            <a href="./pages/help.html#faq" class="helpQuickLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span>FAQs</span>
+            </a>
+            <a href="./pages/help.html#troubleshooting" class="helpQuickLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+              <span>Troubleshooting</span>
+            </a>
+            <a href="./pages/help.html" class="helpQuickLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+              <span>View All Help</span>
+            </a>
+          </div>
+          <div style="text-align: center; margin-top: 2rem;">
+            <a href="./pages/help.html" class="browseButton">Get Help & Support</a>
+          </div>
         </div>
       </div>
     </section>
@@ -420,21 +734,36 @@
     <!-- Report Issue Section -->
     <section class="reportIssueSection section">
       <div class="sectionContainerSubtle">
-        <h2 class="sectionTitle">Report an Issue</h2>
-        <div class="aboutSummaryContent">
-          <p class="summaryText">
+        <div class="reportIssueContent">
+          <div class="reportIssueIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h2 class="sectionTitle" style="margin-top: 1.5rem;">Report an Issue</h2>
+          <p class="summaryText" style="text-align: center; max-width: 700px; margin: 1rem auto 2rem;">
             Found a bug or have a suggestion for improvement? We value your feedback and want to make 
             this collection as useful as possible. Use our issue reporting system to let us know about 
             any problems you encounter or ideas you have for new features.
           </p>
-          <p class="summaryText">
-            When reporting an issue, please include as much detail as possible, such as the bookmarklet 
-            name, what you expected to happen, what actually happened, and steps to reproduce the issue. 
-            This helps us quickly identify and fix problems.
-          </p>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="./reportIssue.html" class="readMoreLink">Report an Issue →</a>
+          <div class="reportIssueActions">
+            <a href="./forms/reportIssue.html" class="reportIssueButton primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>Report an Issue</span>
+            </a>
+            <a href="https://github.com/DevBubba/Bookmarklets/issues" target="_blank" rel="noopener noreferrer" class="reportIssueButton">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>GitHub Issues</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -442,20 +771,32 @@
     <!-- Contact Section -->
     <section class="contactSection section">
       <div class="sectionContainerSubtle">
-        <h2 class="sectionTitle">Get in Touch</h2>
-        <div class="aboutSummaryContent">
-          <p class="summaryText">
+        <div class="contactContent">
+          <div class="contactIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h2 class="sectionTitle" style="margin-top: 1.5rem;">Get in Touch</h2>
+          <p class="summaryText" style="text-align: center; max-width: 700px; margin: 1rem auto 2rem;">
             Have a question, suggestion, or just want to say hello? We'd love to hear from you. 
             Whether you need help with a specific bookmarklet, want to discuss a potential collaboration, 
             or have general feedback about the collection, feel free to reach out.
           </p>
-          <p class="summaryText">
-            We're committed to providing excellent support and maintaining an active community. 
-            Your input helps us improve and grow this collection for everyone's benefit.
-          </p>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="./contact.html" class="readMoreLink">Contact Us →</a>
+          <div class="contactActions">
+            <a href="./pages/contact.html" class="contactButton primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Contact Form</span>
+            </a>
+            <a href="https://github.com/DevBubba" target="_blank" rel="noopener noreferrer" class="contactButton">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>GitHub Profile</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -468,7 +809,7 @@
         <div class="footerSection">
           <h4>Legal</h4>
           <div class="footerLinks">
-            <a href="./license.html" class="footerLink">License</a>
+            <a href="./legal/license.html" class="footerLink">License</a>
             <a href="#privacy" class="footerLink">Privacy Policy</a>
             <a href="#terms" class="footerLink">Terms of Service</a>
             <a href="https://github.com/DevBubba/Bookmarklets/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footerLink">Code of Conduct</a>
@@ -477,13 +818,13 @@
         <div class="footerSection">
           <h4>Resources</h4>
           <div class="footerLinks">
-            <a href="./about.html" class="footerLink">About</a>
-            <a href="./browse.html" class="footerLink">Browse</a>
-            <a href="./help.html" class="footerLink">Help & Support</a>
-            <a href="./request.html" class="footerLink">Request</a>
-            <a href="./reportIssue.html" class="footerLink">Report Issue</a>
-            <a href="./contact.html" class="footerLink">Contact</a>
-            <a href="./changelog.html" class="footerLink">Changelog</a>
+            <a href="./pages/about.html" class="footerLink">About</a>
+            <a href="./pages/browse.html" class="footerLink">Browse</a>
+            <a href="./pages/help.html" class="footerLink">Help & Support</a>
+            <a href="./forms/request.html" class="footerLink">Request</a>
+            <a href="./forms/reportIssue.html" class="footerLink">Report Issue</a>
+            <a href="./pages/contact.html" class="footerLink">Contact</a>
+            <a href="./pages/changelog.html" class="footerLink">Changelog</a>
           </div>
         </div>
         <div class="footerSection">
