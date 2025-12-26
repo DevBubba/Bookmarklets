@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/DevBubba/Bookmarklets/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 📧 Contact
+    url: https://github.com/DevBubba/Bookmarklets/issues/new?template=contact.md
+    about: Need to contact the maintainer directly
+
