@@ -9,7 +9,8 @@
   border-bottom: 1px solid var(--borderColor);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  will-change: box-shadow, background-color;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -239,7 +240,6 @@
 .headerActions .authButton,
 .headerActions .authButton:link,
 .headerActions .authButton:visited,
-.headerActions .authButton:hover,
 .headerActions .authButton:active,
 .headerActions .authButton:focus {
   text-decoration: none !important;
@@ -253,12 +253,27 @@
   border-bottom: 1.5px solid var(--borderColor) !important;
 }
 
+.headerActions .authButton:hover {
+  text-decoration: none !important;
+  text-underline-offset: 0 !important;
+  text-decoration-line: none !important;
+  text-decoration-style: none !important;
+  text-decoration-color: transparent !important;
+  text-underline-position: from-font !important;
+  -webkit-text-decoration: none !important;
+  -moz-text-decoration: none !important;
+  border-bottom: 1.5px solid var(--accentColor) !important;
+}
+
 .headerActions .authButton.secondary,
 .headerActions .authButton.secondary:link,
 .headerActions .authButton.secondary:visited,
-.headerActions .authButton.secondary:hover,
 .headerActions .authButton.secondary:active,
 .headerActions .authButton.secondary:focus {
+  border-bottom: 1.5px solid var(--accentColor) !important;
+}
+
+.headerActions .authButton.secondary:hover {
   border-bottom: 1.5px solid var(--accentColor) !important;
 }
 

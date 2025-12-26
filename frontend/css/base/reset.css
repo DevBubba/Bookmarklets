@@ -9,6 +9,9 @@ html {
   scroll-behavior: smooth;
   height: 100%;
   scroll-padding-top: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -17,7 +20,26 @@ body {
   color: var(--textPrimary);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
   min-height: 100vh;
   position: relative;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent overscroll bounce effect */
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text selection highlighting */
+::selection {
+  background: transparent;
+  color: inherit;
+}
+
+::-moz-selection {
+  background: transparent;
+  color: inherit;
 }
 

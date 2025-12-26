@@ -1,7 +1,7 @@
 // Navigation functionality - smooth scroll and page transitions
 // All code uses camelCase naming convention
 
-import { globalParticleSystem } from './background.js';
+import { globalParticleSystem } from '../ui/background.js';
 
 /**
  * Initialize smooth scroll for navigation links

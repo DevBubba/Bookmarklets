@@ -7,6 +7,14 @@
   scroll-margin-top: 100px;
   position: relative;
   z-index: 1;
+  overflow: visible;
+}
+
+section.quickActions,
+.section.quickActions,
+.quickActions.section {
+  display: block;
+  visibility: visible;
 }
 
 .sectionContainerSubtle {
@@ -57,6 +65,7 @@
 
 .featuredCategories {
   margin-top: 4rem;
+  display: none;
 }
 
 .categoryGrid {
@@ -66,7 +75,8 @@
 }
 
 .quickActions {
-  margin-top: 4rem;
+  margin-top: 3rem;
+  display: block;
 }
 
 .quickActionsGrid {
@@ -84,30 +94,51 @@
 
 /* Hero Section - Full Viewport */
 .fullViewportHero {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+  padding: 8.5rem 0 3rem 0;
+  overflow: visible;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
 
 .heroSection {
   text-align: center;
-  padding: 2rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  gap: 0.5rem;
+  position: relative;
+  overflow: visible;
 }
 
 .heroTitle {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   color: var(--accentColor);
   line-height: 1.2;
+  position: relative;
+  padding: 50px 20px 5px 20px;
+  z-index: 1;
+  margin-top: 0;
+  overflow: visible;
+  text-shadow: 0 0 40px rgba(34, 197, 94, 0.2);
 }
 
 .animatedHeroTitle {
@@ -119,11 +150,11 @@
 .heroDescription {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--textSecondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .animatedDescription {

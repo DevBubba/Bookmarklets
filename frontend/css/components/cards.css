@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 0.75rem 0;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -28,26 +28,15 @@
 }
 
 .statCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accentColor) 0%, var(--accentColorLight) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
 }
 
 .statCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accentColor), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: var(--accentColor);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accentColor), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2);
+  border: 1px solid var(--accentColor);
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
-}
-
-.statCard:hover::before {
-  opacity: 1;
+  background-clip: padding-box;
 }
 
 .statCard:hover .statIcon {
@@ -123,30 +112,22 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
+  isolation: isolate;
 }
 
 .quickActionCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accentColor) 0%, var(--accentColorLight) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
 }
 
 .quickActionCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accentColor);
-  border-color: var(--accentColor);
+  border: 1px solid var(--accentColor);
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
-}
-
-.quickActionCard:hover::before {
-  opacity: 1;
+  background-clip: padding-box;
 }
 
 .quickActionIcon {
@@ -160,6 +141,7 @@
   color: var(--accentColor);
   border: 1px solid rgba(34, 197, 94, 0.2);
   transition: all 0.4s ease;
+  margin: 0 auto;
 }
 
 .quickActionCard:hover .quickActionIcon {

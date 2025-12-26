@@ -13,27 +13,47 @@ export function initializeHeader() {
   // Set active navigation link based on current page
   setActiveNavLink();
   
+  // Check initial scroll position immediately
+  function updateHeaderState() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 50) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  }
+  
+  // Update immediately on load
+  updateHeaderState();
+  
+  // Optimized scroll handler with immediate first update
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
   let ticking = false;
 
   function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Immediate update for first scroll or large changes
+    if (!ticking || Math.abs(scrollTop - lastScrollTop) > 10) {
+      updateHeaderState();
+      lastScrollTop = scrollTop;
+      ticking = false;
+    }
+    
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 50) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-        
+        updateHeaderState();
+        lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
         ticking = false;
       });
-      
       ticking = true;
     }
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // Also update on resize in case layout changes
+  window.addEventListener('resize', updateHeaderState, { passive: true });
 }
 
 /**
