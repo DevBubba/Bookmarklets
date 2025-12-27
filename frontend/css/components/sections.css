@@ -292,20 +292,50 @@ section.quickActions,
   margin: 0;
 }
 
-/* Footer - Fixed spacing */
+/* Footer - Fixed spacing - MUST be above everything */
 .siteFooter {
   margin-top: 0;
   padding: 4rem 2rem 2rem;
   background-color: transparent;
   color: var(--textSecondary);
-  position: relative;
-  width: 100%;
+  position: relative !important;
+  width: 100% !important;
   border-top: 1px solid rgba(71, 85, 105, 0.3);
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+  isolation: isolate !important;
+  transform: translateZ(0) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  will-change: transform !important;
+}
+
+.siteFooter * {
+  pointer-events: auto !important;
+}
+
+.siteFooter a {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  z-index: 10002 !important;
+  position: relative;
+}
+
+/* Ensure nothing can block footer */
+body > footer.siteFooter,
+html > body > footer.siteFooter {
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+  position: relative !important;
 }
 
 .footerContent {
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
 }
 
 .footerMain {
@@ -313,6 +343,12 @@ section.quickActions,
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3rem;
   margin-bottom: 3rem;
+}
+
+.footerSection {
+  position: relative;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
 }
 
 .footerSection h4 {
@@ -326,6 +362,9 @@ section.quickActions,
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  position: relative;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
 }
 
 .footerLink {
@@ -333,6 +372,10 @@ section.quickActions,
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 500;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10001 !important;
 }
 
 .footerLink:hover {
@@ -343,6 +386,9 @@ section.quickActions,
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  position: relative;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
 }
 
 .footerInfo p {

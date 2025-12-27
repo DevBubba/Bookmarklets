@@ -105,6 +105,11 @@ export function initializePageTransitions() {
     const href = link.getAttribute('href');
     if (!href) return;
     
+    // Skip footer links - let them work normally
+    if (link.classList.contains('footerLink')) {
+      return;
+    }
+    
     if (link.getAttribute('target') === '_blank') {
       return;
     }

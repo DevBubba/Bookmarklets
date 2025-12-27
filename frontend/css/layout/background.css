@@ -13,14 +13,18 @@
 }
 
 #particleCanvas,
-.particleCanvas {
+.particleCanvas,
+canvas#particleCanvas,
+canvas.particleCanvas,
+canvas[id="particleCanvas"],
+canvas[class*="particleCanvas"] {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 0 !important;
-  pointer-events: auto !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;

@@ -230,7 +230,7 @@ export async function initializeChangelog() {
   changelogContainer.innerHTML = '<p style="color: var(--textSecondary); text-align: center;">Loading changelog...</p>';
   
   try {
-    const changelogUrl = 'https://raw.githubusercontent.com/DevBubba/Rocket-Cleaner/refs/heads/main/CHANGELOG.md';
+    const changelogUrl = 'https://raw.githubusercontent.com/DevBubba/Bookmarklets/refs/heads/beta/docs/CHANGELOG.md';
     
     const response = await fetch(changelogUrl, {
       mode: 'cors',

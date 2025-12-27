@@ -12,14 +12,15 @@ export class ParticleSystem {
     this.resize();
     window.addEventListener('resize', () => this.resize());
     
-    canvas.addEventListener('mousemove', (e) => {
+    // Track mouse from document instead of canvas so canvas can have pointer-events: none
+    document.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
       this.mouse.x = e.clientX - rect.left;
       this.mouse.y = e.clientY - rect.top;
       this.mouse.isActive = true;
     });
     
-    canvas.addEventListener('mouseleave', () => {
+    document.addEventListener('mouseleave', () => {
       this.mouse.isActive = false;
     });
   }
@@ -164,14 +165,88 @@ export function initializeBackgroundAnimation() {
   canvas.style.left = '0';
   canvas.style.width = '100vw';
   canvas.style.height = '100vh';
-  canvas.style.zIndex = '0';
-  canvas.style.pointerEvents = 'auto';
+  canvas.style.zIndex = '-1';
   canvas.style.display = 'block';
   canvas.style.visibility = 'visible';
   canvas.style.background = 'transparent';
   
+  // CRITICAL: Set pointer-events to none immediately and keep it
+  canvas.style.setProperty('pointer-events', 'none', 'important');
+  
+  // Force pointer-events to none using setProperty with important
+  const forcePointerEventsNone = () => {
+    if (canvas) {
+      // Always set it with important flag - this overrides everything
+      canvas.style.setProperty('pointer-events', 'none', 'important');
+    }
+  };
+  
+  // Set it immediately before anything else
+  forcePointerEventsNone();
+  
   globalParticleSystem = new ParticleSystem(canvas);
   globalParticleSystem.init();
+  
+  // Immediately after init, force it again
+  forcePointerEventsNone();
+  
+  // Force it multiple times after init to catch any code that sets it back
+  requestAnimationFrame(forcePointerEventsNone);
+  setTimeout(forcePointerEventsNone, 0);
+  setTimeout(forcePointerEventsNone, 10);
+  setTimeout(forcePointerEventsNone, 50);
+  setTimeout(forcePointerEventsNone, 100);
+  setTimeout(forcePointerEventsNone, 200);
+  setTimeout(forcePointerEventsNone, 500);
+  setTimeout(forcePointerEventsNone, 1000);
+  
+  // Watch for ANY style attribute changes and immediately fix it
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(() => {
+      if (canvas && canvas.style.getPropertyValue('pointer-events') !== 'none') {
+        forcePointerEventsNone();
+      }
+    });
+  });
+  observer.observe(canvas, { 
+    attributes: true, 
+    attributeFilter: ['style'],
+    attributeOldValue: false
+  });
+  
+  // Also force it on any resize
+  window.addEventListener('resize', () => {
+    setTimeout(forcePointerEventsNone, 0);
+  });
+  
+  // Continuously monitor and fix pointer-events every 25ms (very aggressive)
+  setInterval(() => {
+    if (canvas) {
+      const current = canvas.style.getPropertyValue('pointer-events');
+      if (current !== 'none' && current !== '') {
+        forcePointerEventsNone();
+      }
+    }
+  }, 25);
+  
+  // Also check on every animation frame
+  function checkPointerEvents() {
+    if (canvas) {
+      const current = canvas.style.getPropertyValue('pointer-events');
+      if (current !== 'none' && current !== '') {
+        forcePointerEventsNone();
+      }
+    }
+    requestAnimationFrame(checkPointerEvents);
+  }
+  requestAnimationFrame(checkPointerEvents);
+  
+  // Also run on page load complete
+  if (document.readyState === 'complete') {
+    forcePointerEventsNone();
+  } else {
+    window.addEventListener('load', forcePointerEventsNone);
+  }
   
   const style = document.createElement('style');
   style.textContent = `
@@ -182,8 +257,8 @@ export function initializeBackgroundAnimation() {
       left: 0 !important;
       width: 100vw !important;
       height: 100vh !important;
-      pointer-events: auto !important;
-      z-index: 0 !important;
+      pointer-events: none !important;
+      z-index: -1 !important;
       display: block !important;
       visibility: visible !important;
       background: transparent !important;

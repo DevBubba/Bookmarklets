@@ -9,7 +9,7 @@
 - **📚 〢 Changelog**
   - **[🏷️ 〢 Version 1.0.0](#1.0.0)**
 
-## <a id="1.0.0"></a>✨ [DevBubba's Bookmarklets Collection V1.0.0](https://github.com/DevBubba/Rocket-Cleaner/releases/tag/v1.0) - 2025-12-22
+## <a id="1.0.0"></a>✨ [DevBubba's Bookmarklets Collection V1.0.0](https://github.com/DevBubba/Bookmarklets) - 2025-12-22
 
 ### ➕ Added
 
