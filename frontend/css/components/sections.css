@@ -296,13 +296,13 @@ section.quickActions,
 .siteFooter {
   margin-top: 0;
   padding: 4rem 2rem 2rem;
-  background-color: transparent;
+  background-color: var(--bgPrimary);
   color: var(--textSecondary);
   position: relative !important;
   width: 100% !important;
   border-top: 1px solid rgba(71, 85, 105, 0.3);
   z-index: 99999 !important;
-  pointer-events: auto !important;
+  pointer-events: none !important;
   isolation: isolate !important;
   transform: translateZ(0) !important;
   display: block !important;
@@ -311,16 +311,18 @@ section.quickActions,
   will-change: transform !important;
 }
 
-.siteFooter * {
+/* Only links should be clickable in footer */
+.siteFooter a.footerLink {
   pointer-events: auto !important;
+  cursor: pointer !important;
 }
 
-.siteFooter a {
-  cursor: pointer !important;
-  pointer-events: auto !important;
-  z-index: 10002 !important;
-  position: relative;
+/* Everything else in footer should not be clickable */
+.siteFooter *:not(a.footerLink) {
+  pointer-events: none !important;
 }
+
+/* Removed - handled by rule above */
 
 /* Ensure nothing can block footer */
 body > footer.siteFooter,
@@ -336,6 +338,7 @@ html > body > footer.siteFooter {
   position: relative;
   z-index: 9999 !important;
   pointer-events: auto !important;
+  isolation: isolate;
 }
 
 .footerMain {
@@ -343,12 +346,23 @@ html > body > footer.siteFooter {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3rem;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Prevent clicks in the gap areas between footer sections */
+.footerMain::before,
+.footerMain::after {
+  content: '';
+  display: none;
 }
 
 .footerSection {
   position: relative;
   z-index: 10000 !important;
-  pointer-events: auto !important;
+  pointer-events: none !important;
+  background: transparent;
+  isolation: isolate;
+  min-height: 1px;
 }
 
 .footerSection h4 {
@@ -364,7 +378,8 @@ html > body > footer.siteFooter {
   gap: 0.75rem;
   position: relative;
   z-index: 10000 !important;
-  pointer-events: auto !important;
+  pointer-events: none !important;
+  align-items: flex-start;
 }
 
 .footerLink {
@@ -376,10 +391,19 @@ html > body > footer.siteFooter {
   pointer-events: auto !important;
   position: relative;
   z-index: 10001 !important;
+  display: inline;
+  width: fit-content;
+  max-width: fit-content;
 }
 
 .footerLink:hover {
   color: var(--accentColor);
+}
+
+/* Prevent hover on empty space - only text should be hoverable */
+.footerLinks a.footerLink {
+  display: inline-block;
+  width: auto;
 }
 
 .footerInfo {
@@ -388,7 +412,7 @@ html > body > footer.siteFooter {
   gap: 0.75rem;
   position: relative;
   z-index: 10000 !important;
-  pointer-events: auto !important;
+  pointer-events: none !important;
 }
 
 .footerInfo p {

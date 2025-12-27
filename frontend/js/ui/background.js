@@ -4,10 +4,20 @@ export class ParticleSystem {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
+    if (!this.ctx) {
+      console.error('Failed to get 2d context for canvas');
+      return;
+    }
     this.particles = [];
     this.particleCount = 80;
     this.maxDistance = 150;
     this.mouse = { x: 0, y: 0, isActive: false };
+    
+    // Ensure canvas has dimensions before resizing
+    if (canvas.width === 0 || canvas.height === 0) {
+      canvas.width = window.innerWidth || 1920;
+      canvas.height = window.innerHeight || 1080;
+    }
     
     this.resize();
     window.addEventListener('resize', () => this.resize());
@@ -34,6 +44,12 @@ export class ParticleSystem {
   }
   
   initParticles() {
+    // Ensure canvas has valid dimensions
+    if (this.canvas.width === 0 || this.canvas.height === 0) {
+      this.canvas.width = window.innerWidth || 1920;
+      this.canvas.height = window.innerHeight || 1080;
+    }
+    
     const savedParticles = sessionStorage.getItem('particleSystemState');
     if (savedParticles) {
       try {
@@ -49,17 +65,30 @@ export class ParticleSystem {
           radius: p.radius || (Math.random() * 2 + 1)
         }));
         
+        // Ensure we have particles
+        if (this.particles.length === 0) {
+          this.createNewParticles();
+        }
+        
         return;
       } catch (e) {
         console.warn('Failed to restore particle state:', e);
+        this.createNewParticles();
       }
+    } else {
+      this.createNewParticles();
     }
-    
+  }
+  
+  createNewParticles() {
     this.particles = [];
+    const width = this.canvas.width || window.innerWidth || 1920;
+    const height = this.canvas.height || window.innerHeight || 1080;
+    
     for (let i = 0; i < this.particleCount; i++) {
       this.particles.push({
-        x: Math.random() * this.canvas.width,
-        y: Math.random() * this.canvas.height,
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         radius: Math.random() * 2 + 1
@@ -77,12 +106,23 @@ export class ParticleSystem {
   }
   
   init() {
+    // Ensure canvas has valid dimensions before starting
+    if (this.canvas.width === 0 || this.canvas.height === 0) {
+      this.resize();
+    }
+    
+    // Ensure particles are initialized
+    if (!this.particles || this.particles.length === 0) {
+      this.initParticles();
+    }
+    
     this.saveInterval = setInterval(() => {
       if (this.particles && this.particles.length > 0) {
         this.saveState();
       }
     }, 100);
     
+    // Start animation loop
     this.animate();
   }
   
@@ -93,10 +133,21 @@ export class ParticleSystem {
   }
   
   animate() {
+    if (!this.ctx) {
+      console.error('Canvas context not available');
+      requestAnimationFrame(() => this.animate());
+      return;
+    }
+    
     if (this.canvas.width === 0 || this.canvas.height === 0) {
       this.resize();
     }
     
+    if (!this.particles || this.particles.length === 0) {
+      this.initParticles();
+    }
+    
+    // Always continue animation loop
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     
     for (let i = 0; i < this.particles.length; i++) {
@@ -124,10 +175,15 @@ export class ParticleSystem {
         }
       }
       
+      // Draw particles with brighter, more visible color
       this.ctx.beginPath();
       this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(34, 197, 94, 0.8)`;
+      this.ctx.fillStyle = `rgba(34, 197, 94, 1)`;
       this.ctx.fill();
+      
+      // Add glow effect for better visibility
+      this.ctx.shadowBlur = 10;
+      this.ctx.shadowColor = 'rgba(34, 197, 94, 0.8)';
       
       for (let j = i + 1; j < this.particles.length; j++) {
         const otherParticle = this.particles[j];
@@ -136,12 +192,13 @@ export class ParticleSystem {
         const distance = Math.sqrt(dx * dx + dy * dy);
         
         if (distance < this.maxDistance) {
-          const opacity = (1 - distance / this.maxDistance) * 0.3;
+          const opacity = (1 - distance / this.maxDistance) * 0.5;
           this.ctx.beginPath();
           this.ctx.moveTo(particle.x, particle.y);
           this.ctx.lineTo(otherParticle.x, otherParticle.y);
           this.ctx.strokeStyle = `rgba(34, 197, 94, ${opacity})`;
           this.ctx.lineWidth = 1;
+          this.ctx.shadowBlur = 0;
           this.ctx.stroke();
         }
       }
@@ -152,26 +209,69 @@ export class ParticleSystem {
 }
 
 export function initializeBackgroundAnimation() {
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initializeBackgroundAnimation());
+    return;
+  }
+  
   let canvas = document.getElementById('particleCanvas');
   if (!canvas) {
     canvas = document.createElement('canvas');
     canvas.id = 'particleCanvas';
     canvas.className = 'particleCanvas';
-    document.body.appendChild(canvas);
+    
+    // Try to place it in the backgroundAnimation div if it exists, otherwise at start of body
+    const bgContainer = document.getElementById('backgroundAnimation');
+    if (bgContainer) {
+      bgContainer.appendChild(canvas);
+      console.log('Canvas placed in backgroundAnimation container');
+    } else {
+      // Insert at the very beginning of body so it's behind everything
+      document.body.insertBefore(canvas, document.body.firstChild);
+      console.log('Canvas placed at start of body');
+    }
   }
   
+  // Set canvas dimensions FIRST (before styles)
+  const width = window.innerWidth || 1920;
+  const height = window.innerHeight || 1080;
+  canvas.width = width;
+  canvas.height = height;
+  
+  // Set canvas styles immediately - make sure it's visible
   canvas.style.position = 'fixed';
   canvas.style.top = '0';
   canvas.style.left = '0';
-  canvas.style.width = '100vw';
-  canvas.style.height = '100vh';
-  canvas.style.zIndex = '-1';
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+  canvas.style.zIndex = '1';
   canvas.style.display = 'block';
   canvas.style.visibility = 'visible';
+  canvas.style.opacity = '1';
   canvas.style.background = 'transparent';
+  canvas.style.pointerEvents = 'none';
   
   // CRITICAL: Set pointer-events to none immediately and keep it
   canvas.style.setProperty('pointer-events', 'none', 'important');
+  
+  // Ensure canvas context exists
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    console.error('Failed to get canvas 2d context');
+    return;
+  }
+  
+  console.log('Canvas created:', {
+    width: canvas.width,
+    height: canvas.height,
+    styleWidth: canvas.style.width,
+    styleHeight: canvas.style.height,
+    zIndex: canvas.style.zIndex,
+    display: canvas.style.display,
+    visibility: canvas.style.visibility,
+    opacity: canvas.style.opacity
+  });
   
   // Force pointer-events to none using setProperty with important
   const forcePointerEventsNone = () => {
@@ -184,8 +284,52 @@ export function initializeBackgroundAnimation() {
   // Set it immediately before anything else
   forcePointerEventsNone();
   
-  globalParticleSystem = new ParticleSystem(canvas);
-  globalParticleSystem.init();
+  // Create particle system and initialize
+  try {
+    // Test canvas immediately with a simple draw to verify it works
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.8)';
+    ctx.fillRect(50, 50, 20, 20);
+    console.log('Canvas test draw successful at (50, 50)');
+    
+    // Small delay to ensure everything is ready
+    setTimeout(() => {
+      try {
+        globalParticleSystem = new ParticleSystem(canvas);
+        if (globalParticleSystem && globalParticleSystem.ctx) {
+          globalParticleSystem.init();
+          
+          // Verify it's working
+          console.log('Background animation initialized:', {
+            canvasWidth: canvas.width,
+            canvasHeight: canvas.height,
+            particles: globalParticleSystem.particles?.length || 0,
+            canvasVisible: canvas.style.display !== 'none',
+            canvasOpacity: canvas.style.opacity,
+            canvasZIndex: canvas.style.zIndex,
+            canvasInDOM: document.body.contains(canvas) || document.getElementById('backgroundAnimation')?.contains(canvas)
+          });
+          
+          if (!globalParticleSystem.particles || globalParticleSystem.particles.length === 0) {
+            console.warn('Particle system initialized but no particles created - reinitializing...');
+            globalParticleSystem.initParticles();
+          }
+          
+          // Force a redraw to verify animation is running
+          setTimeout(() => {
+            if (globalParticleSystem && globalParticleSystem.ctx) {
+              console.log('Animation check - particles:', globalParticleSystem.particles?.length || 0);
+            }
+          }, 1000);
+        } else {
+          console.error('Failed to create particle system - no context available');
+        }
+      } catch (error) {
+        console.error('Error initializing particle system:', error);
+      }
+    }, 100);
+  } catch (error) {
+    console.error('Error setting up canvas:', error);
+  }
   
   // Immediately after init, force it again
   forcePointerEventsNone();
@@ -261,6 +405,7 @@ export function initializeBackgroundAnimation() {
       z-index: -1 !important;
       display: block !important;
       visibility: visible !important;
+      opacity: 1 !important;
       background: transparent !important;
     }
     
@@ -275,5 +420,20 @@ export function initializeBackgroundAnimation() {
     }
   `;
   document.head.appendChild(style);
+  
+  // Verify canvas is visible and animation is running
+  setTimeout(() => {
+    if (canvas && globalParticleSystem) {
+      const ctx = canvas.getContext('2d');
+      if (ctx && canvas.width > 0 && canvas.height > 0) {
+        // Canvas is ready - animation should be running
+        console.log('Background animation initialized:', {
+          width: canvas.width,
+          height: canvas.height,
+          particles: globalParticleSystem.particles?.length || 0
+        });
+      }
+    }
+  }, 100);
 }
 

@@ -193,7 +193,13 @@ function parseMarkdownLinks(text) {
   
   let result = text.replace(/\*\*\[([^\]]+)\]\(([^\)]+)\)\*\*/g, (match, linkText, url) => {
     const escapedText = escapeHtml(linkText);
-    const escapedUrl = escapeHtml(url);
+    // Transform repo root links to point to beta CHANGELOG
+    let transformedUrl = url;
+    // Match exact repo root URL (with or without trailing slash)
+    if (url === 'https://github.com/DevBubba/Bookmarklets' || url === 'https://github.com/DevBubba/Bookmarklets/') {
+      transformedUrl = 'https://github.com/DevBubba/Bookmarklets/blob/beta/docs/CHANGELOG.md';
+    }
+    const escapedUrl = escapeHtml(transformedUrl);
     const placeholder = `__PLACEHOLDER_BOLD_${boldIndex}__`;
     boldPlaceholders.push(`<strong><a href="${escapedUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">${escapedText}</a></strong>`);
     boldIndex++;
@@ -202,7 +208,13 @@ function parseMarkdownLinks(text) {
   
   result = result.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (match, linkText, url) => {
     const escapedText = escapeHtml(linkText);
-    const escapedUrl = escapeHtml(url);
+    // Transform repo root links to point to beta CHANGELOG
+    let transformedUrl = url;
+    // Match exact repo root URL (with or without trailing slash)
+    if (url === 'https://github.com/DevBubba/Bookmarklets' || url === 'https://github.com/DevBubba/Bookmarklets/') {
+      transformedUrl = 'https://github.com/DevBubba/Bookmarklets/blob/beta/docs/CHANGELOG.md';
+    }
+    const escapedUrl = escapeHtml(transformedUrl);
     const placeholder = `__PLACEHOLDER_LINK_${linkIndex}__`;
     linkPlaceholders.push(`<a href="${escapedUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">${escapedText}</a>`);
     linkIndex++;
@@ -230,14 +242,13 @@ export async function initializeChangelog() {
   changelogContainer.innerHTML = '<p style="color: var(--textSecondary); text-align: center;">Loading changelog...</p>';
   
   try {
-    const changelogUrl = 'https://raw.githubusercontent.com/DevBubba/Bookmarklets/refs/heads/beta/docs/CHANGELOG.md';
+    // Use GitHub Contents API instead of raw.githubusercontent.com to avoid CORS issues
+    // The API supports CORS, unlike raw.githubusercontent.com
+    const changelogApiUrl = 'https://api.github.com/repos/DevBubba/Bookmarklets/contents/docs/CHANGELOG.md?ref=beta';
     
-    const response = await fetch(changelogUrl + '?t=' + Date.now(), {
-      mode: 'cors',
-      cache: 'no-cache',
+    const response = await fetch(changelogApiUrl, {
       headers: {
-        'Accept': 'text/plain, text/markdown, */*',
-        'Cache-Control': 'no-cache'
+        'Accept': 'application/vnd.github.v3.raw'
       }
     });
     
@@ -261,7 +272,7 @@ export async function initializeChangelog() {
       <div style="padding: 2rem; background: rgba(239, 68, 68, 0.1); border-radius: 1rem; border-left: 4px solid #ef4444; text-align: center;">
         <p style="color: var(--textSecondary); margin-bottom: 1rem;">Unable to load changelog automatically.</p>
         <p style="color: var(--textSecondary);">
-          <a href="https://github.com/DevBubba/Bookmarklets/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">View changelog on GitHub</a>
+          <a href="https://github.com/DevBubba/Bookmarklets/blob/beta/docs/CHANGELOG.md" target="_blank" rel="noopener noreferrer" style="color: var(--accentColor); text-decoration: none;">View changelog on GitHub</a>
         </p>
       </div>
     `;

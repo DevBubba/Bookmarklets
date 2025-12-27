@@ -46,7 +46,10 @@ export function initializeSmoothScroll() {
       return; // Skip placeholder links
     }
     
-    const target = document.querySelector(href);
+    // Extract ID from href (remove the #)
+    const targetId = href.substring(1);
+    // Use getElementById for IDs (handles IDs starting with numbers better than querySelector)
+    const target = targetId ? document.getElementById(targetId) : null;
     if (target) {
       e.preventDefault();
       e.stopPropagation();
