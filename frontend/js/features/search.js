@@ -1,5 +1,3 @@
-// Search functionality for home and browse pages
-// All code uses camelCase naming convention
 
 import { filterBookmarklets } from './filters.js';
 
@@ -16,12 +14,10 @@ export function initializeSearch() {
   function performSearch() {
     const query = searchInput.value.trim().toLowerCase();
     if (query) {
-      // Navigate to browse page with search query
       const url = new URL('./pages/browse.html', window.location.href);
       url.searchParams.set('search', query);
       window.location.href = url.toString();
     } else {
-      // Just navigate to browse page
       window.location.href = './pages/browse.html';
     }
   }
@@ -46,14 +42,12 @@ export function initializeBrowseSearch() {
   
   if (!browseSearchInput || !browseSearchButton) return;
   
-  // Check for search parameter in URL
   const urlParams = new URLSearchParams(window.location.search);
   const searchParam = urlParams.get('search');
   if (searchParam) {
     browseSearchInput.value = searchParam;
   }
   
-  // Check for category parameter in URL
   const categoryParam = urlParams.get('category');
   if (categoryParam) {
     const categoryFilter = document.getElementById('categoryFilter');
@@ -64,8 +58,6 @@ export function initializeBrowseSearch() {
   
   function performBrowseSearch() {
     const query = browseSearchInput.value.trim().toLowerCase();
-    // Search functionality will filter bookmarklets
-    console.log('Browse search:', query);
     filterBookmarklets();
   }
   
@@ -78,14 +70,12 @@ export function initializeBrowseSearch() {
     }
   });
   
-  // Real-time search as user types
   let searchTimeout;
   browseSearchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(performBrowseSearch, 300);
   });
   
-  // Apply filters on page load if URL params exist
   if (searchParam || categoryParam) {
     setTimeout(() => filterBookmarklets(), 100);
   }

@@ -1,7 +1,3 @@
-// Rick Roll easter egg - triple click on logo
-// All code uses camelCase naming convention
-
-/**
  * Initialize secret animation (Rick Roll easter egg)
  * Detects triple click on logo and triggers rick roll
  */
@@ -16,26 +12,17 @@ export function initializeSecretAnimation() {
   const NAVIGATION_DELAY = 200; // Delay to allow triple-click detection
   const opensInNewTab = logoLink.getAttribute('target') === '_blank';
   
-  // Handle click event
   logoLink.addEventListener('click', (e) => {
     const now = Date.now();
     
-    // Always prevent default to control navigation timing
     e.preventDefault();
     e.stopPropagation();
     
-    // Add current click time
     clickTimes.push(now);
-    
-    // Keep only clicks within the triple-click window
     clickTimes = clickTimes.filter(time => now - time < TRIPLE_CLICK_WINDOW);
-    
-    // Clear any pending navigation
     clearTimeout(navigationTimeout);
     
-    // Check if this is a triple click (3 clicks within the window)
     if (clickTimes.length === 3) {
-      // Verify all 3 clicks happened within the window
       const timeSpan = clickTimes[2] - clickTimes[0];
       if (timeSpan < TRIPLE_CLICK_WINDOW) {
         clickTimes = [];
@@ -44,32 +31,23 @@ export function initializeSecretAnimation() {
       }
     }
     
-    // For single/double clicks, navigate after a delay
-    // This allows us to detect if more clicks are coming
     const currentClickCount = clickTimes.length;
     navigationTimeout = setTimeout(() => {
-      // Only navigate if no new clicks were added (not a triple click)
       if (clickTimes.length === currentClickCount && currentClickCount < 3) {
-        // Handle navigation based on whether it opens in new tab or not
         if (opensInNewTab) {
-          // Open in new tab
           window.open(href, '_blank', 'noopener,noreferrer');
         } else {
-          // Check if we're already on the target page
           const currentPath = window.location.pathname;
           const targetPath = new URL(href, window.location.href).pathname;
           
           if (currentPath === targetPath || currentPath.endsWith(targetPath)) {
-            // Already on home page - scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
-            // Navigate to target page
             window.location.href = href;
           }
         }
         clickTimes = [];
       } else if (clickTimes.length >= 3) {
-        // Was a triple click, already handled
         clickTimes = [];
       }
     }, NAVIGATION_DELAY);
@@ -78,12 +56,7 @@ export function initializeSecretAnimation() {
   });
 }
 
-/**
- * Trigger Rick Roll overlay
- * Creates and displays the rick roll video overlay
- */
 function triggerRickRoll() {
-  // Create overlay
   const overlay = document.createElement('div');
   overlay.id = 'rickRollOverlay';
   overlay.style.position = 'fixed';
@@ -101,7 +74,6 @@ function triggerRickRoll() {
   overlay.style.transition = 'opacity 0.5s ease-out';
   overlay.style.pointerEvents = 'auto';
   
-  // Create message
   const message = document.createElement('div');
   message.style.color = '#ffffff';
   message.style.fontSize = 'clamp(1.5rem, 4vw, 2.5rem)';
@@ -114,7 +86,6 @@ function triggerRickRoll() {
   message.style.pointerEvents = 'auto';
   message.textContent = 'you shouldn\'t have seen this';
   
-  // Create video container
   const videoContainer = document.createElement('div');
   videoContainer.style.position = 'relative';
   videoContainer.style.width = '90%';
@@ -125,7 +96,6 @@ function triggerRickRoll() {
   videoContainer.style.transition = 'opacity 0.5s ease-out';
   videoContainer.style.pointerEvents = 'auto';
   
-  // Create YouTube iframe (short rick roll video)
   const iframe = document.createElement('iframe');
   iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0';
   iframe.style.width = '100%';
@@ -136,7 +106,6 @@ function triggerRickRoll() {
   iframe.allowFullscreen = true;
   iframe.style.pointerEvents = 'auto';
   
-  // Create close button
   const closeButton = document.createElement('button');
   closeButton.textContent = 'Close';
   closeButton.style.padding = '0.75rem 2rem';
@@ -166,28 +135,23 @@ function triggerRickRoll() {
   });
   
   closeButton.addEventListener('click', () => {
-    // Remove animation and use transition for smooth fade out
     overlay.style.animation = 'none';
     message.style.animation = 'none';
     videoContainer.style.animation = 'none';
     closeButton.style.animation = 'none';
     
-    // Force reflow to ensure animation removal takes effect
     void overlay.offsetWidth;
     
-    // Set opacity to 0 with transition
     overlay.style.opacity = '0';
     message.style.opacity = '0';
     videoContainer.style.opacity = '0';
     closeButton.style.opacity = '0';
     
-    // Remove after transition completes
     setTimeout(() => {
       overlay.remove();
     }, 500);
   });
   
-  // Assemble
   videoContainer.appendChild(iframe);
   overlay.appendChild(message);
   overlay.appendChild(videoContainer);
@@ -195,7 +159,6 @@ function triggerRickRoll() {
   
   document.body.appendChild(overlay);
   
-  // Trigger fade-in after a brief delay to ensure DOM is ready
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       overlay.style.opacity = '1';

@@ -12,11 +12,14 @@ html {
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior-y: none;
+  background-color: var(--bgPrimary) !important;
+  background: var(--bgPrimary) !important;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--bgPrimary);
+  background-color: var(--bgPrimary) !important;
+  background: var(--bgPrimary) !important;
   color: var(--textPrimary);
   line-height: 1.6;
   overflow-x: hidden;

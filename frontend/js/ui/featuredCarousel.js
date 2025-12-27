@@ -1,7 +1,3 @@
-// Featured Bookmarklets Carousel
-// All code uses camelCase naming convention
-
-/**
  * Initialize featured bookmarklets carousel
  * Handles navigation and auto-play functionality
  */
@@ -19,14 +15,12 @@ export function initializeFeaturedCarousel() {
   let currentIndex = 0;
   const totalCards = cards.length;
   
-  // Update carousel position
   function updateCarousel() {
     const carousel = carouselTrack.parentElement;
     const carouselWidth = carousel.offsetWidth;
     const translateX = -(currentIndex * carouselWidth);
     carouselTrack.style.transform = `translateX(${translateX}px)`;
     
-    // Update indicators
     indicators.forEach((indicator, index) => {
       if (index === currentIndex) {
         indicator.classList.add('active');
@@ -35,12 +29,10 @@ export function initializeFeaturedCarousel() {
       }
     });
     
-    // Update button states
     prevButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex === totalCards - 1;
   }
   
-  // Go to next slide
   function nextSlide() {
     if (currentIndex < totalCards - 1) {
       currentIndex++;
@@ -50,7 +42,6 @@ export function initializeFeaturedCarousel() {
     updateCarousel();
   }
   
-  // Go to previous slide
   function prevSlide() {
     if (currentIndex > 0) {
       currentIndex--;
@@ -60,7 +51,6 @@ export function initializeFeaturedCarousel() {
     updateCarousel();
   }
   
-  // Go to specific slide
   function goToSlide(index) {
     if (index >= 0 && index < totalCards) {
       currentIndex = index;
@@ -68,16 +58,13 @@ export function initializeFeaturedCarousel() {
     }
   }
   
-  // Event listeners
   nextButton.addEventListener('click', nextSlide);
   prevButton.addEventListener('click', prevSlide);
   
-  // Indicator clicks
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => goToSlide(index));
   });
   
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     const featuredSection = document.querySelector('.featuredBookmarklets');
     if (!featuredSection) return;
@@ -96,7 +83,6 @@ export function initializeFeaturedCarousel() {
     }
   });
   
-  // Handle window resize
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -105,10 +91,8 @@ export function initializeFeaturedCarousel() {
     }, 250);
   });
   
-  // Initialize
   updateCarousel();
   
-  // Auto-play functionality
   let autoPlayInterval;
   function startAutoPlay() {
     autoPlayInterval = setInterval(() => {
@@ -123,17 +107,14 @@ export function initializeFeaturedCarousel() {
     }
   }
   
-  // Start auto-play
   startAutoPlay();
   
-  // Pause on hover
   const carouselWrapper = document.querySelector('.featuredCarouselWrapper');
   if (carouselWrapper) {
     carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
     carouselWrapper.addEventListener('mouseleave', startAutoPlay);
   }
   
-  // Pause when user interacts with buttons
   [prevButton, nextButton, ...indicators].forEach(element => {
     if (element) {
       element.addEventListener('click', () => {

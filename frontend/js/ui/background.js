@@ -1,13 +1,5 @@
-// Background particle animation system
-// All code uses camelCase naming convention
-
-// Global particle system reference for saving state
 export let globalParticleSystem = null;
 
-/**
- * Particle System Class
- * Manages canvas particles, their movement, and mouse interaction
- */
 export class ParticleSystem {
   constructor(canvas) {
     this.canvas = canvas;
@@ -20,7 +12,6 @@ export class ParticleSystem {
     this.resize();
     window.addEventListener('resize', () => this.resize());
     
-    // Mouse tracking
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
       this.mouse.x = e.clientX - rect.left;
@@ -36,38 +27,33 @@ export class ParticleSystem {
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+    this.canvas.style.width = window.innerWidth + 'px';
+    this.canvas.style.height = window.innerHeight + 'px';
     this.initParticles();
   }
   
   initParticles() {
-    // Try to restore particles from sessionStorage for seamless transition
     const savedParticles = sessionStorage.getItem('particleSystemState');
     if (savedParticles) {
       try {
         const parsed = JSON.parse(savedParticles);
-        // Adjust particles to new canvas size if needed
         const scaleX = this.canvas.width / (parsed.canvasWidth || this.canvas.width);
         const scaleY = this.canvas.height / (parsed.canvasHeight || this.canvas.height);
         
-        // Restore particles with their velocities preserved for seamless animation
         this.particles = parsed.particles.map(p => ({
           x: p.x * scaleX,
           y: p.y * scaleY,
-          vx: p.vx || (Math.random() - 0.5) * 0.5, // Preserve velocity
+          vx: p.vx || (Math.random() - 0.5) * 0.5,
           vy: p.vy || (Math.random() - 0.5) * 0.5,
           radius: p.radius || (Math.random() * 2 + 1)
         }));
         
-        // Don't clear saved state - keep it for potential re-use
-        // The periodic save will update it anyway
         return;
       } catch (e) {
-        // If restore fails, create new particles
         console.warn('Failed to restore particle state:', e);
       }
     }
     
-    // Create new particles
     this.particles = [];
     for (let i = 0; i < this.particleCount; i++) {
       this.particles.push({
@@ -81,7 +67,6 @@ export class ParticleSystem {
   }
   
   saveState() {
-    // Save particle state before navigation
     const state = {
       particles: this.particles,
       canvasWidth: this.canvas.width,
@@ -91,43 +76,40 @@ export class ParticleSystem {
   }
   
   init() {
-    // Save state periodically for seamless transitions
     this.saveInterval = setInterval(() => {
       if (this.particles && this.particles.length > 0) {
         this.saveState();
       }
-    }, 100); // Save every 100ms
+    }, 100);
     
     this.animate();
   }
   
   destroy() {
-    // Clean up interval
     if (this.saveInterval) {
       clearInterval(this.saveInterval);
     }
   }
   
   animate() {
+    if (this.canvas.width === 0 || this.canvas.height === 0) {
+      this.resize();
+    }
+    
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     
-    // Update and draw particles
     for (let i = 0; i < this.particles.length; i++) {
       const particle = this.particles[i];
       
-      // Update position
       particle.x += particle.vx;
       particle.y += particle.vy;
       
-      // Bounce off edges
       if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
       if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
       
-      // Keep particles in bounds
       particle.x = Math.max(0, Math.min(this.canvas.width, particle.x));
       particle.y = Math.max(0, Math.min(this.canvas.height, particle.y));
       
-      // Mouse interaction
       if (this.mouse.isActive) {
         const dx = this.mouse.x - particle.x;
         const dy = this.mouse.y - particle.y;
@@ -141,13 +123,11 @@ export class ParticleSystem {
         }
       }
       
-      // Draw particle
       this.ctx.beginPath();
       this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
       this.ctx.fillStyle = `rgba(34, 197, 94, 0.8)`;
       this.ctx.fill();
       
-      // Draw connections
       for (let j = i + 1; j < this.particles.length; j++) {
         const otherParticle = this.particles[j];
         const dx = particle.x - otherParticle.x;
@@ -170,40 +150,43 @@ export class ParticleSystem {
   }
 }
 
-/**
- * Initialize background particle animation
- * Creates canvas and initializes particle system
- */
 export function initializeBackgroundAnimation() {
-  const backgroundElement = document.getElementById('backgroundAnimation');
-  if (!backgroundElement) return;
-  
-  // Check if canvas already exists (shouldn't on fresh load, but check anyway)
   let canvas = document.getElementById('particleCanvas');
   if (!canvas) {
-    // Create canvas for particles
     canvas = document.createElement('canvas');
     canvas.id = 'particleCanvas';
     canvas.className = 'particleCanvas';
-    backgroundElement.appendChild(canvas);
+    document.body.appendChild(canvas);
   }
   
-  // Initialize particle system with saved state (if available)
-  // This will restore particles immediately, making transition seamless
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.zIndex = '0';
+  canvas.style.pointerEvents = 'auto';
+  canvas.style.display = 'block';
+  canvas.style.visibility = 'visible';
+  canvas.style.background = 'transparent';
+  
   globalParticleSystem = new ParticleSystem(canvas);
   globalParticleSystem.init();
   
-  // Add CSS for canvas
   const style = document.createElement('style');
   style.textContent = `
+    #particleCanvas,
     .particleCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: auto;
-      z-index: 0;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      pointer-events: auto !important;
+      z-index: 0 !important;
+      display: block !important;
+      visibility: visible !important;
+      background: transparent !important;
     }
     
     .mainContent {
