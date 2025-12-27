@@ -1,7 +1,3 @@
- * Initialize header scroll behavior
- * Adds 'scrolled' class when user scrolls past 50px
- * Also sets active navigation link based on current page
- */
 export function initializeHeader() {
   const siteHeader = document.getElementById('siteHeader');
   if (!siteHeader) return;
@@ -46,10 +42,6 @@ export function initializeHeader() {
   window.addEventListener('resize', updateHeaderState, { passive: true });
 }
 
-/**
- * Set the active navigation link based on current page URL
- * Exported so it can be called after page transitions
- */
 export function setActiveNavLink() {
   const navLinks = document.querySelectorAll('.navLink');
   if (!navLinks.length) return;
@@ -93,10 +85,6 @@ export function setActiveNavLink() {
   });
 }
 
-/**
- * Initialize dropdown menu functionality
- * Closes dropdowns when clicking outside
- */
 export function initializeDropdowns() {
   document.addEventListener('click', function(event) {
     const dropdowns = document.querySelectorAll('.navDropdown');
@@ -108,10 +96,6 @@ export function initializeDropdowns() {
   });
 }
 
-/**
- * Toggle dropdown function (called from HTML)
- * @param {string} dropdownId - ID of the dropdown to toggle
- */
 window.toggleDropdown = function(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
   if (dropdown) {
@@ -123,4 +107,3 @@ window.toggleDropdown = function(dropdownId) {
     dropdown.classList.toggle('active');
   }
 };
-

@@ -1,6 +1,3 @@
- * Initialize scroll down arrow
- * Handles click to scroll and hide/show on scroll
- */
 export function initializeScrollArrow() {
   const scrollArrow = document.getElementById('scrollDownArrow');
   if (!scrollArrow) return;

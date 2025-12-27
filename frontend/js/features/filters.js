@@ -1,6 +1,3 @@
- * Initialize filter functionality
- * Sets up event listeners for category, tag, status, and sort filters
- */
 export function initializeFilters() {
   const categoryFilter = document.getElementById('categoryFilter');
   const tagFilter = document.getElementById('tagFilter');

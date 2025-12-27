@@ -1,6 +1,3 @@
- * Initialize category grid
- * Creates category cards and sets up click handlers
- */
 export function initializeCategories() {
   const categoryGrid = document.getElementById('categoryGrid');
   if (!categoryGrid) return;
