@@ -1,6 +1,3 @@
- * Initialize typewriter effect for hero tagline
- * Cycles through different taglines with typing animation in random order
- */
 export function initializeTypewriter() {
   const taglineElement = document.querySelector('.heroTagline');
   if (!taglineElement) return;

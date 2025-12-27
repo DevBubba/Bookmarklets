@@ -17,23 +17,28 @@ export { filterBookmarklets } from './features/filters.js';
 export { animateNumber } from './utils/animations.js';
 export { updateGitHubStat } from './api/github.js';
 
-function initializeApp() {
-  initializeHeader();
-  initializeBackgroundAnimation();
-  initializeStats();
-  initializeSearch();
-  initializeBrowseSearch();
-  initializeFilters();
-  initializeCategories();
-  initializeGitHubStats();
-  initializeSmoothScroll();
-  initializeSecretAnimation();
-  initializeDropdowns();
-  initializePageTransitions();
-  initializeChangelog();
-  initializeFeaturedCarousel();
-  initializeScrollArrow();
-  initializeTypewriter();
+async function initializeApp() {
+  try {
+    initializeHeader();
+    initializeBackgroundAnimation();
+    initializeStats();
+    initializeSearch();
+    initializeBrowseSearch();
+    initializeFilters();
+    initializeCategories();
+    await initializeGitHubStats();
+    initializeSmoothScroll();
+    initializeSecretAnimation();
+    initializeDropdowns();
+    initializePageTransitions();
+    await initializeChangelog();
+    initializeFeaturedCarousel();
+    initializeScrollArrow();
+    initializeTypewriter();
+  } catch (error) {
+    console.error('Error in initializeApp:', error);
+    throw error;
+  }
 }
 
 if ('scrollRestoration' in history) {
@@ -84,7 +89,12 @@ window.addEventListener('beforeunload', () => {
 window.addEventListener('scroll', preventOverscroll, { passive: true });
 
 document.addEventListener('DOMContentLoaded', () => {
-  initializeApp();
+  try {
+    initializeApp();
+  } catch (error) {
+    console.error('Error initializing app:', error);
+    console.error('Error stack:', error.stack);
+  }
 });
 
 window.addEventListener('load', () => {

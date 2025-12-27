@@ -1,10 +1,5 @@
-
 import { filterBookmarklets } from './filters.js';
 
-/**
- * Initialize home page search functionality
- * Links to browse page with search query
- */
 export function initializeSearch() {
   const searchInput = document.getElementById('searchInput');
   const searchButton = document.getElementById('homeSearchButton');
@@ -32,10 +27,6 @@ export function initializeSearch() {
   });
 }
 
-/**
- * Initialize browse page search functionality
- * Handles URL parameters and real-time search
- */
 export function initializeBrowseSearch() {
   const browseSearchInput = document.getElementById('browseSearchInput');
   const browseSearchButton = document.getElementById('browseSearchButton');

@@ -1,6 +1,3 @@
- * Initialize secret animation (Rick Roll easter egg)
- * Detects triple click on logo and triggers rick roll
- */
 export function initializeSecretAnimation() {
   const logoLink = document.querySelector('.logoLink');
   if (!logoLink) return;

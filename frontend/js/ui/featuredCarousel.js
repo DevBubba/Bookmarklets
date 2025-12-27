@@ -1,6 +1,3 @@
- * Initialize featured bookmarklets carousel
- * Handles navigation and auto-play functionality
- */
 export function initializeFeaturedCarousel() {
   const carouselTrack = document.getElementById('featuredCarouselTrack');
   const prevButton = document.querySelector('.carouselButtonPrev');

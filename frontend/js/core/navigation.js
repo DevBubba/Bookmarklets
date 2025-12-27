@@ -94,9 +94,7 @@ export function initializePageTransitions() {
   const mainContent = document.querySelector('.mainContent');
   if (mainContent) {
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        mainContent.classList.add('page-transition-in');
-      });
+      mainContent.classList.add('page-transition-in');
     });
   }
   
