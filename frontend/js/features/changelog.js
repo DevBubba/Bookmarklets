@@ -232,10 +232,12 @@ export async function initializeChangelog() {
   try {
     const changelogUrl = 'https://raw.githubusercontent.com/DevBubba/Bookmarklets/refs/heads/beta/docs/CHANGELOG.md';
     
-    const response = await fetch(changelogUrl, {
+    const response = await fetch(changelogUrl + '?t=' + Date.now(), {
       mode: 'cors',
+      cache: 'no-cache',
       headers: {
-        'Accept': 'text/plain, text/markdown, */*'
+        'Accept': 'text/plain, text/markdown, */*',
+        'Cache-Control': 'no-cache'
       }
     });
     
