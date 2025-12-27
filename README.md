@@ -40,6 +40,11 @@
 - No console.log statements in production code
 - Code is clean and ready
 
+**Changelog URL**
+- Currently points to beta branch: `frontend/js/features/changelog.js` line 233
+- Change from `refs/heads/beta` to `refs/heads/main` before merging to main
+- Update changelog URL in `changelog.js` before first version release
+
 ### Testing & Verification
 
 **Local Testing**

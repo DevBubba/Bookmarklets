@@ -28,3 +28,29 @@
 /* Utilities */
 @import url('./utilities/animations.css');
 @import url('./utilities/responsive.css');
+
+/* Footer click fix - must be last to override everything */
+.siteFooter {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+}
+
+.siteFooter *,
+.siteFooter a.footerLink {
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+  cursor: pointer !important;
+}
+
+/* Force canvas to never block - override everything including inline styles */
+canvas#particleCanvas,
+canvas.particleCanvas,
+canvas[id="particleCanvas"],
+canvas[class*="particleCanvas"] {
+  pointer-events: none !important;
+  z-index: -1 !important;
+}

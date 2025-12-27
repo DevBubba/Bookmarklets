@@ -855,5 +855,39 @@
 
   <!-- Scripts -->
   <script type="module" src="./js/main.js"></script>
+  <!-- Force canvas pointer-events to none after all scripts load -->
+  <script>
+    (function() {
+      function forceCanvasPointerEventsNone() {
+        const canvas = document.getElementById('particleCanvas');
+        if (canvas) {
+          canvas.style.setProperty('pointer-events', 'none', 'important');
+        }
+      }
+      
+      // Run immediately
+      forceCanvasPointerEventsNone();
+      
+      // Run after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceCanvasPointerEventsNone);
+      } else {
+        forceCanvasPointerEventsNone();
+      }
+      
+      // Run after window loads
+      window.addEventListener('load', forceCanvasPointerEventsNone);
+      
+      // Run continuously
+      setInterval(forceCanvasPointerEventsNone, 100);
+      
+      // Run on every frame
+      function checkFrame() {
+        forceCanvasPointerEventsNone();
+        requestAnimationFrame(checkFrame);
+      }
+      requestAnimationFrame(checkFrame);
+    })();
+  </script>
 </body>
 </html>
