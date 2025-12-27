@@ -1,7 +1,3 @@
-// Header functionality - scroll behavior and dropdown menus
-// All code uses camelCase naming convention
-
-/**
  * Initialize header scroll behavior
  * Adds 'scrolled' class when user scrolls past 50px
  * Also sets active navigation link based on current page
@@ -10,10 +6,8 @@ export function initializeHeader() {
   const siteHeader = document.getElementById('siteHeader');
   if (!siteHeader) return;
   
-  // Set active navigation link based on current page
   setActiveNavLink();
   
-  // Check initial scroll position immediately
   function updateHeaderState() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > 50) {
@@ -23,17 +17,14 @@ export function initializeHeader() {
     }
   }
   
-  // Update immediately on load
   updateHeaderState();
   
-  // Optimized scroll handler with immediate first update
   let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
   let ticking = false;
 
   function handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Immediate update for first scroll or large changes
     if (!ticking || Math.abs(scrollTop - lastScrollTop) > 10) {
       updateHeaderState();
       lastScrollTop = scrollTop;
@@ -52,7 +43,6 @@ export function initializeHeader() {
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   
-  // Also update on resize in case layout changes
   window.addEventListener('resize', updateHeaderState, { passive: true });
 }
 
@@ -64,12 +54,9 @@ export function setActiveNavLink() {
   const navLinks = document.querySelectorAll('.navLink');
   if (!navLinks.length) return;
   
-  // Get current page path
   const currentPath = window.location.pathname;
   
-  // Normalize path for comparison
   const normalizePath = (path) => {
-    // Remove trailing slashes and handle index.html
     path = path.replace(/\/$/, '');
     if (path.endsWith('/index.html') || path.endsWith('index.html')) {
       path = path.replace(/\/?index\.html$/, '') || '/';
@@ -83,15 +70,12 @@ export function setActiveNavLink() {
     const href = link.getAttribute('href');
     if (!href) return;
     
-    // Skip hash links
     if (href.startsWith('#')) return;
     
-    // Skip external links
     if (href.startsWith('http://') || href.startsWith('https://')) {
       return;
     }
     
-    // Get target path
     let targetPath;
     try {
       targetPath = new URL(href, window.location.href).pathname;
@@ -101,7 +85,6 @@ export function setActiveNavLink() {
     
     const normalizedTarget = normalizePath(targetPath);
     
-    // Set active if paths match
     if (normalizedCurrent === normalizedTarget) {
       link.classList.add('active');
     } else {
@@ -115,7 +98,6 @@ export function setActiveNavLink() {
  * Closes dropdowns when clicking outside
  */
 export function initializeDropdowns() {
-  // Close dropdowns when clicking outside
   document.addEventListener('click', function(event) {
     const dropdowns = document.querySelectorAll('.navDropdown');
     dropdowns.forEach(dropdown => {
@@ -133,13 +115,11 @@ export function initializeDropdowns() {
 window.toggleDropdown = function(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
   if (dropdown) {
-    // Close all other dropdowns
     document.querySelectorAll('.navDropdown').forEach(dd => {
       if (dd.id !== dropdownId) {
         dd.classList.remove('active');
       }
     });
-    // Toggle the clicked dropdown
     dropdown.classList.toggle('active');
   }
 };

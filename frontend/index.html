@@ -55,7 +55,6 @@
     </div>
   </header>
 
-  <!-- Initialize header scroll immediately for better performance -->
   <script>
     (function() {
       const siteHeader = document.getElementById('siteHeader');
@@ -88,7 +87,7 @@
         if (scrollCount <= 3) {
           updateHeaderState();
           return;
-        }
+        }d
         
         // After initial scrolls, use RAF for performance
         if (rafId === null) {

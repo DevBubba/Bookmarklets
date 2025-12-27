@@ -1,7 +1,3 @@
-// Typewriter effect for hero tagline
-// All code uses camelCase naming convention
-
-/**
  * Initialize typewriter effect for hero tagline
  * Cycles through different taglines with typing animation in random order
  */
@@ -28,7 +24,6 @@ export function initializeTypewriter() {
   let pauseTime = 2000;
 
   function getRandomTagline() {
-    // Get a random tagline that's different from the current one
     let randomTagline;
     do {
       randomTagline = taglines[Math.floor(Math.random() * taglines.length)];
@@ -38,19 +33,16 @@ export function initializeTypewriter() {
 
   function typeWriter() {
     if (isDeleting) {
-      // Delete characters
       textElement.textContent = currentTagline.substring(0, currentCharIndex - 1);
       currentCharIndex--;
       typingSpeed = deletingSpeed;
       
       if (currentCharIndex === 0) {
         isDeleting = false;
-        // Pick a random tagline for next
         currentTagline = getRandomTagline();
         typingSpeed = pauseTime; // Pause before typing next
       }
     } else {
-      // Type characters
       textElement.textContent = currentTagline.substring(0, currentCharIndex + 1);
       currentCharIndex++;
       typingSpeed = 100;
@@ -66,7 +58,6 @@ export function initializeTypewriter() {
     setTimeout(typeWriter, typingSpeed);
   }
 
-  // Start the typewriter effect with a random tagline
   currentTagline = getRandomTagline();
   textElement.textContent = '';
   setTimeout(typeWriter, 500); // Small delay before starting

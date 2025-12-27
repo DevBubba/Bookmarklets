@@ -1,6 +1,3 @@
-/* Main CSS Entry Point - Imports all modular CSS files */
-/* All code uses camelCase naming convention */
-
 /* Base Styles */
 @import url('./base/variables.css');
 @import url('./base/reset.css');

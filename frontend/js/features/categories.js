@@ -1,7 +1,3 @@
-// Category grid initialization and management
-// All code uses camelCase naming convention
-
-/**
  * Initialize category grid
  * Creates category cards and sets up click handlers
  */
@@ -29,7 +25,6 @@ export function initializeCategories() {
       <span class="categoryCount">${category.count} bookmarklets</span>
     `;
     categoryCard.addEventListener('click', () => {
-      // Navigate to browse page with category filter
       const url = new URL('./pages/browse.html', window.location.href);
       url.searchParams.set('category', category.slug);
       window.location.href = url.toString();

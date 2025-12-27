@@ -1,7 +1,3 @@
-// Scroll Down Arrow functionality
-// All code uses camelCase naming convention
-
-/**
  * Initialize scroll down arrow
  * Handles click to scroll and hide/show on scroll
  */
@@ -12,11 +8,9 @@ export function initializeScrollArrow() {
   const nextSection = document.querySelector('.featuredBookmarklets');
   if (!nextSection) return;
 
-  // Scroll to next section on click
   scrollArrow.addEventListener('click', () => {
     const targetY = nextSection.getBoundingClientRect().top + window.pageYOffset - 80; // Account for header
     
-    // Smooth scroll
     const startY = window.pageYOffset;
     const distance = targetY - startY;
     const duration = 600;
@@ -46,7 +40,6 @@ export function initializeScrollArrow() {
     requestAnimationFrame(animateScroll);
   });
 
-  // Hide arrow when scrolled down
   let lastScrollTop = 0;
   function handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
