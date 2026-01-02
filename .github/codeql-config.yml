@@ -2,4 +2,6 @@ name: "CodeQL Config"
 
 paths-ignore:
   - "**/.github/workflows/**"
+  - "**/*.html"
+  - "**/bookmarklets/**"
 

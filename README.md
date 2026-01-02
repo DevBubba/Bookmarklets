@@ -26,12 +26,12 @@
 ### Files & Configuration
 
 **Workflow Files**
-- `.github/workflows/deploy.yml` - Uses commit SHAs (not version tags)
-- `.github/workflows/codeql.yml` - References `codeql-config.yml`
-- Both workflows use commit SHAs for security compliance
+- `.github/workflows/codeql.yml` - CodeQL security analysis workflow
+- Uses commit SHAs (not version tags) for security compliance
 
 **Config Files**
 - `.github/codeql-config.yml` exists and has correct `paths-ignore`
+- Config excludes HTML files and bookmarklets directory to prevent parsing errors
 - Verify config file location: `.github/codeql-config.yml`
 
 **Code Quality**
@@ -57,10 +57,10 @@
 - Changelog loads from GitHub
 - License page displays correctly
 
-**GitHub Pages**
-- Verify GitHub Pages source is set to "GitHub Actions" (not branch)
-- Settings → Pages → Source: GitHub Actions
-- Test deployment workflow runs successfully on beta
+**Backend Deployment**
+- Site is now deployed via backend (not GitHub Pages)
+- No GitHub Pages deployment workflow needed
+- Test backend deployment before merging to main
 
 ### Git & Branch Management
 
@@ -93,7 +93,7 @@
 **After Merging to Main**
 - Verify GitHub Actions workflows run successfully
 - Check CodeQL analysis completes
-- Verify GitHub Pages deployment succeeds
+- Verify backend deployment succeeds
 - Test live site functionality
 - Monitor for any errors in Actions logs
 
@@ -105,7 +105,7 @@
 
 **General Settings**
 - Description and topics are current
-- Website URL points to GitHub Pages
+- Website URL points to backend deployment (not GitHub Pages)
 
 **Features**
 - Verify all enabled features are set as desired
@@ -132,9 +132,8 @@
 - Branches: `Settings → Branches`
 
 **Important Files:**
-- `.github/workflows/deploy.yml` - Deployment workflow
-- `.github/workflows/codeql.yml` - CodeQL analysis workflow
-- `.github/codeql-config.yml` - CodeQL configuration
+- `.github/workflows/codeql.yml` - CodeQL security analysis workflow
+- `.github/codeql-config.yml` - CodeQL configuration (excludes HTML files)
 
 ---
 
