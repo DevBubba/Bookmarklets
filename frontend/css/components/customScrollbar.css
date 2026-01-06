@@ -1,0 +1,143 @@
+/* Custom Scrollbar - Modern, transparent, overlay style */
+.customScrollbar {
+  position: fixed;
+  top: 72px; /* Start below header (64px) + 8px spacing for shadow - updated dynamically */
+  right: 4px; /* Small gap from right edge */
+  width: 8px;
+  height: calc(100vh - 72px); /* Full height minus header and spacing - updated dynamically */
+  max-height: calc(100vh - 72px); /* Ensure it doesn't exceed viewport */
+  z-index: 999; /* Below header (z-index: 1000) and footer (z-index: 9999) */
+  pointer-events: none; /* Disable pointer events - scrollbar is visual only */
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Ensure initial state is set for animation to work */
+  will-change: opacity, transform;
+  /* Ensure it doesn't block background animation */
+  background: transparent;
+  mix-blend-mode: normal;
+  /* Ensure it stays within viewport bounds */
+  bottom: auto;
+  /* Prevent shrinking - maintain full size */
+  min-height: calc(100vh - 72px);
+}
+
+/* Animate scrollbar in on load */
+.customScrollbar.scrollbarLoaded {
+  opacity: 0.3;
+  transform: scaleX(1);
+}
+
+/* Hover effect disabled - opacity is controlled by JavaScript inactivity timer */
+/* .customScrollbar:hover {
+  opacity: 1 !important;
+} */
+
+.customScrollbarTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Completely transparent track */
+  cursor: default; /* Changed from pointer to default */
+  /* No background to block animation */
+  pointer-events: none; /* Disable pointer events - scrollbar is visual only */
+}
+
+.customScrollbarThumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 30px;
+  background: rgba(34, 197, 94, 0.5); /* Green accent color */
+  border-radius: 4px;
+  cursor: default; /* Changed from grab to default - dragging disabled */
+  /* No transition on transform/height during scrolling - instant updates */
+  transition: background 0.2s ease, 
+              width 0.2s ease;
+  /* Transform and height are updated directly without transition for live tracking */
+  /* Smooth appearance */
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
+  pointer-events: none; /* Prevent thumb from being interactive */
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  will-change: top, height; /* Optimize for smooth scrolling */
+}
+
+/* Animate thumb in after scrollbar appears */
+.customScrollbar.scrollbarLoaded .customScrollbarThumb {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: background 0.2s ease, width 0.2s ease, height 0.3s cubic-bezier(0.16, 1, 0.3, 1), top 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.customScrollbarThumb:hover {
+  background: rgba(34, 197, 94, 0.7);
+  width: 10px;
+  left: -1px; /* Slight expansion on hover */
+}
+
+.customScrollbarThumb:active {
+  cursor: default; /* Changed from grabbing to default */
+  background: rgba(34, 197, 94, 0.8);
+}
+
+/* Hide default scrollbar - custom scrollbar replaces it */
+/* Keep scrolling functionality but hide the visual scrollbar */
+html {
+  overflow-y: scroll; /* Keep scrolling functionality */
+  scrollbar-width: none !important; /* Firefox - hide scrollbar */
+  -ms-overflow-style: none !important; /* IE and Edge - hide scrollbar */
+}
+
+html::-webkit-scrollbar {
+  width: 0px !important;
+  background: transparent !important;
+  display: none !important;
+}
+
+html::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0px !important;
+}
+
+html::-webkit-scrollbar-thumb {
+  display: none !important;
+  width: 0px !important;
+}
+
+body {
+  overflow-y: scroll; /* Keep scrolling functionality */
+  scrollbar-width: none !important; /* Firefox - hide scrollbar */
+  -ms-overflow-style: none !important; /* IE and Edge - hide scrollbar */
+}
+
+body::-webkit-scrollbar {
+  width: 0px !important;
+  background: transparent !important;
+  display: none !important;
+}
+
+body::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0px !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  display: none !important;
+  width: 0px !important;
+}
+
+/* Ensure custom scrollbar doesn't interfere with header or footer */
+.siteHeader {
+  z-index: 1000 !important; /* Above custom scrollbar (z-index: 999) */
+}
+
+.siteFooter {
+  z-index: 9999 !important; /* Above custom scrollbar (z-index: 999) */
+}
+

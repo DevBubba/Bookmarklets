@@ -49,6 +49,7 @@ export function setActiveNavLink() {
   const currentPath = window.location.pathname;
   
   const normalizePath = (path) => {
+    if (!path) return '';
     path = path.replace(/\/$/, '');
     if (path.endsWith('/index.html') || path.endsWith('index.html')) {
       path = path.replace(/\/?index\.html$/, '') || '/';
@@ -58,30 +59,73 @@ export function setActiveNavLink() {
   
   const normalizedCurrent = normalizePath(currentPath);
   
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    
-    if (href.startsWith('#')) return;
-    
-    if (href.startsWith('http://') || href.startsWith('https://')) {
-      return;
-    }
-    
-    let targetPath;
-    try {
-      targetPath = new URL(href, window.location.href).pathname;
-    } catch (e) {
-      return;
-    }
-    
-    const normalizedTarget = normalizePath(targetPath);
-    
-    if (normalizedCurrent === normalizedTarget) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+  import('../core/navigation.js').then(({ resolveUrl }) => {
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      if (href.startsWith('#')) return;
+      
+      if (href.startsWith('http://') || href.startsWith('https://')) {
+        try {
+          const url = new URL(href);
+          if (url.origin !== window.location.origin) return;
+          const normalizedTarget = normalizePath(url.pathname);
+          if (normalizedCurrent === normalizedTarget) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        } catch {
+          return;
+        }
+        return;
+      }
+      
+      try {
+        const resolvedUrl = resolveUrl(href);
+        const url = new URL(resolvedUrl);
+        let normalizedTarget = url.pathname.replace(/\/$/, '');
+        if (normalizedTarget.endsWith('/index.html') || normalizedTarget.endsWith('index.html')) {
+          normalizedTarget = normalizedTarget.replace(/\/?index\.html$/, '') || '/';
+        }
+        
+        if (normalizedCurrent === normalizedTarget) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      } catch (e) {
+        try {
+          const targetPath = new URL(href, window.location.href).pathname;
+          const normalizedTarget = normalizePath(targetPath);
+          if (normalizedCurrent === normalizedTarget) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        } catch {
+          return;
+        }
+      }
+    });
+  }).catch(() => {
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http://') || href.startsWith('https://')) return;
+      
+      try {
+        const targetPath = new URL(href, window.location.href).pathname;
+        const normalizedTarget = normalizePath(targetPath);
+        if (normalizedCurrent === normalizedTarget) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      } catch {
+        return;
+      }
+    });
   });
 }
 

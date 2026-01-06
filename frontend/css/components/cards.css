@@ -10,7 +10,7 @@
 }
 
 .statCard {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(30, 41, 59, 0.2) 100%);
+  background: rgba(30, 41, 59, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 1.25rem;
@@ -35,8 +35,7 @@
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accentColor), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2);
   border: 1px solid var(--accentColor);
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
-  background-clip: padding-box;
+  background: rgba(30, 41, 59, 0.4);
 }
 
 .statCard:hover .statIcon {
@@ -50,7 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+  background: rgba(34, 197, 94, 0.1);
   border-radius: 0.75rem;
   color: var(--accentColor);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -74,14 +73,13 @@
   display: block;
   font-size: 2rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accentColor) 0%, var(--accentColorLight) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accentColor);
   margin-bottom: 0.25rem;
   line-height: 1;
   letter-spacing: -0.02em;
   transition: all 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .statCard:hover .statValue {
@@ -98,7 +96,7 @@
 }
 
 .quickActionCard {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(30, 41, 59, 0.2) 100%);
+  background: rgba(30, 41, 59, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 2rem;
@@ -126,8 +124,7 @@
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accentColor);
   border: 1px solid var(--accentColor);
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
-  background-clip: padding-box;
+  background: rgba(30, 41, 59, 0.4);
 }
 
 .quickActionIcon {
@@ -136,7 +133,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+  background: rgba(34, 197, 94, 0.1);
   border-radius: 1rem;
   color: var(--accentColor);
   border: 1px solid rgba(34, 197, 94, 0.2);
@@ -146,7 +143,7 @@
 
 .quickActionCard:hover .quickActionIcon {
   transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.25) 0%, rgba(34, 197, 94, 0.15) 100%);
+  background: rgba(34, 197, 94, 0.2);
 }
 
 .quickActionIcon svg {
@@ -309,7 +306,7 @@
 }
 
 .spotlightCard {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
+  background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 2.5rem;
@@ -330,7 +327,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accentColor) 0%, var(--accentColorLight) 100%);
+  background: var(--accentColor);
 }
 
 .spotlightCardContent {

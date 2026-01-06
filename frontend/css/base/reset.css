@@ -14,6 +14,8 @@ html {
   overscroll-behavior-y: none;
   background-color: var(--bgPrimary) !important;
   background: var(--bgPrimary) !important;
+  /* Ensure scrollbar track doesn't inherit background */
+  scrollbar-track-color: transparent !important;
 }
 
 body {
@@ -27,6 +29,8 @@ body {
   min-height: 100vh;
   position: relative;
   overscroll-behavior-y: none;
+  /* Ensure scrollbar track doesn't inherit background */
+  scrollbar-track-color: transparent !important;
 }
 
 /* Prevent overscroll bounce effect */
@@ -44,5 +48,24 @@ html, body {
 ::-moz-selection {
   background: transparent;
   color: inherit;
+}
+
+/* Custom Scrollbar - Transparent track so background animation shows through */
+/* Webkit browsers (Chrome, Safari, Edge, Opera) - will be styled in main.css */
+/* Firefox - will be styled in main.css */
+/* IE and Edge */
+html, body {
+  -ms-overflow-style: auto !important; /* Allow scrollbar to show */
+}
+
+/* IE and Edge - hide scrollbar */
+html, body {
+  -ms-overflow-style: none !important;
+}
+
+/* Ensure scrolling still works */
+html, body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 

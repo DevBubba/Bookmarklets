@@ -9,6 +9,7 @@ export function updateStat(statId, value) {
 }
 
 export function initializeStats() {
+  // Initialize stats immediately - already called in requestAnimationFrame from pageChanged
   updateStat('totalBookmarklets', 0);
   updateStat('totalViews', 0);
   updateStat('totalUsers', 0);

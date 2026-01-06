@@ -14,6 +14,7 @@
 @import url('./components/forms.css');
 @import url('./components/sections.css');
 @import url('./components/scrollArrow.css');
+@import url('./components/customScrollbar.css');
 
 /* Pages */
 @import url('./pages/home.css');
@@ -46,11 +47,88 @@
   cursor: pointer !important;
 }
 
-/* Force canvas to never block - override everything including inline styles */
+/* Force canvas to never block - but keep it visible behind content and scrollbar */
 canvas#particleCanvas,
 canvas.particleCanvas,
 canvas[id="particleCanvas"],
 canvas[class*="particleCanvas"] {
   pointer-events: none !important;
-  z-index: -1 !important;
+  z-index: 0 !important; /* Changed from -1 to 0 so it's visible behind scrollbar but below content */
+}
+
+/* Default scrollbar - hidden when custom scrollbar is active */
+/* Custom scrollbar will replace this */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0px !important; /* Hidden - custom scrollbar replaces it */
+  background: transparent !important;
+  display: none !important;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  display: none !important;
+  width: 0px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  display: none !important;
+}
+
+html::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: none !important;
+}
+
+/* Firefox - hide default scrollbar completely */
+html, body {
+  scrollbar-width: none !important; /* Hide scrollbar completely */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+/* Ensure no background colors on scrollbar elements - comprehensive override - HIDE ALL */
+*::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0px !important;
+  display: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  display: none !important;
+  width: 0px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Also ensure the scrollbar button areas are hidden */
+*::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
 }

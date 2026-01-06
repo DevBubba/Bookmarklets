@@ -57,6 +57,6 @@ export function initializeTypewriter() {
 
   currentTagline = getRandomTagline();
   textElement.textContent = '';
-  setTimeout(typeWriter, 500); // Small delay before starting
+  typeWriter();
 }
 
